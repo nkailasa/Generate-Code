@@ -6,10 +6,7 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * The Game class initializes Game screen along with a grid of buttons in the
@@ -17,21 +14,20 @@ import javax.swing.JPanel;
  */
 public class App extends JFrame {
 
-	private JFrame frame;
 	final int FRAMESIZE = 700;
 
 	public App() {
 
-		frame = new JFrame("Game of Life");
-		frame.setSize(FRAMESIZE, FRAMESIZE-100);
-		frame.setLayout(new BorderLayout());
+		this.setTitle("Title");
+		this.setSize(FRAMESIZE, FRAMESIZE-100);
+		this.setLayout(new BorderLayout());
 
 		initializeButtonPanel();
 		initializeCanvas();
 
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
 
 	}
 
@@ -39,7 +35,11 @@ public class App extends JFrame {
 		Container grid = new Container();
 		JPanel canvas = new JPanel();
 		canvas.setBorder(BorderFactory.createLineBorder(Color.darkGray));
-		frame.add(canvas, BorderLayout.CENTER);
+		this.add(canvas, BorderLayout.CENTER);
+
+		Menu menu = new Menu();
+		JMenuBar mb = menu.menuBar();
+		this.setJMenuBar(mb);
 	}
 
 	private void initializeButtonPanel() {
@@ -83,7 +83,7 @@ public class App extends JFrame {
 		buttonPanel.add(pipe);
 		buttonPanel.add(at);
 
-		frame.add(buttonPanel, BorderLayout.WEST);
+		this.add(buttonPanel, BorderLayout.WEST);
 	}
 
 }
