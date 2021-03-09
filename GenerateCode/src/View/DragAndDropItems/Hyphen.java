@@ -1,7 +1,7 @@
 package View.DragAndDropItems;
 
-public class Hyphen extends DragAndDropParent{
-    public Hyphen(){
-        super(1,1);
-    }
+public class Hyphen extends DragAndDropParent {
+	public Hyphen() {
+		super(1, 1);
+	}
 }

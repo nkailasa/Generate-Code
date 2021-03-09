@@ -1,7 +1,7 @@
 
-
 import View.App;
-/** The main class to launch the Game of Life application **/
+
+/** The main class to launch the Generate Code application **/
 public class Main {
 
 	public static void main(String[] args) {
