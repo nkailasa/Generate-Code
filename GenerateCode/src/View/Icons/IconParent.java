@@ -1,22 +1,23 @@
-package View.DragAndDropItems;
+package View.Icons;
 
 
-public abstract class DragAndDropParent {
+public abstract class IconParent {
     protected int inputLimit;
     protected int outputLimit;
-    protected DragAndDropParent[] inputs;
-    protected DragAndDropParent[] outputs;
+    protected IconParent[] inputs;
+    protected IconParent[] outputs;
+    protected String text;
 
 
-    public DragAndDropParent(int inputLimit, int outputLimit){
-
+    public IconParent(int inputLimit, int outputLimit, String text){
         this.inputLimit = inputLimit;
         this.outputLimit = outputLimit;
-        this.inputs = new DragAndDropParent[inputLimit];
-        this.outputs = new DragAndDropParent[outputLimit];
+        this.inputs = new IconParent[inputLimit];
+        this.outputs = new IconParent[outputLimit];
+        this.text = text;
     }
 
-    public DragAndDropParent addInput(int location, DragAndDropParent inputElement){
+    public IconParent addInput(int location, IconParent inputElement){
         if(0 < location && location < inputLimit && inputs[location] == null){
             inputs[location] = inputElement;
             return inputElement;
@@ -24,7 +25,7 @@ public abstract class DragAndDropParent {
         return null;
     }
 
-    public DragAndDropParent addOutput(int location, DragAndDropParent outputElement){
+    public IconParent addOutput(int location, IconParent outputElement){
         if(0 < location && location < outputLimit && outputs[location] == null){
             outputs[location] = outputElement;
             return outputElement;
@@ -32,18 +33,18 @@ public abstract class DragAndDropParent {
         return null;
     }
 
-    public DragAndDropParent removeInput(int location){
+    public IconParent removeInput(int location){
         if(0 < location && location < inputLimit && inputs[location] != null){
-            DragAndDropParent item = inputs[location];
+            IconParent item = inputs[location];
             inputs[location] = null;
             return item;
         }
         return null;
     }
 
-    public DragAndDropParent removeOutput(int location){
+    public IconParent removeOutput(int location){
         if(0 < location && location < outputLimit && outputs[location] != null){
-            DragAndDropParent item = outputs[location];
+            IconParent item = outputs[location];
             outputs[location] = null;
             return item;
         }
@@ -54,11 +55,15 @@ public abstract class DragAndDropParent {
     get input and output methods throw exceptions if trying to access outside of
     input or output bounds.
     */
-    public DragAndDropParent getInput(int location){
+    public IconParent getInput(int location){
         return inputs[location];
     }
 
-    public DragAndDropParent getOutput(int location){
+    public IconParent getOutput(int location){
         return outputs[location];
+    }
+
+    public String getText(){
+        return this.text;
     }
 }
