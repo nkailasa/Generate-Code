@@ -6,9 +6,11 @@ import View.Icons.IconParent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 import java.awt.geom.Rectangle2D;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -25,6 +27,10 @@ import java.io.IOException;
 
 public class DragAndDropLabel extends JLabel {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 4524289488932470569L;
     private IconParent iconParent;
     double x;
     double y;
@@ -42,6 +48,11 @@ public class DragAndDropLabel extends JLabel {
         this.y = y;
     }
 
+    public void setCoordinates(Point point) {
+        this.x = point.x;
+        this.y = point.y;
+    }
+
     public double getDroppedAtX() {
         return this.x;
     }
@@ -57,5 +68,9 @@ public class DragAndDropLabel extends JLabel {
     public Rectangle2D getRect() {
         return rect;
     }
+
+    // public String toString(){
+
+    // }
 
 }

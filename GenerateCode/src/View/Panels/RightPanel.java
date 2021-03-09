@@ -30,6 +30,7 @@ import javax.swing.JSeparator;
 import javax.swing.*;
 
 import View.DragAndDrop.DragAndDropLabel;
+import View.Icons.LParen;
 
 public class RightPanel extends JPanel { // drop target
 
@@ -38,7 +39,8 @@ public class RightPanel extends JPanel { // drop target
     public RightPanel() {
         super();
         setBorder(BorderFactory.createLineBorder(Color.darkGray));
-        setLayout(null);
+        // add(new DragAndDropLabel(new LParen()));
+        // setLayout(null);
     }
 
     @Override
@@ -54,8 +56,12 @@ public class RightPanel extends JPanel { // drop target
             // graphics.drawRect((int) r.getX(), (int) r.getY(), (int) r.getWidth(), (int)
             // r.getHeight());
             // graphcs.draw
+            System.out.println("Adding " + myLabel.getIconParent().getText() + " at");
+            System.out.println("x: " + x);
+            System.out.println("y: " + y);
             add(myLabel);
             myLabel.setLocation(new Point(x, y));
+            myLabel.setVisible(true);
         }
     }
 

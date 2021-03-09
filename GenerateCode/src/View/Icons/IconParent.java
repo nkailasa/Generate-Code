@@ -1,7 +1,11 @@
 package View.Icons;
 
 
-public abstract class IconParent {
+public abstract class IconParent implements java.io.Serializable{
+    /**
+     *
+     */
+    private static final long serialVersionUID = -1493725299136428484L;
     protected int inputLimit;
     protected int outputLimit;
     protected IconParent[] inputs;

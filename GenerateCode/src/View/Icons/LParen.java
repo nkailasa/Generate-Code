@@ -1,6 +1,6 @@
 package View.Icons;
 
-public class LParen extends IconParent implements java.io.Serializable {
+public class LParen extends IconParent {
 
     /**
      *

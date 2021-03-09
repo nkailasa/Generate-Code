@@ -27,6 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import View.Panels.LeftPanel;
 import View.Panels.RightPanel;
 
 public class MyDropTargetListener extends DropTargetAdapter {
@@ -41,14 +42,21 @@ public class MyDropTargetListener extends DropTargetAdapter {
 
     @Override
     public void drop(DropTargetDropEvent event) {
-
         try {
 
             Transferable tr = event.getTransferable();
-            DragAndDropLabel label = (DragAndDropLabel) tr.getTransferData(TransferableShapeInfo.CustomFlavour);
+            Point point = event.getLocation();
+            // System.out.println("Here1: "+tr.getTransferData(DataFlavor.stringFlavor));
+            String labelText = (String) tr.getTransferData(DataFlavor.stringFlavor);
+            // DragAndDropLabel label = (DragAndDropLabel)
+            // tr.getTransferData(DataFlavor.stringFlavor);
 
-            if (event.isDataFlavorSupported(TransferableShapeInfo.CustomFlavour)) {
+            DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
+            label.setCoordinates(point);
+            System.out.println("label: " + label.getIconParent().getText());
 
+            if (event.isDataFlavorSupported(DataFlavor.stringFlavor)) {
+                System.out.println("isDataFlavorSupported: true");
                 event.acceptDrop(DnDConstants.ACTION_COPY);
                 dropPanel.addDragAndDropLabel(label);
                 dropPanel.revalidate();
@@ -57,7 +65,8 @@ public class MyDropTargetListener extends DropTargetAdapter {
                 return;
             }
 
-            event.rejectDrop();
+            event.dropComplete(true);
+            // event.rejectDrop();
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -65,23 +74,4 @@ public class MyDropTargetListener extends DropTargetAdapter {
         }
     }
 
-    /*
-     *
-     * @Override public void drop(DropTargetDropEvent event) { try { DropTarget test
-     * = (DropTarget) event.getSource(); Component ca = (Component)
-     * test.getComponent(); Point dropPoint = ca.getMousePosition(); Transferable tr
-     * = event.getTransferable();
-     * 
-     * if (event.isDataFlavorSupported(TransferableShapeInfo.CustomFlavour)) {
-     * DragAndDropLabel myLabel = (DragAndDropLabel)
-     * tr.getTransferData(TransferableShapeInfo.CustomFlavour);
-     * 
-     * if (myLabel != null) { myLabel.setCoordinates(dropPoint.getX(),
-     * dropPoint.getY()); dropPanel.addDragAndDropLabel(myLabel);
-     * dropPanel.revalidate(); dropPanel.repaint();
-     * 
-     * event.dropComplete(true); } } else { event.rejectDrop(); } } catch
-     * (HeadlessException | UnsupportedFlavorException | IOException e) {
-     * e.printStackTrace(); event.rejectDrop(); } }
-     */
 }

@@ -2,6 +2,7 @@ package View.Panels;
 
 import java.awt.GridLayout;
 import javax.swing.JPanel;
+import javax.swing.event.MouseInputListener;
 
 import View.DragAndDrop.DragAndDropLabel;
 import View.Icons.AtSymbol;
@@ -14,6 +15,8 @@ import View.Icons.RParen;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
@@ -25,6 +28,10 @@ public class LeftPanel extends JPanel { // drag source
 
     // final JPanel iconPanel;
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = -1827724962934234619L;
     DragAndDropLabel lparen;
     DragAndDropLabel rparen;
     DragAndDropLabel lessThan;
@@ -32,6 +39,40 @@ public class LeftPanel extends JPanel { // drag source
     DragAndDropLabel hyphen;
     DragAndDropLabel pipe;
     DragAndDropLabel at;
+
+    public static DragAndDropLabel getNewLabelFromText(String text) {
+        DragAndDropLabel newLabel = null;
+        System.out.println("getNewLabelFromTexttext: [" + text + "]");
+
+        switch (text) {
+        case " ( .":
+            newLabel = new DragAndDropLabel(new LParen());
+            break;
+        case ". ) ":
+            newLabel = new DragAndDropLabel(new RParen());
+            break;
+        case ".  <  :":
+            newLabel = new DragAndDropLabel(new LessThan());
+            break;
+        case ":  >  .":
+            newLabel = new DragAndDropLabel(new GreaterThan());
+            break;
+        case ".  --  .":
+            newLabel = new DragAndDropLabel(new Hyphen());
+            break;
+        case "  @  ":
+            newLabel = new DragAndDropLabel(new AtSymbol());
+            break;
+        case "*  |  |  *":
+            newLabel = new DragAndDropLabel(new DoublePipe());
+            break;
+        default:
+            System.out.println("DEFAULT!");
+        }
+
+        System.out.println("getNewLabelFromTexttext2: " + newLabel.getIconParent().getText());
+        return newLabel;
+    }
 
     public LeftPanel(DragGestureListener dragGestureListener) {
         super(new GridLayout(7, 0, 5, 5));
@@ -54,11 +95,11 @@ public class LeftPanel extends JPanel { // drag source
         ds = new DragSource();
         this.greaterThan = new DragAndDropLabel(new GreaterThan());
         ds.createDefaultDragGestureRecognizer(this.greaterThan, DnDConstants.ACTION_COPY, dragGestureListener);
-        
+
         ds = new DragSource();
         this.hyphen = new DragAndDropLabel(new Hyphen());
         ds.createDefaultDragGestureRecognizer(this.hyphen, DnDConstants.ACTION_COPY, dragGestureListener);
-        
+
         ds = new DragSource();
         this.at = new DragAndDropLabel(new AtSymbol());
         ds.createDefaultDragGestureRecognizer(this.at, DnDConstants.ACTION_COPY, dragGestureListener);

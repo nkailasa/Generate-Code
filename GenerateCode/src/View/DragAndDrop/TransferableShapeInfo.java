@@ -13,8 +13,8 @@ import java.awt.dnd.DropTargetDropEvent;
 
 public class TransferableShapeInfo implements Transferable {
 
-    protected static DataFlavor CustomFlavour = new DataFlavor(DragAndDropLabel.class, "A label object");
-    protected static DataFlavor[] supportedFlavors = { DataFlavor.stringFlavor, CustomFlavour };
+    protected static DataFlavor CustomFlavour = new DataFlavor(DragAndDropLabel.class, "A DragAndDropLabel object");
+    protected static DataFlavor[] supportedFlavors = { CustomFlavour, DataFlavor.stringFlavor };
 
     private String iconName;
     private DragAndDropLabel myLabel;
@@ -22,7 +22,6 @@ public class TransferableShapeInfo implements Transferable {
     public TransferableShapeInfo(DragAndDropLabel label) {
         this.myLabel = label;
         this.iconName = label.getIconParent().getText();
-        // TODO this.iconName = label.iconName; should display custom icon names for
         // each type of symbol
     }
 
@@ -39,6 +38,8 @@ public class TransferableShapeInfo implements Transferable {
     public boolean isDataFlavorSupported(DataFlavor flavor) {
         if (flavor.equals(CustomFlavour)) {
             return true;
+        } else if(flavor.equals(DataFlavor.stringFlavor)){
+            return true;
         }
         return false;
     }
@@ -46,7 +47,11 @@ public class TransferableShapeInfo implements Transferable {
     @Override
     public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException {
         if (flavor.equals(CustomFlavour)) {
+            System.out.println("Here2: "+myLabel.getIconParent().getText());
             return myLabel;
+        } else if (flavor.equals(DataFlavor.stringFlavor)) {
+            // return myLabel;
+            return myLabel.getIconParent().getText();
         } else {
             throw new UnsupportedFlavorException(flavor);
         }
