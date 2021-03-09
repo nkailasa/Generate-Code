@@ -1,10 +1,10 @@
-package View;
+package View.Menu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu implements ActionListener {
+public class FileMenu implements ActionListener {
 
     static JMenuBar mb;
     static JMenu menu;
@@ -12,7 +12,7 @@ public class Menu implements ActionListener {
     static JLabel label;
 
     public JMenuBar menuBar() {
-        menu = new JMenu("Menu");
+        menu = new JMenu("File");
         mb = new JMenuBar();
 
         //create menu items

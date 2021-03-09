@@ -8,6 +8,8 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
+import View.Menu.FileMenu;
+
 /**
  * The Game class initializes Game screen along with a grid of buttons in the
  * play area and control buttons like start, pause etc.,
@@ -37,8 +39,8 @@ public class App extends JFrame {
 		canvas.setBorder(BorderFactory.createLineBorder(Color.darkGray));
 		this.add(canvas, BorderLayout.CENTER);
 
-		Menu menu = new Menu();
-		JMenuBar mb = menu.menuBar();
+		FileMenu fileMenu = new FileMenu();
+		JMenuBar mb = fileMenu.menuBar();
 		this.setJMenuBar(mb);
 	}
 
