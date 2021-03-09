@@ -62,11 +62,10 @@ public class MyDropTargetListener extends DropTargetAdapter {
                 dropPanel.revalidate();
                 dropPanel.repaint();
                 event.dropComplete(true);
-                return;
+            } else {
+                event.rejectDrop();
             }
 
-            event.dropComplete(true);
-            // event.rejectDrop();
         } catch (Exception e) {
 
             e.printStackTrace();
