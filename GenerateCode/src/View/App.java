@@ -1,38 +1,24 @@
 package View;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureEvent;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDropEvent;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
+import Controller.MenuItemListener;
+import Controller.MyDropTargetListener;
 import View.DragAndDrop.DragAndDropLabel;
-import View.DragAndDrop.MyDropTargetListener;
 import View.DragAndDrop.TransferableShapeInfo;
-import View.Menu.FileMenu;
 import View.Panels.LeftPanel;
 import View.Panels.RightPanel;
 
-/**
- * The Game class initializes Game screen along with a grid of buttons in the
- * play area and control buttons like start, pause etc.,
- */
 public class App extends JFrame implements DragGestureListener {
 
 	final int FRAMESIZE = 700;
@@ -43,13 +29,9 @@ public class App extends JFrame implements DragGestureListener {
 		this.setSize(FRAMESIZE, FRAMESIZE - 100);
 		this.setLayout(new BorderLayout());
 
-		initMenubar();
+		initializeMenu();
 		initializeLeftPanel();
 		initializeRightPanel();
-
-		// initMenubar();
-		// initializeButtonPanel();
-		// initializeCanvas();
 
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,14 +39,40 @@ public class App extends JFrame implements DragGestureListener {
 
 	}
 
-	private void initMenubar() {
-		FileMenu fileMenu = new FileMenu();
-		JMenuBar mb = fileMenu.menuBar();
+	private void initializeMenu() {
+		JMenuBar mb;
+		JMenu menu;
+		JMenuItem load, save, newSpace, compile;
+
+		menu = new JMenu("Menu");
+		mb = new JMenuBar();
+
+		// create menu items
+		load = new JMenuItem("Load");
+		save = new JMenuItem("Save");
+		newSpace = new JMenuItem("NewSpace");
+		compile = new JMenuItem("Compile");
+
+		menu.add(save);
+		menu.add(load);
+		menu.add(newSpace);
+		menu.add(compile);
+
+		MenuItemListener menulistener = new MenuItemListener();
+		save.addActionListener(menulistener);
+		load.addActionListener(menulistener);
+		newSpace.addActionListener(menulistener);
+		compile.addActionListener(menulistener);
+
+		mb.add(menu);
+
 		this.setJMenuBar(mb);
+		this.add(mb);
+
 	}
 
 	private void initializeLeftPanel() {
-		LeftPanel leftPanel = new LeftPanel(this); //passed as DragGestureListener
+		LeftPanel leftPanel = new LeftPanel(this); // passed as DragGestureListener
 		this.add(leftPanel, BorderLayout.WEST);
 	}
 
@@ -74,70 +82,11 @@ public class App extends JFrame implements DragGestureListener {
 		this.add(rightPanel, BorderLayout.CENTER);
 	}
 
-	private void initializeCanvas() { // right panel
-		Container grid = new Container();
-		JPanel canvas = new JPanel();
-		canvas.setBorder(BorderFactory.createLineBorder(Color.darkGray));
-		this.add(canvas, BorderLayout.CENTER);
-	}
-
-	private void initializeButtonPanel() { // left panel
-
-		JButton lparen;
-		JButton rparen;
-		JButton langular;
-		JButton rangular;
-		JButton hypen;
-		JButton pipe;
-		JButton at;
-
-		JPanel buttonPanel = new JPanel(new GridLayout(7, 0, 5, 5));
-		buttonPanel.setBorder(BorderFactory.createLineBorder(Color.gray));
-		lparen = new JButton(" ( .");
-		lparen.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		rparen = new JButton(". ) ");
-		lparen.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		langular = new JButton(".  <  :");
-		langular.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		rangular = new JButton(":  >  .");
-		rangular.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		hypen = new JButton(".  --  .");
-		hypen.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		at = new JButton("  @  ");
-		at.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		pipe = new JButton("*  |  |  *");
-		pipe.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		buttonPanel.add(lparen);
-		buttonPanel.add(rparen);
-		buttonPanel.add(langular);
-		buttonPanel.add(rangular);
-		buttonPanel.add(hypen);
-		buttonPanel.add(pipe);
-		buttonPanel.add(at);
-
-		this.add(buttonPanel, BorderLayout.WEST);
-	}
-
 	@Override
 	public void dragGestureRecognized(DragGestureEvent event) {
 		Cursor cursor = Cursor.getDefaultCursor();
 
 		DragAndDropLabel label = (DragAndDropLabel) event.getComponent();
-		// String text = label.getText();
-
-		// if (text.equals("gray")) {
-		// rectangleToDrag = grayRect;
-		// }
-		// if (text.equals("green")) {
-		// rectangleToDrag = greenRect;
-		// }
 
 		if (event.getDragAction() == DnDConstants.ACTION_COPY) {
 			cursor = DragSource.DefaultCopyDrop;

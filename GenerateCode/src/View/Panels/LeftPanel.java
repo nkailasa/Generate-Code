@@ -1,36 +1,24 @@
 package View.Panels;
 
-import java.awt.GridLayout;
-import javax.swing.JPanel;
-import javax.swing.event.MouseInputListener;
-
-import View.DragAndDrop.DragAndDropLabel;
-import View.Icons.AtSymbol;
-import View.Icons.DoublePipe;
-import View.Icons.GreaterThan;
-import View.Icons.Hyphen;
-import View.Icons.LParen;
-import View.Icons.LessThan;
-import View.Icons.RParen;
-
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+import java.awt.GridLayout;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+
+import Model.Icons.AtSymbol;
+import Model.Icons.DoublePipe;
+import Model.Icons.GreaterThan;
+import Model.Icons.Hyphen;
+import Model.Icons.LParen;
+import Model.Icons.LessThan;
+import Model.Icons.RParen;
+import View.DragAndDrop.DragAndDropLabel;
 
 public class LeftPanel extends JPanel { // drag source
-
-    // final JPanel iconPanel;
-
-    /**
-     *
-     */
     private static final long serialVersionUID = -1827724962934234619L;
     DragAndDropLabel lparen;
     DragAndDropLabel rparen;
@@ -70,7 +58,6 @@ public class LeftPanel extends JPanel { // drag source
             System.out.println("DEFAULT!");
         }
 
-        System.out.println("getNewLabelFromTexttext2: " + newLabel.getIconParent().getText());
         return newLabel;
     }
 

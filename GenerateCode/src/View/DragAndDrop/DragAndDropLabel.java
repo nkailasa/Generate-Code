@@ -1,35 +1,15 @@
 package View.DragAndDrop;
 
-import javax.swing.JPanel;
+import Model.Icons.IconParent;
 
-import View.Icons.IconParent;
-
-import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import java.awt.geom.Rectangle2D;
 import java.awt.Font;
 import java.awt.Point;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDropEvent;
-
-import java.io.IOException;
 
 public class DragAndDropLabel extends JLabel {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 4524289488932470569L;
     private IconParent iconParent;
     double x;
@@ -68,9 +48,5 @@ public class DragAndDropLabel extends JLabel {
     public Rectangle2D getRect() {
         return rect;
     }
-
-    // public String toString(){
-
-    // }
 
 }

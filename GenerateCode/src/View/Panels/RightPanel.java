@@ -1,46 +1,24 @@
 package View.Panels;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Graphics;
-import java.awt.HeadlessException;
 import java.awt.Point;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDropEvent;
-import java.awt.geom.Rectangle2D;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
 import View.DragAndDrop.DragAndDropLabel;
-import View.Icons.LParen;
 
 public class RightPanel extends JPanel { // drop target
+    private static final long serialVersionUID = 5237869471969999584L;
 
     ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 
     public RightPanel() {
         super();
         setBorder(BorderFactory.createLineBorder(Color.darkGray));
-        // add(new DragAndDropLabel(new LParen()));
-        // setLayout(null);
     }
 
     @Override
@@ -48,21 +26,14 @@ public class RightPanel extends JPanel { // drop target
         super.paintComponent(graphics);
 
         for (DragAndDropLabel myLabel : myLabels) { // draw rest components
-            Rectangle2D r = myLabel.getRect();
             int x = (int) myLabel.getDroppedAtX();
             int y = (int) myLabel.getDroppedAtY();
 
-            // grphcs.setColor(myLabel.getRectColor());
-            // graphics.drawRect((int) r.getX(), (int) r.getY(), (int) r.getWidth(), (int)
-            // r.getHeight());
-            // graphcs.draw
-            System.out.println("Adding " + myLabel.getIconParent().getText() + " at");
-            System.out.println("x: " + x);
-            System.out.println("y: " + y);
             add(myLabel);
             myLabel.setLocation(new Point(x, y));
             myLabel.setVisible(true);
         }
+
     }
 
     @Override

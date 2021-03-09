@@ -3,13 +3,6 @@ package View.DragAndDrop;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDropEvent;
 
 public class TransferableShapeInfo implements Transferable {
 
@@ -22,7 +15,6 @@ public class TransferableShapeInfo implements Transferable {
     public TransferableShapeInfo(DragAndDropLabel label) {
         this.myLabel = label;
         this.iconName = label.getIconParent().getText();
-        // each type of symbol
     }
 
     public TransferableShapeInfo(String text) {
@@ -47,10 +39,8 @@ public class TransferableShapeInfo implements Transferable {
     @Override
     public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException {
         if (flavor.equals(CustomFlavour)) {
-            System.out.println("Here2: "+myLabel.getIconParent().getText());
             return myLabel;
         } else if (flavor.equals(DataFlavor.stringFlavor)) {
-            // return myLabel;
             return myLabel.getIconParent().getText();
         } else {
             throw new UnsupportedFlavorException(flavor);
