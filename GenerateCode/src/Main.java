@@ -1,7 +1,7 @@
 
-import View.App;
 
-/** The main class to launch the Generate Code application **/
+import View.App;
+/** The main class to launch the application **/
 public class Main {
 
 	public static void main(String[] args) {
