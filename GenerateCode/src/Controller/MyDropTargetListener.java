@@ -4,10 +4,14 @@ import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
+import java.awt.event.MouseListener;
 
+import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
 import View.Panels.RightPanel;
@@ -32,6 +36,16 @@ public class MyDropTargetListener extends DropTargetAdapter {
 
             DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
             label.setCoordinates(point);
+            label.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    if (mouseEvent.getClickCount() == 2) {
+                        AddValueModal modal = AddValueModal.getInstance();
+                        modal.setIcon(label);
+                        modal.setInputText(label.getIconParent().getValue());
+                        modal.setVisible(true);
+                    }
+                  }
+            });
 
             if (event.isDataFlavorSupported(DataFlavor.stringFlavor)) {
                 event.acceptDrop(DnDConstants.ACTION_COPY);
