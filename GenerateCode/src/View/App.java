@@ -1,25 +1,18 @@
 package View;
 
-import java.awt.BorderLayout;
-import java.awt.Cursor;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
-
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
 import Controller.MenuItemListener;
-import Controller.MyDropTargetListener;
 import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
 import View.Panels.RightPanel.Canvas;
-import View.Panels.RightPanel.Tab;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DragGestureEvent;
+import java.awt.dnd.DragGestureListener;
+import java.awt.dnd.DragSource;
 
 public class App extends JFrame implements DragGestureListener {
 
@@ -61,11 +54,13 @@ public class App extends JFrame implements DragGestureListener {
 		menu.add(newSpace);
 		menu.add(compile);
 
-		MenuItemListener menulistener = new MenuItemListener();
-		save.addActionListener(menulistener);
-		load.addActionListener(menulistener);
-		newSpace.addActionListener(menulistener);
-		compile.addActionListener(menulistener);
+		MenuItemListener menuListener = new MenuItemListener();
+		menuListener.setReference(this);
+
+		save.addActionListener(menuListener);
+		load.addActionListener(menuListener);
+		newSpace.addActionListener(menuListener);
+		compile.addActionListener(menuListener);
 
 		mb.add(menu);
 
