@@ -5,10 +5,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import View.DragAndDrop.AddValueModal;
 import View.Panels.LeftPanel;
 import View.DragAndDrop.DragAndDropLabel;
 
@@ -48,12 +52,22 @@ public class Tab extends JPanel { // drop target
     public void createAndAddDnDLabel(String labelText, Point p) {
         DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
         label.setCoordinates(p);
+        label.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2) {
+                    AddValueModal modal = AddValueModal.getInstance();
+                    modal.setIcon(label);
+                    modal.setInputText(label.getIconParent().getValue());
+                    modal.setVisible(true);
+                }
+            }
+        });
         myLabels.add(label);
 
         label.setLocation(p);
         label.setVisible(true);
         this.add(label);
-        
+
         revalidate();
         repaint();
     }
