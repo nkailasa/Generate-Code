@@ -50,7 +50,7 @@ public class App extends JFrame implements DragGestureListener {
 		// create menu items
 		load = new JMenuItem("Load");
 		save = new JMenuItem("Save");
-		newSpace = new JMenuItem("NewSpace");
+		newSpace = new JMenuItem("New Space");
 		compile = new JMenuItem("Compile");
 
 		menu.add(save);
@@ -67,7 +67,8 @@ public class App extends JFrame implements DragGestureListener {
 		mb.add(menu);
 
 		this.setJMenuBar(mb);
-		this.add(mb);
+		this.add(mb, BorderLayout.NORTH);
+		// this.add(mb, BorderLayout.NORTH);
 
 	}
 

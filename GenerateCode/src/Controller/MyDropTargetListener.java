@@ -30,14 +30,16 @@ public class MyDropTargetListener extends DropTargetAdapter {
             Point point = event.getLocation();
             String labelText = (String) tr.getTransferData(DataFlavor.stringFlavor);
 
-            DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
-            label.setCoordinates(point);
+            // DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
+            // label.setCoordinates(point);
 
             if (event.isDataFlavorSupported(DataFlavor.stringFlavor)) {
                 event.acceptDrop(DnDConstants.ACTION_COPY);
-                dropPanel.addDragAndDropLabel(label);
-                dropPanel.revalidate();
-                dropPanel.repaint();
+                // dropPanel.addDragAndDropLabel(label);
+                dropPanel.createAndAddDnDLabel(labelText, point);
+                // dropPanel.revalidate();
+                // dropPanel.repaint();
+                // dropPanel.revalidate();
                 event.dropComplete(true);
             } else {
                 event.rejectDrop();
