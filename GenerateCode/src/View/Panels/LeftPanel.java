@@ -30,7 +30,7 @@ public class LeftPanel extends JPanel { // drag source
 
     public static DragAndDropLabel getNewLabelFromText(String text) {
         DragAndDropLabel newLabel = null;
-        System.out.println("getNewLabelFromTexttext: [" + text + "]");
+        // System.out.println("getNewLabelFromTexttext: [" + text + "]");
 
         switch (text) {
         case " ( .":

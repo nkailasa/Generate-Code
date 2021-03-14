@@ -14,7 +14,6 @@ import javax.swing.JMenuItem;
 
 import Controller.MenuItemListener;
 import Controller.MyDropTargetListener;
-import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
@@ -51,7 +50,7 @@ public class App extends JFrame implements DragGestureListener {
 		// create menu items
 		load = new JMenuItem("Load");
 		save = new JMenuItem("Save");
-		newSpace = new JMenuItem("NewSpace");
+		newSpace = new JMenuItem("New Space");
 		compile = new JMenuItem("Compile");
 
 		menu.add(save);
@@ -68,8 +67,9 @@ public class App extends JFrame implements DragGestureListener {
 		mb.add(menu);
 
 		this.setJMenuBar(mb);
-		this.add(mb);
-		AddValueModal.getInstance(this);
+		this.add(mb, BorderLayout.NORTH);
+		// this.add(mb, BorderLayout.NORTH);
+
 	}
 
 	private void initializeLeftPanel() {

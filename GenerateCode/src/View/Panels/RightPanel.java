@@ -22,18 +22,21 @@ public class RightPanel extends JPanel { // drop target
     }
 
     @Override
-    protected void paintComponent(Graphics graphics) {
-        super.paintComponent(graphics);
+    public void paintComponent(Graphics graphics) {
+        System.out.println("Painting graphics");
+        // super.paintComponent(graphics);
 
         for (DragAndDropLabel myLabel : myLabels) { // draw rest components
             int x = (int) myLabel.getDroppedAtX();
             int y = (int) myLabel.getDroppedAtY();
 
-            add(myLabel);
             myLabel.setLocation(new Point(x, y));
             myLabel.setVisible(true);
+            myLabel.paint(graphics);
+            this.add(myLabel);
         }
 
+        super.paintComponent(graphics);
     }
 
     @Override
@@ -41,7 +44,22 @@ public class RightPanel extends JPanel { // drop target
         return new Dimension(200, 200);
     }
 
+    public void createAndAddDnDLabel(String labelText, Point p) {
+        DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
+        label.setCoordinates(p);
+        myLabels.add(label);
+
+        label.setLocation(p);
+        label.setVisible(true);
+        this.add(label);
+        
+        revalidate();
+        repaint();
+    }
+
     public void addDragAndDropLabel(DragAndDropLabel l) {
         myLabels.add(l);
+        revalidate();
+        repaint();
     }
 }
