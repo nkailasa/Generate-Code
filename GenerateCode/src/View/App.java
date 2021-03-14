@@ -14,19 +14,22 @@ import javax.swing.JMenuItem;
 
 import Controller.MenuItemListener;
 import Controller.MyDropTargetListener;
+import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
-import View.Panels.RightPanel;
+import View.Panels.RightPanel.Canvas;
+import View.Panels.RightPanel.Tab;
 
 public class App extends JFrame implements DragGestureListener {
 
-	final int FRAMESIZE = 700;
+	final int FRAMEWIDTH = 1200;
+	final int FRAMEHEIGHT = 800;
 
 	public App() {
 
 		this.setTitle("Title");
-		this.setSize(FRAMESIZE, FRAMESIZE - 100);
+		this.setSize(FRAMEWIDTH, FRAMEHEIGHT);
 		this.setLayout(new BorderLayout());
 
 		initializeMenu();
@@ -50,7 +53,7 @@ public class App extends JFrame implements DragGestureListener {
 		// create menu items
 		load = new JMenuItem("Load");
 		save = new JMenuItem("Save");
-		newSpace = new JMenuItem("New Space");
+		newSpace = new JMenuItem("New Tab");
 		compile = new JMenuItem("Compile");
 
 		menu.add(save);
@@ -67,6 +70,8 @@ public class App extends JFrame implements DragGestureListener {
 		mb.add(menu);
 
 		this.setJMenuBar(mb);
+		this.add(mb);
+		AddValueModal.getInstance(this);
 		this.add(mb, BorderLayout.NORTH);
 		// this.add(mb, BorderLayout.NORTH);
 
@@ -78,9 +83,10 @@ public class App extends JFrame implements DragGestureListener {
 	}
 
 	private void initializeRightPanel() { // right panel
-		RightPanel rightPanel = new RightPanel();
-		new MyDropTargetListener(rightPanel);
-		this.add(rightPanel, BorderLayout.CENTER);
+		Canvas canvas = Canvas.getInstance();
+		// Tab tab = new Tab();
+		// new MyDropTargetListener(tab);
+		this.add(canvas, BorderLayout.CENTER);
 	}
 
 	@Override
