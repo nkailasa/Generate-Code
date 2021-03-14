@@ -3,6 +3,8 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import View.Panels.RightPanel.Canvas;
+
 public class MenuItemListener implements ActionListener {
 
 	/**
@@ -18,7 +20,8 @@ public class MenuItemListener implements ActionListener {
 			break;
 		case "Save":
 			break;
-		case "NewSpace":
+		case "New Tab":
+			Canvas.getInstance().addNewTab();
 			break;
 		case "Compile":
 			break;

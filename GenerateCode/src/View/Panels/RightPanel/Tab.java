@@ -24,7 +24,7 @@ public class Tab extends JPanel { // drop target
 
     @Override
     public void paintComponent(Graphics graphics) {
-        System.out.println("Painting graphics");
+        // System.out.println("Painting graphics");
         // super.paintComponent(graphics);
 
         for (DragAndDropLabel myLabel : myLabels) { // draw rest components

@@ -20,6 +20,7 @@ import View.DragAndDrop.DragAndDropLabel;
 
 public class LeftPanel extends JPanel { // drag source
     private static final long serialVersionUID = -1827724962934234619L;
+
     DragAndDropLabel lparen;
     DragAndDropLabel rparen;
     DragAndDropLabel lessThan;
@@ -33,25 +34,25 @@ public class LeftPanel extends JPanel { // drag source
         // System.out.println("getNewLabelFromTexttext: [" + text + "]");
 
         switch (text) {
-        case " ( .":
+        case LParen.labelText:
             newLabel = new DragAndDropLabel(new LParen());
             break;
-        case ". ) ":
+        case RParen.labelText:
             newLabel = new DragAndDropLabel(new RParen());
             break;
-        case ".  <  :":
+        case LessThan.labelText:
             newLabel = new DragAndDropLabel(new LessThan());
             break;
-        case ":  >  .":
+        case GreaterThan.labelText:
             newLabel = new DragAndDropLabel(new GreaterThan());
             break;
-        case ".  --  .":
+        case Hyphen.labelText:
             newLabel = new DragAndDropLabel(new Hyphen());
             break;
-        case "  @  ":
+        case AtSymbol.labelText:
             newLabel = new DragAndDropLabel(new AtSymbol());
             break;
-        case "*  |  |  *":
+        case DoublePipe.labelText:
             newLabel = new DragAndDropLabel(new DoublePipe());
             break;
         default:
