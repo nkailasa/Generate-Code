@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class RightPanel extends JPanel { // drop target
     private static final long serialVersionUID = 5237869471969999584L;
@@ -47,6 +52,16 @@ public class RightPanel extends JPanel { // drop target
     public void createAndAddDnDLabel(String labelText, Point p) {
         DragAndDropLabel label = LeftPanel.getNewLabelFromText(labelText);
         label.setCoordinates(p);
+        label.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2) {
+                    AddValueModal modal = AddValueModal.getInstance();
+                    modal.setIcon(label);
+                    modal.setInputText(label.getIconParent().getValue());
+                    modal.setVisible(true);
+                }
+              }
+        });
         myLabels.add(label);
 
         label.setLocation(p);

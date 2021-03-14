@@ -7,9 +7,6 @@ import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
-
-import View.DragAndDrop.DragAndDropLabel;
-import View.Panels.LeftPanel;
 import View.Panels.RightPanel;
 
 public class MyDropTargetListener extends DropTargetAdapter {

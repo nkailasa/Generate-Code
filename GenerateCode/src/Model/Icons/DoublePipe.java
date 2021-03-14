@@ -6,4 +6,23 @@ public class DoublePipe extends IconParent {
     public DoublePipe() {
         super(1000, 1000, "*  |  |  *");
     }
+    
+    @Override
+    public boolean isIconValid(){
+        boolean hasAnInput = false;
+        boolean hasAnOutput = false;
+        for(IconParent item : inputs){
+            if(item != null){
+                hasAnInput = true;
+                break;
+            }
+        }
+        for(IconParent item: outputs){
+            if(item != null){
+                hasAnOutput = true;
+                break;
+            }
+        }
+        return(hasAnInput && hasAnOutput);
+    }
 }

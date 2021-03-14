@@ -8,6 +8,7 @@ public abstract class IconParent implements java.io.Serializable{
     protected IconParent[] inputs;
     protected IconParent[] outputs;
     protected String text;
+    protected String value;
 
 
     public IconParent(int inputLimit, int outputLimit, String text){
@@ -16,6 +17,7 @@ public abstract class IconParent implements java.io.Serializable{
         this.inputs = new IconParent[inputLimit];
         this.outputs = new IconParent[outputLimit];
         this.text = text;
+        this.value = "";
     }
 
     public IconParent addInput(int location, IconParent inputElement){
@@ -66,5 +68,27 @@ public abstract class IconParent implements java.io.Serializable{
 
     public String getText(){
         return this.text;
+    }
+
+    public void setValue(String value){
+        this.value = value;
+    }
+
+    public String getValue(){
+        return this.value;
+    }
+
+    public boolean isIconValid(){
+        for(IconParent item : inputs){
+            if(item == null){
+                return false;
+            }
+        }
+        for(IconParent item: outputs){
+            if(item == null){
+                return false;
+            }
+        }
+        return true;
     }
 }
