@@ -10,13 +10,13 @@ import java.awt.dnd.DropTargetDropEvent;
 
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
-import View.Panels.RightPanel;
+import View.Panels.RightPanel.Tab;
 
 public class MyDropTargetListener extends DropTargetAdapter {
     private final DropTarget dropTarget;
-    private final RightPanel dropPanel;
+    private final Tab dropPanel;
 
-    public MyDropTargetListener(RightPanel panel) {
+    public MyDropTargetListener(Tab panel) {
         dropPanel = panel;
         dropTarget = new DropTarget(panel, DnDConstants.ACTION_COPY, this, true, null);
 

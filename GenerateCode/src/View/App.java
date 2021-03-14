@@ -17,7 +17,7 @@ import Controller.MyDropTargetListener;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
-import View.Panels.RightPanel;
+import View.Panels.RightPanel.Tab;
 
 public class App extends JFrame implements DragGestureListener {
 
@@ -78,9 +78,9 @@ public class App extends JFrame implements DragGestureListener {
 	}
 
 	private void initializeRightPanel() { // right panel
-		RightPanel rightPanel = new RightPanel();
-		new MyDropTargetListener(rightPanel);
-		this.add(rightPanel, BorderLayout.CENTER);
+		Tab tab = new Tab();
+		new MyDropTargetListener(tab);
+		this.add(tab, BorderLayout.CENTER);
 	}
 
 	@Override

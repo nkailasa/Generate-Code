@@ -1,4 +1,4 @@
-package View.Panels;
+package View.Panels.RightPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,14 +9,15 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import View.Panels.LeftPanel;
 import View.DragAndDrop.DragAndDropLabel;
 
-public class RightPanel extends JPanel { // drop target
+public class Tab extends JPanel { // drop target
     private static final long serialVersionUID = 5237869471969999584L;
 
     ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 
-    public RightPanel() {
+    public Tab() {
         super();
         setBorder(BorderFactory.createLineBorder(Color.darkGray));
     }
