@@ -3,8 +3,14 @@ package View.DragAndDrop;
 import Model.Icons.IconParent;
 
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 
 import java.awt.geom.Rectangle2D;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 
@@ -17,8 +23,16 @@ public class DragAndDropLabel extends JLabel {
     Rectangle2D rect = new Rectangle2D.Double(60, 90, 120, 50);
 
     public DragAndDropLabel(IconParent iconParent) {
-        super(iconParent.getText());
+        super(iconParent.getText(), SwingConstants.CENTER);
         setFont(new Font("Arial", Font.PLAIN, 30));
+
+        setOpaque(true);
+        setBackground(Color.WHITE);
+        setPreferredSize(new Dimension(120, 50));
+
+        Border border = getBorder();
+        Border margin = new EmptyBorder(10, 10, 10, 10);
+        setBorder(new CompoundBorder(border, margin));
 
         this.iconParent = iconParent;
     }
