@@ -1,18 +1,23 @@
 package View;
 
+import java.awt.BorderLayout;
+import java.awt.Cursor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DragGestureEvent;
+import java.awt.dnd.DragGestureListener;
+import java.awt.dnd.DragSource;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 import Controller.MenuItemListener;
 import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
 import View.Panels.RightPanel.Canvas;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
 
 public class App extends JFrame implements DragGestureListener {
 
@@ -100,5 +105,9 @@ public class App extends JFrame implements DragGestureListener {
 		event.startDrag(cursor, new TransferableShapeInfo(label));
 
 	}
-
+	public static void main(String[] args) {
+		new App();
+	}
 }
+
+
