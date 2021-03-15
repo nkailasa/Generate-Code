@@ -1,26 +1,18 @@
 package View.Panels.RightPanel;
 
-import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
-
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.event.*;
-import java.awt.GridBagConstraints;  
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-
 import Controller.MyDropTargetListener;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Canvas extends JTabbedPane {
 
     private static Canvas instance;
+
+    public Tab tab;
 
     public static Canvas getInstance() {
         if (instance == null) {
@@ -45,7 +37,7 @@ public class Canvas extends JTabbedPane {
     public void addNewTab() {
         // System.out.println("Adding new Tab");
 
-        Tab tab = new Tab();
+        tab = new Tab();
         new MyDropTargetListener(tab);
         tabs.add(tab);
         
@@ -94,8 +86,8 @@ public class Canvas extends JTabbedPane {
 
     class MyCloseActionHandler implements ActionListener {
 
-        private String tabName;
-        private Canvas canvas;
+        private final String tabName;
+        private final Canvas canvas;
 
         public MyCloseActionHandler(String tabName, Canvas canvas) {
             this.tabName = tabName;

@@ -1,14 +1,17 @@
 package Controller;
 
 
+import Model.Icons.Edge;
 import Model.Icons.Graph;
 import View.CompileModal;
+import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.RightPanel.Canvas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.util.ArrayList;
 
 
 public class MenuItemListener implements ActionListener {
@@ -59,11 +62,11 @@ public class MenuItemListener implements ActionListener {
 			graphInstance.setEdges(graphObject.getEdges());
 			graphInstance.setDnDLabels(graphObject.getDnDLabels());
 
-			frame.revalidate();
-			frame.repaint();
+			Canvas.getInstance().tab.myLabels = (ArrayList<DragAndDropLabel>) graphObject.getDnDLabels();
+			Canvas.getInstance().tab.edges = (ArrayList<Edge>) graphObject.getEdges();
 
-			Canvas.getInstance().revalidate();
-			Canvas.getInstance().repaint();
+			Canvas.getInstance().tab.revalidate();
+			Canvas.getInstance().tab.repaint();
 		}
 
 	}

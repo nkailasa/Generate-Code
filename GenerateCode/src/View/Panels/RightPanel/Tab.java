@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class Tab extends JPanel { // drop target
 	private static final long serialVersionUID = 5237869471969999584L;
 	JButton prevButton, currButton;
-	ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
-	ArrayList<Edge> edges = new ArrayList<Edge>();
+	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
+	public ArrayList<Edge> edges = new ArrayList<Edge>();
 
 	public Tab() {
 		super();
