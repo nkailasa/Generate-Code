@@ -2,15 +2,18 @@ package Model.Icons;
 
 import View.DragAndDrop.DragAndDropLabel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Graph {
+public class Graph implements Serializable {
     private static final long serialVersionUID = 1L;
     private static Graph instance;
     List<Edge> edges;
     List<DragAndDropLabel> nodes;
-    public static Graph getInstance(){
-        if(instance == null){
+
+    public static Graph getInstance() {
+        if (instance == null) {
+            System.out.println("Creating new instance");
             instance = new Graph();
         }
         return instance;

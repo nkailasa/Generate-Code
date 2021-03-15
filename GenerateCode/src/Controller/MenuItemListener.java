@@ -1,17 +1,15 @@
 package Controller;
 
+
 import Model.Icons.Graph;
+import View.CompileModal;
 import View.Panels.RightPanel.Canvas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
 
-import View.CompileModal;
-import View.Panels.RightPanel.Canvas;
-import View.Panels.RightPanel.Tab;
 
 public class MenuItemListener implements ActionListener {
 
@@ -23,6 +21,8 @@ public class MenuItemListener implements ActionListener {
 
 
 	private void saveIcons() throws IOException {
+		Graph graphInstance = Graph.getInstance();
+
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Choose where to save your file");
 		int selection = fileChooser.showSaveDialog(frame);
@@ -30,7 +30,7 @@ public class MenuItemListener implements ActionListener {
 			File chosenFile = fileChooser.getSelectedFile();
 			FileOutputStream file = new FileOutputStream(chosenFile);
 			ObjectOutputStream output = new ObjectOutputStream(file);
-			output.writeObject(Graph.getInstance());
+			output.writeObject(graphInstance);
 		}
 	}
 
@@ -44,8 +44,14 @@ public class MenuItemListener implements ActionListener {
 			ObjectInputStream input = new ObjectInputStream(file);
 
 			Graph graphObject = (Graph) input.readObject();
+			System.out.println(graphObject.getEdges().size());
+			System.out.println(graphObject.getDnDLabels().size());
+
 			graphInstance.setDnDLabels(graphObject.getDnDLabels());
 			graphInstance.setEdges(graphObject.getEdges());
+
+			frame.revalidate();
+			frame.repaint();
 		}
 
 	}
@@ -76,11 +82,14 @@ public class MenuItemListener implements ActionListener {
 					boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
 					CompileModal.getInstance().setCompilationResults(success);
 					CompileModal.getInstance().setVisible(true);
-
 					break;
 				default:
 					break;
 			}
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+		} catch (ClassNotFoundException classNotFoundException) {
+			classNotFoundException.printStackTrace();
 		}
 	}
 }
