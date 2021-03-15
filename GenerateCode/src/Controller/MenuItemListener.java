@@ -34,16 +34,10 @@ public class MenuItemListener implements ActionListener {
 			FileOutputStream file = new FileOutputStream(chosenFile);
 			ObjectOutputStream output = new ObjectOutputStream(file);
 			output.writeObject(graphInstance);
-
-			System.out.println(graphInstance.getEdges().size());
-			System.out.println(graphInstance.getDnDLabels().size());
-			System.out.println("Saving edges: " + graphInstance.getEdges());
-			System.out.println("Saving labels: " + graphInstance.getDnDLabels());
 		}
 	}
 
 	private void loadIcons() throws IOException, ClassNotFoundException {
-		Graph graphInstance = Graph.getInstance();
 		JFileChooser fileChooser = new JFileChooser();
 		int selection = fileChooser.showOpenDialog(frame);
 		if (selection == JFileChooser.APPROVE_OPTION) {
@@ -53,14 +47,7 @@ public class MenuItemListener implements ActionListener {
 
 			Graph graphObject = (Graph) input.readObject();
 
-			System.out.println(graphObject.getEdges().size());
-			System.out.println(graphObject.getDnDLabels().size());
-
-			System.out.println("Loading edges: " + graphObject.getEdges());
-			System.out.println("Loading labels: " + graphObject.getDnDLabels());
-
-			graphInstance.setEdges(graphObject.getEdges());
-			graphInstance.setDnDLabels(graphObject.getDnDLabels());
+			Canvas.getInstance().tab.removeAll();
 
 			Canvas.getInstance().tab.myLabels = (ArrayList<DragAndDropLabel>) graphObject.getDnDLabels();
 			Canvas.getInstance().tab.edges = (ArrayList<Edge>) graphObject.getEdges();

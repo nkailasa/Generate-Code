@@ -21,6 +21,7 @@ public class Tab extends JPanel { // drop target
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 	public ArrayList<Edge> edges = new ArrayList<Edge>();
 
+
 	public Tab() {
 		super();
 		setBorder(BorderFactory.createLineBorder(Color.darkGray));
