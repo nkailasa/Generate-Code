@@ -86,10 +86,8 @@ public class MenuItemListener implements ActionListener {
 				default:
 					break;
 			}
-		} catch (IOException ioException) {
+		} catch (IOException | ClassNotFoundException ioException) {
 			ioException.printStackTrace();
-		} catch (ClassNotFoundException classNotFoundException) {
-			classNotFoundException.printStackTrace();
 		}
 	}
 }
