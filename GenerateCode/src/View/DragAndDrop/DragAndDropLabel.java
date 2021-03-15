@@ -1,13 +1,19 @@
 package View.DragAndDrop;
 
-import Model.Icons.IconParent;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.geom.Rectangle2D;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
+import Model.Icons.IconParent;
 import java.awt.geom.Rectangle2D;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,7 +27,10 @@ public class DragAndDropLabel extends JLabel {
     double x;
     double y;
     Rectangle2D rect = new Rectangle2D.Double(60, 90, 120, 50);
-
+    protected JButton[] inputButtons = new JButton[2];
+    protected JButton[] outputButtons= new JButton[2];
+    
+    
     public DragAndDropLabel(IconParent iconParent) {
         super(iconParent.getText(), SwingConstants.CENTER);
         setFont(new Font("Arial", Font.PLAIN, 30));
@@ -45,6 +54,22 @@ public class DragAndDropLabel extends JLabel {
     public void setCoordinates(Point point) {
         this.x = point.x;
         this.y = point.y;
+    }
+    
+    public void setInputButton(int i,JButton btn) {
+        this.inputButtons[i] = btn;
+    }
+    
+    public void setOutputButton(int i,JButton btn) {
+        this.outputButtons[i] = btn;
+    }
+    
+    public JButton[] getInputButtons() {
+       return this.inputButtons;
+    }
+    
+    public JButton[] getOutputButtons() {
+        return this.outputButtons;
     }
 
     public double getDroppedAtX() {
