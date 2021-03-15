@@ -11,7 +11,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import Model.Icons.LabelNames;
 import Model.Icons.AtSymbol;
 import Model.Icons.DoublePipe;
 import Model.Icons.GreaterThan;
