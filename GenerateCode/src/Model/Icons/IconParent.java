@@ -93,9 +93,9 @@ public abstract class IconParent implements java.io.Serializable {
     //     return this.text;
     // }
 
-    // public void setValue(String value){
-    //     this.value = value;
-    // }
+    public void setValue(String value){
+        this.value = value;
+    }
 
     public String getValue(){
         return this.value;
@@ -121,10 +121,6 @@ public abstract class IconParent implements java.io.Serializable {
 		return this.text;
 	}
 
-	public void setValue(String text2) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public boolean isIconValid(){
         for(IconParent item : inputs){
