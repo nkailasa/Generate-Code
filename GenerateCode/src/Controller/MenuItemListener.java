@@ -31,6 +31,9 @@ public class MenuItemListener implements ActionListener {
 			FileOutputStream file = new FileOutputStream(chosenFile);
 			ObjectOutputStream output = new ObjectOutputStream(file);
 			output.writeObject(graphInstance);
+
+			System.out.println("Saving edges: " + graphInstance.getEdges());
+			System.out.println("Saving labels: " + graphInstance.getDnDLabels());
 		}
 	}
 
@@ -47,11 +50,17 @@ public class MenuItemListener implements ActionListener {
 			System.out.println(graphObject.getEdges().size());
 			System.out.println(graphObject.getDnDLabels().size());
 
+			System.out.println("Loading labels: " + graphObject.getDnDLabels());
+			System.out.println("Loading edges: " + graphObject.getEdges());
+
 			graphInstance.setDnDLabels(graphObject.getDnDLabels());
 			graphInstance.setEdges(graphObject.getEdges());
 
 			frame.revalidate();
 			frame.repaint();
+
+			Canvas.getInstance().revalidate();
+			Canvas.getInstance().repaint();
 		}
 
 	}
