@@ -242,4 +242,8 @@ public class Tab extends JPanel { // drop target
 		this.prevButton = prevButton;
 
 	}
+
+	public ArrayList<DragAndDropLabel> getLabels(){
+		return this.myLabels;
+	}
 }
