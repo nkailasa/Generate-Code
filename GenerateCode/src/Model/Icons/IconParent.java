@@ -123,6 +123,9 @@ public abstract class IconParent implements java.io.Serializable {
 
 
 	public boolean isIconValid(){
+        if((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)){
+            return false;
+        }
         for(IconParent item : inputs){
             if(item == null){
                 return false;

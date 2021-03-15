@@ -72,6 +72,7 @@ public class App extends JFrame implements DragGestureListener {
 		this.setJMenuBar(mb);
 		this.add(mb);
 		AddValueModal.getInstance(this);
+		CompileModal.getInstance(this);
 		this.add(mb, BorderLayout.NORTH);
 		// this.add(mb, BorderLayout.NORTH);
 
