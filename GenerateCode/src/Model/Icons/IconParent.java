@@ -12,6 +12,7 @@ public abstract class IconParent implements java.io.Serializable {
 	// protected IconParent[] inputs;
     // protected IconParent[] outputs;
 	protected String text;
+    protected String value;
 
 	public IconParent(int inputLimit, int outputLimit, String text) {
 		this.inputLimit = inputLimit;
@@ -19,6 +20,7 @@ public abstract class IconParent implements java.io.Serializable {
 		this.inputs = new ArrayList<>();
 		this.outputs = new ArrayList<>();
 		this.text = text;
+        this.value = "";
 	}
 
 	public void addInput(IconParent inputElement) {
@@ -32,14 +34,14 @@ public abstract class IconParent implements java.io.Serializable {
 
 	}
 
-    public IconParent(int inputLimit, int outputLimit, String text){
-        this.inputLimit = inputLimit;
-        this.outputLimit = outputLimit;
-        this.inputs = new IconParent[inputLimit];
-        this.outputs = new IconParent[outputLimit];
-        this.text = text;
-        this.value = "";
-    }
+    // public IconParent(int inputLimit, int outputLimit, String text){
+    //     this.inputLimit = inputLimit;
+    //     this.outputLimit = outputLimit;
+    //     this.inputs = new IconParent[inputLimit];
+    //     this.outputs = new IconParent[outputLimit];
+    //     this.text = text;
+    //     this.value = "";
+    // }
 
     // public IconParent addInput(int location, IconParent inputElement){
     //     if(0 < location && location < inputLimit && inputs[location] == null){
@@ -87,13 +89,13 @@ public abstract class IconParent implements java.io.Serializable {
     //     return outputs[location];
     // }
 
-    public String getText(){
-        return this.text;
-    }
+    // public String getText(){
+    //     return this.text;
+    // }
 
-    public void setValue(String value){
-        this.value = value;
-    }
+    // public void setValue(String value){
+    //     this.value = value;
+    // }
 
     public String getValue(){
         return this.value;

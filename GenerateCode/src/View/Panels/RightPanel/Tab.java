@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
@@ -14,7 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Controller.ButtonListener;
+import Model.Icons.Edge;
+import Model.Icons.Graph;
 import Model.Icons.IconParent;
+import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
 
@@ -135,17 +140,30 @@ public class Tab extends JPanel { // drop target
 
 	public void createAndAddDnDLabel(String labelText, Point p) {
 		JPanel label = LeftPanel.getNewLabelFromText(labelText);
-		DragAndDropLabel dndLabel = null;
+		DragAndDropLabel lbl = null;
 		Component[] components = label.getComponents();
 		for (int i = 0; i < components.length; i++) {
 			if (components[i] instanceof DragAndDropLabel) {
-				dndLabel = (DragAndDropLabel) components[i];
+				lbl = (DragAndDropLabel) components[i];
 			}
 			if (components[i] instanceof JButton) {
 				components[i].addMouseListener(new ButtonListener(this));
 			}
 		}
+		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
+
+		dndLabel.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2) {
+                    AddValueModal modal = AddValueModal.getInstance();
+                    modal.setIcon(dndLabel);
+                    modal.setInputText(dndLabel.getIconParent().getValue());
+                    modal.setVisible(true);
+                }
+              }
+        });
+
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);
 		dndLabel.setVisible(true);
@@ -183,17 +201,9 @@ public class Tab extends JPanel { // drop target
 
 	public void addDragAndDropLabel(DragAndDropLabel l) {
 		myLabels.add(l);
+		Graph.getInstance().setDnDLabels(myLabels);
 		revalidate();
 		repaint();
-	}
-
-	class Edge {
-		JButton src, dest;
-
-		public Edge(JButton iButton, JButton jButton) {
-			src = iButton;
-			dest = jButton;
-		}
 	}
 
 	public void addCurrButton(JButton currButton) {
@@ -219,7 +229,8 @@ public class Tab extends JPanel { // drop target
 				this.prevButton = null;
 				this.currButton = null;
 			}
-
+			Graph.getInstance().setDnDLabels(myLabels);
+			Graph.getInstance().setEdges(edges);
 			repaint();
 		} else {
 			this.prevButton = currButton;
