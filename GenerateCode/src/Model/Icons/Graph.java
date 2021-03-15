@@ -1,10 +1,11 @@
 package Model.Icons;
 
-import java.util.List;
-
 import View.DragAndDrop.DragAndDropLabel;
 
+import java.util.List;
+
 public class Graph {
+    private static final long serialVersionUID = 1L;
     private static Graph instance;
     List<Edge> edges;
     List<DragAndDropLabel> nodes;

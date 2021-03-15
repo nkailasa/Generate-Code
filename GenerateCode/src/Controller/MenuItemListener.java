@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Icons.Graph;
 import View.Panels.RightPanel.Canvas;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class MenuItemListener implements ActionListener {
 		this.frame = frame;
 	}
 
+
 	private void saveIcons() throws IOException {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Choose where to save your file");
@@ -22,21 +24,23 @@ public class MenuItemListener implements ActionListener {
 		if (selection == JFileChooser.APPROVE_OPTION) {
 			File chosenFile = fileChooser.getSelectedFile();
 			FileOutputStream file = new FileOutputStream(chosenFile);
-			ObjectOutput output = new ObjectOutputStream(file);
-			output.writeObject("Enter the array to save here!!!");
+			ObjectOutputStream output = new ObjectOutputStream(file);
+			output.writeObject(Graph.getInstance());
 		}
-
-
 	}
 
-	private void loadIcons() throws IOException {
+	private void loadIcons() throws IOException, ClassNotFoundException {
+		Graph graphInstance = Graph.getInstance();
 		JFileChooser fileChooser = new JFileChooser();
 		int selection = fileChooser.showOpenDialog(frame);
 		if (selection == JFileChooser.APPROVE_OPTION) {
 			File chosenFile = fileChooser.getSelectedFile();
 			FileInputStream file = new FileInputStream(chosenFile);
 			ObjectInputStream input = new ObjectInputStream(file);
-			// set your array here equal to the array you are loading
+
+			Graph graphObject = (Graph) input.readObject();
+			graphInstance.setDnDLabels(graphObject.getDnDLabels());
+			graphInstance.setEdges(graphObject.getEdges());
 		}
 
 	}
@@ -65,7 +69,7 @@ public class MenuItemListener implements ActionListener {
 				default:
 					break;
 			}
-		} catch (IOException ioException) {
+		} catch (IOException | ClassNotFoundException ioException) {
 			ioException.printStackTrace();
 		}
 	}
