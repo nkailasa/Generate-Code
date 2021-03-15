@@ -13,13 +13,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import Controller.MenuItemListener;
-import Controller.MyDropTargetListener;
 import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
 import View.Panels.RightPanel.Canvas;
-import View.Panels.RightPanel.Tab;
 
 public class App extends JFrame implements DragGestureListener {
 
@@ -105,5 +103,9 @@ public class App extends JFrame implements DragGestureListener {
 		event.startDrag(cursor, new TransferableShapeInfo(label));
 
 	}
-
+	public static void main(String[] args) {
+		new App();
+	}
 }
+	
+
