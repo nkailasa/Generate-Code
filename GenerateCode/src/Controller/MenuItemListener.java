@@ -34,6 +34,7 @@ public class MenuItemListener implements ActionListener {
 			FileOutputStream file = new FileOutputStream(chosenFile);
 			ObjectOutputStream output = new ObjectOutputStream(file);
 			output.writeObject(graphInstance);
+			output.close();
 		}
 	}
 
@@ -54,6 +55,7 @@ public class MenuItemListener implements ActionListener {
 
 			Canvas.getInstance().tab.revalidate();
 			Canvas.getInstance().tab.repaint();
+			input.close();
 		}
 
 	}

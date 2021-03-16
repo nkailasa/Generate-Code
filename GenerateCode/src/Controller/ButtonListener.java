@@ -19,7 +19,6 @@ public class ButtonListener implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		currButton = (JButton) e.getComponent();
 		dropPanel.addCurrButton(currButton);
 	}

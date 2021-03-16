@@ -15,7 +15,6 @@ public class Graph implements Serializable {
 
     public static Graph getInstance() {
         if (instance == null) {
-            System.out.println("Creating new instance");
             instance = new Graph();
         }
         return instance;
@@ -27,12 +26,10 @@ public class Graph implements Serializable {
 
     public void setEdges(List<Edge> edges){
         this.edges = edges;
-        System.out.println(this.edges);
     }
 
     public void setDnDLabels(List<DragAndDropLabel> nodes){
         this.nodes = nodes;
-        System.out.println(this.nodes);
     }
 
     public List<DragAndDropLabel> getDnDLabels(){

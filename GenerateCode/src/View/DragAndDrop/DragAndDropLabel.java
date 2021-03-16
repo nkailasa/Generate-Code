@@ -14,11 +14,6 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import Model.Icons.IconParent;
-import java.awt.geom.Rectangle2D;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Point;
 
 public class DragAndDropLabel extends JLabel {
 

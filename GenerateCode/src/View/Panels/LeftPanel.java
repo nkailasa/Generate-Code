@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -20,33 +21,22 @@ import Model.Icons.Hyphen;
 import Model.Icons.LParen;
 import Model.Icons.LessThan;
 import Model.Icons.RParen;
+import Model.UserInterfaceItems.*;
 import View.DragAndDrop.DragAndDropLabel;
 
 public class LeftPanel extends JPanel { // drag source
 	private static final long serialVersionUID = -1827724962934234619L;
-	DragAndDropLabel lparen;
-	DragAndDropLabel rparen;
-	DragAndDropLabel lessThan;
-	DragAndDropLabel greaterThan;
-	DragAndDropLabel hyphen;
-	DragAndDropLabel pipe;
-	DragAndDropLabel at;
+	private ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
 
 	public static JPanel getNewLabelFromText(String text) {
 		DragAndDropLabel newLabel = null;
 		JPanel p = new JPanel();
-		JButton input1 = new JButton();
-		input1.setPreferredSize(new Dimension(10, 10));
-		JButton input2 = new JButton();
-		input2.setPreferredSize(new Dimension(10, 10));
-		JButton output1 = new JButton();
-		output1.setPreferredSize(new Dimension(10, 10));
-		JButton output2 = new JButton();
-		output2.setPreferredSize(new Dimension(10, 10));
-		JButton inputBar = new JButton();
-		inputBar.setPreferredSize(new Dimension(10, 20));
-		JButton outputBar = new JButton();
-		outputBar.setPreferredSize(new Dimension(10, 20));
+		JButton input1 = new IOButton();
+		JButton input2 = new IOButton();
+		JButton output1 = new IOButton();
+		JButton output2 = new IOButton();
+		JButton inputBar = new IOBar();
+		JButton outputBar = new IOBar();
 
 		switch (text) {
 		case " ( .":
@@ -142,7 +132,6 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(outputBar);			
 			break;
 		default:
-			System.out.println("DEFAULT!");
 		}
 
 		return p;
@@ -152,43 +141,19 @@ public class LeftPanel extends JPanel { // drag source
 		super(new GridLayout(7, 0, 5, 5));
 		setBorder(BorderFactory.createLineBorder(Color.gray));
 
-		DragSource ds;
+		DragSource ds = new DragSource();
+		labels.add(new DragAndDropLabel(new LParen()));
+		labels.add(new DragAndDropLabel(new RParen()));
+		labels.add(new DragAndDropLabel(new LessThan()));
+		labels.add(new DragAndDropLabel(new GreaterThan()));
+		labels.add(new DragAndDropLabel(new Hyphen()));
+		labels.add(new DragAndDropLabel(new AtSymbol()));
+		labels.add(new DragAndDropLabel(new DoublePipe()));
+		for(DragAndDropLabel label : labels){
+			ds.createDefaultDragGestureRecognizer(label, DnDConstants.ACTION_COPY, dragGestureListener);
+			this.add(label);
+		}
 
-		ds = new DragSource();
-		this.lparen = new DragAndDropLabel(new LParen());
-		ds.createDefaultDragGestureRecognizer(this.lparen, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.rparen = new DragAndDropLabel(new RParen());
-		ds.createDefaultDragGestureRecognizer(this.rparen, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.lessThan = new DragAndDropLabel(new LessThan());
-		ds.createDefaultDragGestureRecognizer(this.lessThan, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.greaterThan = new DragAndDropLabel(new GreaterThan());
-		ds.createDefaultDragGestureRecognizer(this.greaterThan, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.hyphen = new DragAndDropLabel(new Hyphen());
-		ds.createDefaultDragGestureRecognizer(this.hyphen, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.at = new DragAndDropLabel(new AtSymbol());
-		ds.createDefaultDragGestureRecognizer(this.at, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		ds = new DragSource();
-		this.pipe = new DragAndDropLabel(new DoublePipe());
-		ds.createDefaultDragGestureRecognizer(this.pipe, DnDConstants.ACTION_COPY, dragGestureListener);
-
-		this.add(lparen);
-		this.add(rparen);
-		this.add(lessThan);
-		this.add(greaterThan);
-		this.add(hyphen);
-		this.add(at);
-		this.add(pipe);
 
 	}
 

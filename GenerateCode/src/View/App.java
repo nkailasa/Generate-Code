@@ -41,31 +41,16 @@ public class App extends JFrame implements DragGestureListener {
 	}
 
 	private void initializeMenu() {
-		JMenuBar mb;
-		JMenu menu;
-		JMenuItem load, save, newSpace, compile;
-
-		menu = new JMenu("Menu");
-		mb = new JMenuBar();
-
-		// create menu items
-		load = new JMenuItem("Load");
-		save = new JMenuItem("Save");
-		newSpace = new JMenuItem("New Tab");
-		compile = new JMenuItem("Compile");
-
-		menu.add(save);
-		menu.add(load);
-		menu.add(newSpace);
-		menu.add(compile);
-
+		JMenuBar mb = new JMenuBar();
+		JMenu menu = new JMenu("Menu");
 		MenuItemListener menuListener = new MenuItemListener();
 		menuListener.setReference(this);
-
-		save.addActionListener(menuListener);
-		load.addActionListener(menuListener);
-		newSpace.addActionListener(menuListener);
-		compile.addActionListener(menuListener);
+		String[] menuItemNames = {"Load", "Save", "New Tab", "Compile"};
+		for(String menuItemName : menuItemNames){
+			JMenuItem menuItem = new JMenuItem(menuItemName);
+			menuItem.addActionListener(menuListener);
+			menu.add(menuItem);
+		}
 
 		mb.add(menu);
 
@@ -74,7 +59,6 @@ public class App extends JFrame implements DragGestureListener {
 		AddValueModal.getInstance(this);
 		CompileModal.getInstance(this);
 		this.add(mb, BorderLayout.NORTH);
-		// this.add(mb, BorderLayout.NORTH);
 
 	}
 

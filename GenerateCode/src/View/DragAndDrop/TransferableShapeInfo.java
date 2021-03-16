@@ -9,16 +9,10 @@ public class TransferableShapeInfo implements Transferable {
     protected static DataFlavor CustomFlavour = new DataFlavor(DragAndDropLabel.class, "A DragAndDropLabel object");
     protected static DataFlavor[] supportedFlavors = { CustomFlavour, DataFlavor.stringFlavor };
 
-    private String iconName;
     private DragAndDropLabel myLabel;
 
     public TransferableShapeInfo(DragAndDropLabel label) {
         this.myLabel = label;
-        this.iconName = label.getIconParent().getText();
-    }
-
-    public TransferableShapeInfo(String text) {
-        this.iconName = text;
     }
 
     @Override

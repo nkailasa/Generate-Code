@@ -29,7 +29,6 @@ public class Tab extends JPanel { // drop target
 
 	@Override
 	public void paintComponent(Graphics graphics) {
-//		System.out.println("Painting graphics");
 		super.paintComponent(graphics);
 
 		for (DragAndDropLabel myLabel : myLabels) { // draw rest components
@@ -74,10 +73,6 @@ public class Tab extends JPanel { // drop target
 		Graphics2D g = (Graphics2D) graphics;
 		g.setPaint(Color.BLUE);
 		for (Edge e : edges) {
-			int ARR_SIZE = 10;
-			int len = e.dest.getLocation().y;
-			System.out.println(e.src.getLocation());
-			System.out.println(e.dest.getLocation());
 			g.drawLine(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x,
 					e.dest.getLocation().y);
 			double[] arrow = arrHead(e.src.getLocation().x, e.src.getLocation().y,
@@ -210,8 +205,6 @@ public class Tab extends JPanel { // drop target
 				DragAndDropLabel prevLabel = (DragAndDropLabel) this.prevButton.getNextFocusableComponent();
 				IconParent currIconParent = currLabel.getIconParent();
 				IconParent prevIconParent = prevLabel.getIconParent();
-				System.out.println(currIconParent.isInputSpaceAvailable());
-				System.out.println(prevIconParent.isOutputSpaceAvailable());
 				if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
 					currIconParent.addInput(prevIconParent);
 					prevIconParent.addOutput(currIconParent);

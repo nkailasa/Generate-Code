@@ -35,7 +35,6 @@ public class Canvas extends JTabbedPane {
     }
 
     public void addNewTab() {
-        // System.out.println("Adding new Tab");
 
         tab = new Tab();
         new MyDropTargetListener(tab);
