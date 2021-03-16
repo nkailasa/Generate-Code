@@ -5,6 +5,6 @@ public class AtSymbol extends IconParent {
     public static final String labelText = "  @  ";
 
     public AtSymbol() {
-        super(1, 2, labelText);
+        super(2, 2, labelText);
     }
 }
