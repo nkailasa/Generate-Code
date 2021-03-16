@@ -1,8 +1,10 @@
 package View.Panels;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import Model.Icons.*;
+import View.DragAndDrop.DragAndDropLabel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;

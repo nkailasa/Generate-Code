@@ -59,11 +59,13 @@ public class App extends JFrame implements DragGestureListener {
 		menu.add(newSpace);
 		menu.add(compile);
 
-		MenuItemListener menulistener = new MenuItemListener();
-		save.addActionListener(menulistener);
-		load.addActionListener(menulistener);
-		newSpace.addActionListener(menulistener);
-		compile.addActionListener(menulistener);
+		MenuItemListener menuListener = new MenuItemListener();
+		menuListener.setReference(this);
+
+		save.addActionListener(menuListener);
+		load.addActionListener(menuListener);
+		newSpace.addActionListener(menuListener);
+		compile.addActionListener(menuListener);
 
 		mb.add(menu);
 
@@ -108,5 +110,5 @@ public class App extends JFrame implements DragGestureListener {
 		new App();
 	}
 }
-	
+
 

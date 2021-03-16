@@ -1,20 +1,5 @@
 package View.Panels.RightPanel;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.Line2D;
-import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
 import Controller.ButtonListener;
 import Model.Icons.Edge;
 import Model.Icons.Graph;
@@ -23,11 +8,19 @@ import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
+
 public class Tab extends JPanel { // drop target
 	private static final long serialVersionUID = 5237869471969999584L;
 	JButton prevButton, currButton;
-	ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
-	ArrayList<Edge> edges = new ArrayList<Edge>();
+	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
+	public ArrayList<Edge> edges = new ArrayList<Edge>();
+
 
 	public Tab() {
 		super();
@@ -82,13 +75,13 @@ public class Tab extends JPanel { // drop target
 		g.setPaint(Color.BLUE);
 		for (Edge e : edges) {
 			int ARR_SIZE = 10;
-			int len = (int) e.dest.getLocation().y;
+			int len = e.dest.getLocation().y;
 			System.out.println(e.src.getLocation());
 			System.out.println(e.dest.getLocation());
-			g.drawLine((int) e.src.getLocation().x, (int) e.src.getLocation().y, (int) e.dest.getLocation().x,
-					(int) e.dest.getLocation().y);
-			double[] arrow = arrHead((int) e.src.getLocation().x, (int) e.src.getLocation().y,
-					(int) e.dest.getLocation().x, (int) e.dest.getLocation().y);
+			g.drawLine(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x,
+					e.dest.getLocation().y);
+			double[] arrow = arrHead(e.src.getLocation().x, e.src.getLocation().y,
+					e.dest.getLocation().x, e.dest.getLocation().y);
 			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[0], arrow[1]));
 			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[2], arrow[3]));
 		}
@@ -125,7 +118,7 @@ public class Tab extends JPanel { // drop target
 			ax2 = x1 + a * Math.cos(phi);
 		else
 			ax2 = x1 - a * Math.cos(phi);
-		double arrHead[] = new double[4];
+		double[] arrHead = new double[4];
 		arrHead[0] = ax1;
 		arrHead[1] = ay1;
 		arrHead[2] = ax2;
@@ -246,4 +239,5 @@ public class Tab extends JPanel { // drop target
 	public ArrayList<DragAndDropLabel> getLabels(){
 		return this.myLabels;
 	}
+
 }
