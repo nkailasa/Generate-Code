@@ -1,21 +1,19 @@
 package View.DragAndDrop;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serial;
 
 
 public class AddValueModal extends JDialog{
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private static AddValueModal instance;
     private DragAndDropLabel selectedIcon;
-    private JTextField userInputField;
+    private final JTextField userInputField;
 
     private AddValueModal(JFrame frame){
         super(frame);

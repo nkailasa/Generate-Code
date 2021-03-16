@@ -1,31 +1,25 @@
 package View.DragAndDrop;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Point;
-import java.awt.geom.Rectangle2D;
+import Model.Icons.IconParent;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
-
-import Model.Icons.IconParent;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class DragAndDropLabel extends JLabel {
 
-    private static final long serialVersionUID = 4524289488932470569L;
-    private IconParent iconParent;
+    private static final long serialVersionUID = 1L;
+    private final IconParent iconParent;
     double x;
     double y;
     Rectangle2D rect = new Rectangle2D.Double(60, 90, 120, 50);
     protected JButton[] inputButtons = new JButton[2];
-    protected JButton[] outputButtons= new JButton[2];
-    
-    
+    protected JButton[] outputButtons = new JButton[2];
+
+
     public DragAndDropLabel(IconParent iconParent) {
         super(iconParent.getText(), SwingConstants.CENTER);
         setFont(new Font("Arial", Font.PLAIN, 30));

@@ -16,7 +16,7 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 public class Tab extends JPanel { // drop target
-	private static final long serialVersionUID = 5237869471969999584L;
+	private static final long serialVersionUID = 1L;
 	JButton prevButton, currButton;
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 	public ArrayList<Edge> edges = new ArrayList<Edge>();

@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Model.Icons.Edge;
 import Model.Icons.Graph;
 import View.CompileModal;
@@ -13,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 
-
 public class MenuItemListener implements ActionListener {
 
 	private JFrame frame;
@@ -22,7 +20,7 @@ public class MenuItemListener implements ActionListener {
 		this.frame = frame;
 	}
 
-
+	// Save the object to a file
 	private void saveIcons() throws IOException {
 		Graph graphInstance = Graph.getInstance();
 
@@ -48,8 +46,10 @@ public class MenuItemListener implements ActionListener {
 
 			Graph graphObject = (Graph) input.readObject();
 
+			// Remove existing icons
 			Canvas.getInstance().tab.removeAll();
 
+			// Restore the icons and connections
 			Canvas.getInstance().tab.myLabels = (ArrayList<DragAndDropLabel>) graphObject.getDnDLabels();
 			Canvas.getInstance().tab.edges = (ArrayList<Edge>) graphObject.getEdges();
 

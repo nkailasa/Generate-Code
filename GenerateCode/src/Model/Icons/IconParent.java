@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class IconParent implements java.io.Serializable {
-	private static final long serialVersionUID = -1493725299136428484L;
+	private static final long serialVersionUID = 1L;
 	protected int inputLimit;
 	protected int outputLimit;
 	protected List<IconParent> inputs;
 	protected List<IconParent> outputs;
 	// protected IconParent[] inputs;
-    // protected IconParent[] outputs;
+	// protected IconParent[] outputs;
 	protected String text;
-    protected String value;
+	protected String value;
 
 	public IconParent(int inputLimit, int outputLimit, String text) {
 		this.inputLimit = inputLimit;
@@ -20,7 +20,7 @@ public abstract class IconParent implements java.io.Serializable {
 		this.inputs = new ArrayList<>();
 		this.outputs = new ArrayList<>();
 		this.text = text;
-        this.value = "";
+		this.value = "";
 	}
 
 	public void addInput(IconParent inputElement) {

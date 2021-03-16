@@ -1,6 +1,8 @@
 package View.Panels;
 
 import Model.Icons.*;
+import Model.UserInterfaceItems.IOBar;
+import Model.UserInterfaceItems.IOButton;
 import View.DragAndDrop.DragAndDropLabel;
 
 import javax.swing.*;
@@ -10,23 +12,9 @@ import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
-import Model.Icons.AtSymbol;
-import Model.Icons.DoublePipe;
-import Model.Icons.GreaterThan;
-import Model.Icons.Hyphen;
-import Model.Icons.LParen;
-import Model.Icons.LessThan;
-import Model.Icons.RParen;
-import Model.UserInterfaceItems.*;
-import View.DragAndDrop.DragAndDropLabel;
-
 public class LeftPanel extends JPanel { // drag source
-	private static final long serialVersionUID = -1827724962934234619L;
-	private ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
+	private static final long serialVersionUID = 1L;
+	private final ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
 
 	public static JPanel getNewLabelFromText(String text) {
 		DragAndDropLabel newLabel = null;

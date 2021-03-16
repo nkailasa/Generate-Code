@@ -1,7 +1,7 @@
 package Model.Icons;
 
 public class Hyphen extends IconParent {
-    private static final long serialVersionUID = -7098500218681681192L;
+    private static final long serialVersionUID = 1L;
     public static final String labelText = ".  --  .";
 
     public Hyphen() {
