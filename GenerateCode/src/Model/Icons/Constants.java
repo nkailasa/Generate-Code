@@ -1,9 +1,8 @@
-import javax.print.DocFlavor.STRING;
+package Model.Icons;
 
 public final class Constants {
 
     private Constants() {
-            // restrict instantiation
     }
 
     public static final String AT = "@";

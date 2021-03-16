@@ -15,7 +15,7 @@ public class MyDropTargetListener extends DropTargetAdapter {
 
     public MyDropTargetListener(Tab panel) {
         dropPanel = panel;
-        DropTarget dropTarget = new DropTarget(panel, DnDConstants.ACTION_COPY, this, true, null);
+        new DropTarget(panel, DnDConstants.ACTION_COPY, this, true, null);
 
     }
 
