@@ -9,7 +9,7 @@ public class TransferableShapeInfo implements Transferable {
     protected static DataFlavor CustomFlavour = new DataFlavor(DragAndDropLabel.class, "A DragAndDropLabel object");
     protected static DataFlavor[] supportedFlavors = { CustomFlavour, DataFlavor.stringFlavor };
 
-    private DragAndDropLabel myLabel;
+    private final DragAndDropLabel myLabel;
 
     public TransferableShapeInfo(DragAndDropLabel label) {
         this.myLabel = label;
@@ -24,10 +24,7 @@ public class TransferableShapeInfo implements Transferable {
     public boolean isDataFlavorSupported(DataFlavor flavor) {
         if (flavor.equals(CustomFlavour)) {
             return true;
-        } else if(flavor.equals(DataFlavor.stringFlavor)){
-            return true;
-        }
-        return false;
+        } else return flavor.equals(DataFlavor.stringFlavor);
     }
 
     @Override

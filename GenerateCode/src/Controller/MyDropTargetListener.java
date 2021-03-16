@@ -1,6 +1,8 @@
 package Controller;
 
-import java.awt.Point;
+import View.Panels.RightPanel.Tab;
+
+import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
@@ -8,15 +10,12 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 
-import View.Panels.RightPanel.Tab;
-
 public class MyDropTargetListener extends DropTargetAdapter {
-    private final DropTarget dropTarget;
     private final Tab dropPanel;
 
     public MyDropTargetListener(Tab panel) {
         dropPanel = panel;
-        dropTarget = new DropTarget(panel, DnDConstants.ACTION_COPY, this, true, null);
+        DropTarget dropTarget = new DropTarget(panel, DnDConstants.ACTION_COPY, this, true, null);
 
     }
 

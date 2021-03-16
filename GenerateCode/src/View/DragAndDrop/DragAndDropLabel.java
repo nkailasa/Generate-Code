@@ -7,15 +7,15 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
+import java.io.Serial;
 
 public class DragAndDropLabel extends JLabel {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final IconParent iconParent;
     double x;
     double y;
-    Rectangle2D rect = new Rectangle2D.Double(60, 90, 120, 50);
     protected JButton[] inputButtons = new JButton[2];
     protected JButton[] outputButtons = new JButton[2];
 
@@ -33,11 +33,6 @@ public class DragAndDropLabel extends JLabel {
         setBorder(new CompoundBorder(border, margin));
 
         this.iconParent = iconParent;
-    }
-
-    public void setCoordinates(double x, double y) {
-        this.x = x;
-        this.y = y;
     }
 
     public void setCoordinates(Point point) {
@@ -71,10 +66,6 @@ public class DragAndDropLabel extends JLabel {
 
     public IconParent getIconParent() {
         return this.iconParent;
-    }
-
-    public Rectangle2D getRect() {
-        return rect;
     }
 
 }

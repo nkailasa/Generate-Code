@@ -13,9 +13,11 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
+import java.io.Serial;
 import java.util.ArrayList;
 
 public class Tab extends JPanel { // drop target
+	@Serial
 	private static final long serialVersionUID = 1L;
 	JButton prevButton, currButton;
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
@@ -187,13 +189,6 @@ public class Tab extends JPanel { // drop target
 		repaint();
 	}
 
-	public void addDragAndDropLabel(DragAndDropLabel l) {
-		myLabels.add(l);
-		Graph.getInstance().setDnDLabels(myLabels);
-		revalidate();
-		repaint();
-	}
-
 	public void addCurrButton(JButton currButton) {
 
 		if (this.prevButton != null) {
@@ -221,11 +216,6 @@ public class Tab extends JPanel { // drop target
 		} else {
 			this.prevButton = currButton;
 		}
-
-	}
-
-	public void addPrevButton(JButton prevButton) {
-		this.prevButton = prevButton;
 
 	}
 

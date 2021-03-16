@@ -34,19 +34,18 @@ public class AddValueModal extends JDialog{
         this.setSize(300, 200);
     }
 
-    public static AddValueModal getInstance(JFrame frame){
-        if(instance == null){
+    public static void getInstance(JFrame frame) {
+        if (instance == null) {
             instance = new AddValueModal(frame);
         }
+    }
+
+    public static AddValueModal getInstance() {
         return instance;
     }
 
-    public static AddValueModal getInstance(){
-        return instance;
-    }
 
-
-    public void setIcon(DragAndDropLabel icon){
+    public void setIcon(DragAndDropLabel icon) {
         this.selectedIcon = icon;
     }
 

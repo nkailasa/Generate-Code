@@ -10,14 +10,36 @@ import java.awt.*;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
+import java.io.Serial;
 import java.util.ArrayList;
 
 public class LeftPanel extends JPanel { // drag source
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private final ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
+
+	public LeftPanel(DragGestureListener dragGestureListener) {
+		super(new GridLayout(7, 0, 5, 5));
+		setBorder(BorderFactory.createLineBorder(Color.gray));
+
+		DragSource ds = new DragSource();
+		ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
+		labels.add(new DragAndDropLabel(new LParen()));
+		labels.add(new DragAndDropLabel(new RParen()));
+		labels.add(new DragAndDropLabel(new LessThan()));
+		labels.add(new DragAndDropLabel(new GreaterThan()));
+		labels.add(new DragAndDropLabel(new Hyphen()));
+		labels.add(new DragAndDropLabel(new AtSymbol()));
+		labels.add(new DragAndDropLabel(new DoublePipe()));
+		for (DragAndDropLabel label : labels) {
+			ds.createDefaultDragGestureRecognizer(label, DnDConstants.ACTION_COPY, dragGestureListener);
+			this.add(label);
+		}
+
+
+	}
 
 	public static JPanel getNewLabelFromText(String text) {
-		DragAndDropLabel newLabel = null;
+		DragAndDropLabel newLabel;
 		JPanel p = new JPanel();
 		JButton input1 = new IOButton();
 		JButton input2 = new IOButton();
@@ -27,17 +49,17 @@ public class LeftPanel extends JPanel { // drag source
 		JButton outputBar = new IOBar();
 
 		switch (text) {
-		case " ( .":
-			newLabel = new DragAndDropLabel(new LParen());
-			output1.setName("LParenOutput1");
-			output1.setNextFocusableComponent(newLabel);
-			newLabel.setOutputButton(0, output1);
-			p.add(newLabel);
-			p.add(output1);
-			break;
-		case ". ) ":
-			newLabel = new DragAndDropLabel(new RParen());
-			input1.setName("RParenInput1");
+			case " ( .":
+				newLabel = new DragAndDropLabel(new LParen());
+				output1.setName("LParenOutput1");
+				output1.setNextFocusableComponent(newLabel);
+				newLabel.setOutputButton(0, output1);
+				p.add(newLabel);
+				p.add(output1);
+				break;
+			case ". ) ":
+				newLabel = new DragAndDropLabel(new RParen());
+				input1.setName("RParenInput1");
 			input1.setNextFocusableComponent(newLabel);
 			newLabel.setInputButton(0, input1);
 			p.add(input1);
@@ -107,42 +129,22 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(output1);
 			p.add(output2);
 			break;
-		case "*  |  |  *":
-			newLabel = new DragAndDropLabel(new DoublePipe());
-			inputBar.setName("DoublePipeInput");
-			outputBar.setName("DoublePipeOutput");
-			inputBar.setNextFocusableComponent(newLabel);
-			outputBar.setNextFocusableComponent(newLabel);
-			newLabel.setInputButton(0, inputBar);
-			newLabel.setOutputButton(0, outputBar);
-			p.add(inputBar);
-			p.add(newLabel);
-			p.add(outputBar);			
-			break;
-		default:
+			case "*  |  |  *":
+				newLabel = new DragAndDropLabel(new DoublePipe());
+				inputBar.setName("DoublePipeInput");
+				outputBar.setName("DoublePipeOutput");
+				inputBar.setNextFocusableComponent(newLabel);
+				outputBar.setNextFocusableComponent(newLabel);
+				newLabel.setInputButton(0, inputBar);
+				newLabel.setOutputButton(0, outputBar);
+				p.add(inputBar);
+				p.add(newLabel);
+				p.add(outputBar);
+				break;
+			default:
 		}
 
 		return p;
-	}
-
-	public LeftPanel(DragGestureListener dragGestureListener) {
-		super(new GridLayout(7, 0, 5, 5));
-		setBorder(BorderFactory.createLineBorder(Color.gray));
-
-		DragSource ds = new DragSource();
-		labels.add(new DragAndDropLabel(new LParen()));
-		labels.add(new DragAndDropLabel(new RParen()));
-		labels.add(new DragAndDropLabel(new LessThan()));
-		labels.add(new DragAndDropLabel(new GreaterThan()));
-		labels.add(new DragAndDropLabel(new Hyphen()));
-		labels.add(new DragAndDropLabel(new AtSymbol()));
-		labels.add(new DragAndDropLabel(new DoublePipe()));
-		for(DragAndDropLabel label : labels){
-			ds.createDefaultDragGestureRecognizer(label, DnDConstants.ACTION_COPY, dragGestureListener);
-			this.add(label);
-		}
-
-
 	}
 
 }
