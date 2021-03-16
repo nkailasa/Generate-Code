@@ -49,7 +49,7 @@ public class LeftPanel extends JPanel { // drag source
 		JButton outputBar = new IOBar();
 
 		switch (text) {
-			case " ( .":
+			case Constants.LPAREN:
 				newLabel = new DragAndDropLabel(new LParen());
 				output1.setName("LParenOutput1");
 				output1.setNextFocusableComponent(newLabel);
@@ -57,7 +57,7 @@ public class LeftPanel extends JPanel { // drag source
 				p.add(newLabel);
 				p.add(output1);
 				break;
-			case ". ) ":
+			case Constants.RPAREN:
 				newLabel = new DragAndDropLabel(new RParen());
 				input1.setName("RParenInput1");
 			input1.setNextFocusableComponent(newLabel);
@@ -65,7 +65,7 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(input1);
 			p.add(newLabel);
 			break;
-		case ".  <  :":
+		case Constants.LESS_THAN:
 			newLabel = new DragAndDropLabel(new LessThan());
 			output1.setName("LessThanOutput2");
 			output2.setName("LessThanOutput1");
@@ -81,7 +81,7 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(output1);
 			p.add(output2);
 			break;
-		case ":  >  .":
+		case Constants.GREATER_THAN:
 			newLabel = new DragAndDropLabel(new GreaterThan());
 			input2.setName("GreaterThanInput2");
 			output1.setName("GreaterThanOutput1");
@@ -97,7 +97,7 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(newLabel);
 			p.add(output1);
 			break;
-		case ".  --  .":
+		case Constants.HYPEN:
 			newLabel = new DragAndDropLabel(new Hyphen());
 			output1.setName("HypenOutput1");
 			input1.setName("HypenInput1");
@@ -109,7 +109,7 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(newLabel);
 			p.add(output1);
 			break;
-		case "  @  ":
+		case Constants.AT:
 			newLabel = new DragAndDropLabel(new AtSymbol());
 			output1.setName("AtOutput1");
 			input1.setName("AtInput1");
@@ -129,7 +129,7 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(output1);
 			p.add(output2);
 			break;
-			case "*  |  |  *":
+			case Constants.PIPE:
 				newLabel = new DragAndDropLabel(new DoublePipe());
 				inputBar.setName("DoublePipeInput");
 				outputBar.setName("DoublePipeOutput");

@@ -5,10 +5,9 @@ import java.io.Serial;
 public class DoublePipe extends IconParent {
     @Serial
     private static final long serialVersionUID = 1L;
-    public static final String labelText = "*  |  |  *";
 
     public DoublePipe() {
-        super(1000, 1000, labelText);
+        super(1000, 1000, Constants.PIPE);
     }
     
     @Override
