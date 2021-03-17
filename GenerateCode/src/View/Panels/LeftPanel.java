@@ -53,7 +53,7 @@ public class LeftPanel extends JPanel { // drag source
 	 */
 	public static JPanel getNewLabelFromText(String text) {
 		DragAndDropLabel newLabel;
-		JPanel p = new JPanel();
+		JPanel panel = new JPanel();
 		JButton input1 = new IOButton();
 		JButton input2 = new IOButton();
 		JButton output1 = new IOButton();
@@ -67,16 +67,16 @@ public class LeftPanel extends JPanel { // drag source
 			output1.setName("LParenOutput1");
 			output1.setNextFocusableComponent(newLabel);
 			newLabel.setOutputButton(0, output1);
-			p.add(newLabel);
-			p.add(output1);
+			panel.add(newLabel);
+			panel.add(output1);
 			break;
 		case Constants.RPAREN:
 			newLabel = new DragAndDropLabel(new RParen());
 			input1.setName("RParenInput1");
 			input1.setNextFocusableComponent(newLabel);
 			newLabel.setInputButton(0, input1);
-			p.add(input1);
-			p.add(newLabel);
+			panel.add(input1);
+			panel.add(newLabel);
 			break;
 		case Constants.LESS_THAN:
 			newLabel = new DragAndDropLabel(new LessThan());
@@ -89,10 +89,10 @@ public class LeftPanel extends JPanel { // drag source
 			input1.setNextFocusableComponent(newLabel);
 			output1.setNextFocusableComponent(newLabel);
 			output2.setNextFocusableComponent(newLabel);
-			p.add(input1);
-			p.add(newLabel);
-			p.add(output1);
-			p.add(output2);
+			panel.add(input1);
+			panel.add(newLabel);
+			panel.add(output1);
+			panel.add(output2);
 			break;
 		case Constants.GREATER_THAN:
 			newLabel = new DragAndDropLabel(new GreaterThan());
@@ -105,10 +105,10 @@ public class LeftPanel extends JPanel { // drag source
 			input1.setNextFocusableComponent(newLabel);
 			input2.setNextFocusableComponent(newLabel);
 			output1.setNextFocusableComponent(newLabel);
-			p.add(input2);
-			p.add(input1);
-			p.add(newLabel);
-			p.add(output1);
+			panel.add(input2);
+			panel.add(input1);
+			panel.add(newLabel);
+			panel.add(output1);
 			break;
 		case Constants.HYPEN:
 			newLabel = new DragAndDropLabel(new Hyphen());
@@ -118,9 +118,9 @@ public class LeftPanel extends JPanel { // drag source
 			newLabel.setInputButton(0, input1);
 			input1.setNextFocusableComponent(newLabel);
 			output1.setNextFocusableComponent(newLabel);
-			p.add(input1);
-			p.add(newLabel);
-			p.add(output1);
+			panel.add(input1);
+			panel.add(newLabel);
+			panel.add(output1);
 			break;
 		case Constants.AT:
 			newLabel = new DragAndDropLabel(new AtSymbol());
@@ -136,11 +136,11 @@ public class LeftPanel extends JPanel { // drag source
 			input2.setNextFocusableComponent(newLabel);
 			output1.setNextFocusableComponent(newLabel);
 			output2.setNextFocusableComponent(newLabel);
-			p.add(input1);
-			p.add(input2);
-			p.add(newLabel);
-			p.add(output1);
-			p.add(output2);
+			panel.add(input1);
+			panel.add(input2);
+			panel.add(newLabel);
+			panel.add(output1);
+			panel.add(output2);
 			break;
 		case Constants.PIPE:
 			newLabel = new DragAndDropLabel(new DoublePipe());
@@ -150,15 +150,15 @@ public class LeftPanel extends JPanel { // drag source
 			outputBar.setNextFocusableComponent(newLabel);
 			newLabel.setInputButton(0, inputBar);
 			newLabel.setOutputButton(0, outputBar);
-			p.add(inputBar);
-			p.add(newLabel);
-			p.add(outputBar);
+			panel.add(inputBar);
+			panel.add(newLabel);
+			panel.add(outputBar);
 			break;
 		default:
 			break;
 		}
 
-		return p;
+		return panel;
 	}
 
 }
