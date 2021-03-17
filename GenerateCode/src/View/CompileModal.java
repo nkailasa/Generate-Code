@@ -10,6 +10,7 @@ public class CompileModal extends JDialog{
     private final JLabel compilationResultsLabel = new JLabel();
 
     public CompileModal() {
+        this.setTitle("Compilation Results");
         this.setSize(300, 200);
         add(compilationResultsLabel);
     }

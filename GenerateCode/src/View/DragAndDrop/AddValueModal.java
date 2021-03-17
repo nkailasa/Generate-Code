@@ -36,9 +36,8 @@ public class AddValueModal extends JDialog{
 
     public void setIcon(DragAndDropLabel icon) {
         this.selectedIcon = icon;
+        this.userInputField.setText(icon.getIconParent().getValue());
+        this.setTitle("Changing value for icon: " + icon.getIconParent().getText());
     }
 
-    public void setInputText(String text){
-        this.userInputField.setText(text);
-    }
 }

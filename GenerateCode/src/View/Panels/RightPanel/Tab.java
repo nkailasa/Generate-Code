@@ -148,7 +148,6 @@ public class Tab extends JPanel { // drop target
             public void mouseClicked(MouseEvent mouseEvent) {
                 if (mouseEvent.getClickCount() == 2) {
                     modal.setIcon(dndLabel);
-                    modal.setInputText(dndLabel.getIconParent().getValue());
                     modal.setVisible(true);
                 }
               }
