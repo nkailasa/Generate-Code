@@ -4,6 +4,13 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 
+/**
+ * This class helps with the draggable icon to get transferred to the right
+ * panel
+ * 
+ * @see
+ * @author Amar Yadav
+ */
 public class TransferableShapeInfo implements Transferable {
 
     protected static DataFlavor CustomFlavour = new DataFlavor(DragAndDropLabel.class, "A DragAndDropLabel object");
@@ -24,7 +31,8 @@ public class TransferableShapeInfo implements Transferable {
     public boolean isDataFlavorSupported(DataFlavor flavor) {
         if (flavor.equals(CustomFlavour)) {
             return true;
-        } else return flavor.equals(DataFlavor.stringFlavor);
+        } else
+            return flavor.equals(DataFlavor.stringFlavor);
     }
 
     @Override

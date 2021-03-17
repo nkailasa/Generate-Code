@@ -9,6 +9,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.Serial;
 
+/**
+ * This class has the structure of icons represented as labels and their input/output buttons.
+ * The co-ordinates of location and the restrictions related to the icon are also handled
+ * @author Amar Yadav
+ * @author Nevedita Kailasam
+ * @author Isaac Beale
+ * @author Rakeen Huq 
+ */
 public class DragAndDropLabel extends JLabel {
 
     @Serial

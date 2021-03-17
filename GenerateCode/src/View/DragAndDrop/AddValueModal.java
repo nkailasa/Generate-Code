@@ -6,8 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serial;
 
-
-public class AddValueModal extends JDialog{
+/**
+ * This class shows a modal to store it's value on double click of an icon.
+ * 
+ * @author Amar Yadav
+ * @author Isaac Beale
+ * @author Rakeen Huq
+ */
+public class AddValueModal extends JDialog {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -15,14 +21,14 @@ public class AddValueModal extends JDialog{
     private DragAndDropLabel selectedIcon;
     private final JTextField userInputField;
 
-    private AddValueModal(JFrame frame){
+    private AddValueModal(JFrame frame) {
         super(frame);
         setLayout(new BorderLayout());
         userInputField = new JTextField("");
         add(userInputField, BorderLayout.CENTER);
         add(new JLabel("Add a value"), BorderLayout.NORTH);
         JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener(){
+        saveButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,12 +50,11 @@ public class AddValueModal extends JDialog{
         return instance;
     }
 
-
     public void setIcon(DragAndDropLabel icon) {
         this.selectedIcon = icon;
     }
 
-    public void setInputText(String text){
+    public void setInputText(String text) {
         this.userInputField.setText(text);
     }
 }

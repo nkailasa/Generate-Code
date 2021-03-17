@@ -1,10 +1,11 @@
 package Model.Icons;
 
+/**
+ * This class has a list of constant icon names used across classes
+ * 
+ * @author Nevedita Kailasam
+ */
 public final class Constants {
-
-    private Constants() {
-    }
-
     public static final String AT = "@";
     public static final String GREATER_THAN = ":  >  .";
     public static final String LESS_THAN = ".  <  :";

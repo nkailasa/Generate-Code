@@ -12,6 +12,13 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class handles the actions of menu items from the App
+ * @author Nevedita Kailasam
+ * @author Amar Yadav
+ * @author Rakeen Huq
+ * @author Isaac Beale
+ */
 public class MenuItemListener implements ActionListener {
 
 	private JFrame frame;
@@ -20,7 +27,11 @@ public class MenuItemListener implements ActionListener {
 		this.frame = frame;
 	}
 
-	// Save the object to a file
+	/**
+	 * This method saves the current tab entries as an encrypted file
+	 * 
+	 * @author Rakeen Huq
+	 */
 	private void saveIcons() throws IOException {
 		Graph graphInstance = Graph.getInstance();
 
@@ -36,6 +47,13 @@ public class MenuItemListener implements ActionListener {
 		}
 	}
 
+	/**
+	 * This method clears the current tab and repaints it with the newly loaded file
+	 * data The file has an encrypted connection of nodes and edges that was
+	 * previously saved
+	 * 
+	 * @author Rakeen Huq
+	 */
 	private void loadIcons() throws IOException, ClassNotFoundException {
 		JFileChooser fileChooser = new JFileChooser();
 		int selection = fileChooser.showOpenDialog(frame);
@@ -45,11 +63,7 @@ public class MenuItemListener implements ActionListener {
 			ObjectInputStream input = new ObjectInputStream(file);
 
 			Graph graphObject = (Graph) input.readObject();
-
-			// Remove existing icons
 			Canvas.getInstance().tab.removeAll();
-
-			// Restore the icons and connections
 			Canvas.getInstance().tab.myLabels = (ArrayList<DragAndDropLabel>) graphObject.getDnDLabels();
 			Canvas.getInstance().tab.edges = (ArrayList<Edge>) graphObject.getEdges();
 
@@ -61,7 +75,7 @@ public class MenuItemListener implements ActionListener {
 	}
 
 	/**
-	 * Invoked when an action occurs.
+	 * Invoked when a menu item is being clicked
 	 *
 	 * @param e the event to be processed
 	 */
@@ -70,25 +84,25 @@ public class MenuItemListener implements ActionListener {
 		String action = e.getActionCommand();
 		try {
 			switch (action) {
-				case "Load":
-					loadIcons();
-					break;
-				case "Save":
-					saveIcons();
-					break;
-				case "New Tab":
-					Canvas.getInstance().addNewTab();
-					break;
-				case "Compile":
-					Compiler compiler = new Compiler();
-					Canvas canvas = Canvas.getInstance();
-					int activeTabIdx = canvas.getSelectedIndex();
-					boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
-					CompileModal.getInstance().setCompilationResults(success);
-					CompileModal.getInstance().setVisible(true);
-					break;
-				default:
-					break;
+			case "Load":
+				loadIcons();
+				break;
+			case "Save":
+				saveIcons();
+				break;
+			case "New Tab":
+				Canvas.getInstance().addNewTab();
+				break;
+			case "Compile":
+				Compiler compiler = new Compiler();
+				Canvas canvas = Canvas.getInstance();
+				int activeTabIdx = canvas.getSelectedIndex();
+				boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
+				CompileModal.getInstance().setCompilationResults(success);
+				CompileModal.getInstance().setVisible(true);
+				break;
+			default:
+				break;
 			}
 		} catch (IOException | ClassNotFoundException ioException) {
 			ioException.printStackTrace();

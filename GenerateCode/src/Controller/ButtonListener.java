@@ -7,6 +7,11 @@ import javax.swing.JButton;
 
 import View.Panels.RightPanel.Tab;
 
+/**
+ * This class listens to the input and output buttons clicked from the right panel
+ * The component associated to the click is recorded to draw the connections
+ * @author Nevedita Kailasam
+ */
 public class ButtonListener implements MouseListener {
 	JButton prevButton, currButton;
 	Tab dropPanel;

@@ -10,6 +10,13 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 
+/**
+ * This class sets the drop target-the right panel and pastes the copied
+ * draggable icon
+ * 
+ * @see
+ * @author Amar Yadav
+ */
 public class MyDropTargetListener extends DropTargetAdapter {
     private final Tab dropPanel;
 

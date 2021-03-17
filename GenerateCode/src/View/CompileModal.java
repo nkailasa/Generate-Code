@@ -3,7 +3,13 @@ package View;
 import javax.swing.*;
 import java.io.Serial;
 
-public class CompileModal extends JDialog{
+/**
+ * This modal shows the result of compilation of the current tab with a simple
+ * success/error message
+ * 
+ * @author Isaac Beale
+ */
+public class CompileModal extends JDialog {
 
     @Serial
     private static final long serialVersionUID = 1L;

@@ -13,6 +13,13 @@ import java.awt.dnd.DragSource;
 import java.io.Serial;
 import java.util.ArrayList;
 
+/**
+ * This is the container of all icons that can be dragged
+ * 
+ * @author Amar Yadav
+ * @author Nevedita Kailasam
+ * @author Isaac Beale
+ */
 public class LeftPanel extends JPanel { // drag source
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -35,9 +42,15 @@ public class LeftPanel extends JPanel { // drag source
 			this.add(label);
 		}
 
-
 	}
 
+	/**
+	 * This method creates the structure for the icon before placing it on the right
+	 * panel an icon will have specific input and output buttons, its label and
+	 * group them as a panel
+	 * 
+	 * @return p - a panel with all input and output buttons *
+	 */
 	public static JPanel getNewLabelFromText(String text) {
 		DragAndDropLabel newLabel;
 		JPanel p = new JPanel();
@@ -49,17 +62,17 @@ public class LeftPanel extends JPanel { // drag source
 		JButton outputBar = new IOBar();
 
 		switch (text) {
-			case Constants.LPAREN:
-				newLabel = new DragAndDropLabel(new LParen());
-				output1.setName("LParenOutput1");
-				output1.setNextFocusableComponent(newLabel);
-				newLabel.setOutputButton(0, output1);
-				p.add(newLabel);
-				p.add(output1);
-				break;
-			case Constants.RPAREN:
-				newLabel = new DragAndDropLabel(new RParen());
-				input1.setName("RParenInput1");
+		case Constants.LPAREN:
+			newLabel = new DragAndDropLabel(new LParen());
+			output1.setName("LParenOutput1");
+			output1.setNextFocusableComponent(newLabel);
+			newLabel.setOutputButton(0, output1);
+			p.add(newLabel);
+			p.add(output1);
+			break;
+		case Constants.RPAREN:
+			newLabel = new DragAndDropLabel(new RParen());
+			input1.setName("RParenInput1");
 			input1.setNextFocusableComponent(newLabel);
 			newLabel.setInputButton(0, input1);
 			p.add(input1);
@@ -129,19 +142,20 @@ public class LeftPanel extends JPanel { // drag source
 			p.add(output1);
 			p.add(output2);
 			break;
-			case Constants.PIPE:
-				newLabel = new DragAndDropLabel(new DoublePipe());
-				inputBar.setName("DoublePipeInput");
-				outputBar.setName("DoublePipeOutput");
-				inputBar.setNextFocusableComponent(newLabel);
-				outputBar.setNextFocusableComponent(newLabel);
-				newLabel.setInputButton(0, inputBar);
-				newLabel.setOutputButton(0, outputBar);
-				p.add(inputBar);
-				p.add(newLabel);
-				p.add(outputBar);
-				break;
-			default:
+		case Constants.PIPE:
+			newLabel = new DragAndDropLabel(new DoublePipe());
+			inputBar.setName("DoublePipeInput");
+			outputBar.setName("DoublePipeOutput");
+			inputBar.setNextFocusableComponent(newLabel);
+			outputBar.setNextFocusableComponent(newLabel);
+			newLabel.setInputButton(0, inputBar);
+			newLabel.setOutputButton(0, outputBar);
+			p.add(inputBar);
+			p.add(newLabel);
+			p.add(outputBar);
+			break;
+		default:
+			break;
 		}
 
 		return p;

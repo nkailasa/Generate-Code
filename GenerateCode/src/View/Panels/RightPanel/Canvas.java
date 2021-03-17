@@ -8,6 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * This class has a collection of tabs, handles adding and closing tabs
+ * 
+ * @author Rakeen Huq
+ * @author Amar Yadav
+ */
 public class Canvas extends JTabbedPane {
 
     private static Canvas instance;
@@ -22,7 +28,6 @@ public class Canvas extends JTabbedPane {
         return instance;
     }
 
-    // class details
     ArrayList<Tab> tabs;
 
     private Canvas() {
@@ -34,15 +39,18 @@ public class Canvas extends JTabbedPane {
         return getInstance().tabs;
     }
 
+    /**
+     * This method indexes the new tab and sets the current drop target to the newly
+     * added tab
+     */
     public void addNewTab() {
 
         tab = new Tab();
         new MyDropTargetListener(tab);
         tabs.add(tab);
-        
+
         String title = "Tab-" + tabs.size();
         this.add(title, tab);
-                
 
         int index = tabs.size() - 1;
         JPanel pnlTab = new JPanel(new GridBagLayout());
@@ -72,13 +80,13 @@ public class Canvas extends JTabbedPane {
         repaint();
     }
 
-    public static JButton getSmallCloseButton(){
+    public static JButton getSmallCloseButton() {
         JButton button = new JButton("x");
         button.setPreferredSize(new Dimension(5, 30));
         button.setBorder(BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        button.setBorderPainted(false); 
-        button.setContentAreaFilled(false); 
-        button.setFocusPainted(false); 
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
         button.setOpaque(false);
         return button;
     }
@@ -104,10 +112,6 @@ public class Canvas extends JTabbedPane {
 
                 canvas.removeTabAt(index);
                 tabs.remove(index);
-                // It would probably be worthwhile getting the source
-                // casting it back to a JButton and removing
-                // the action handler reference ;)
-
             }
 
         }

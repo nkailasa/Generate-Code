@@ -16,19 +16,36 @@ import java.awt.geom.Line2D;
 import java.io.Serial;
 import java.util.ArrayList;
 
-public class Tab extends JPanel { // drop target
+/**
+ * Tab is a part of Canvas and contains the logic to implement connections
+ * between icons in the right panel.
+ * 
+ * @author Amar Yadav
+ * @author Nevedita Kailasam
+ * @author Isaac Beale
+ * @author Rakeen Huq
+ */
+public class Tab extends JPanel {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	JButton prevButton, currButton;
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 	public ArrayList<Edge> edges = new ArrayList<Edge>();
 
-
 	public Tab() {
 		super();
 		setBorder(BorderFactory.createLineBorder(Color.darkGray));
 	}
 
+	/**
+	 * The method to repaint screen when another method requests a revalidate the
+	 * current tab
+	 * 
+	 * @author Amar Yadav
+	 * @author Nevedita Kailasam
+	 * @author Isaac Beale
+	 * @author Rakeen Huq
+	 */
 	@Override
 	public void paintComponent(Graphics graphics) {
 		super.paintComponent(graphics);
@@ -75,20 +92,26 @@ public class Tab extends JPanel { // drop target
 		Graphics2D g = (Graphics2D) graphics;
 		g.setPaint(Color.BLUE);
 		for (Edge e : edges) {
-			g.drawLine(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x,
+			g.drawLine(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x, e.dest.getLocation().y);
+			double[] arrow = arrHead(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x,
 					e.dest.getLocation().y);
-			double[] arrow = arrHead(e.src.getLocation().x, e.src.getLocation().y,
-					e.dest.getLocation().x, e.dest.getLocation().y);
 			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[0], arrow[1]));
 			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[2], arrow[3]));
 		}
 	}
 
+	/**
+	 * The method draws the arrow head to represent the direction of connections
+	 * 
+	 * @param x1,y1,x2,y2 - the co-ordinates of the destination icon
+	 * @return arrHead - the array of co-ordinates to draw the arrowhead
+	 * @author Nevedita Kailasam
+	 */
 	private double[] arrHead(double x1, double y1, double x2, double y2) {
 		double c, a, beta, theta, phi;
 		double ax1, ay1, ax2, ay2;
 		double len = 25;
-		double angle = Math.PI/10;
+		double angle = Math.PI / 10;
 		c = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 		if (Math.abs(x2 - x1) < 1e-6)
 			if (y2 < y1)
@@ -128,6 +151,15 @@ public class Tab extends JPanel { // drop target
 		return new Dimension(200, 200);
 	}
 
+	/**
+	 * The method creates a label with buttons when the drop is targeted at a point
+	 * in the right panel
+	 * 
+	 * @param {String} labelText- the icon name
+	 * @param {Point}  p- the co-ordinates of the dropped icon
+	 * @author Nevedita Kailasam
+	 * @author Amar Yadav
+	 */
 	public void createAndAddDnDLabel(String labelText, Point p) {
 		JPanel label = LeftPanel.getNewLabelFromText(labelText);
 		DragAndDropLabel lbl = null;
@@ -143,16 +175,16 @@ public class Tab extends JPanel { // drop target
 		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
 
-		dndLabel.addMouseListener(new MouseAdapter(){
-            public void mouseClicked(MouseEvent mouseEvent) {
-                if (mouseEvent.getClickCount() == 2) {
-                    AddValueModal modal = AddValueModal.getInstance();
-                    modal.setIcon(dndLabel);
-                    modal.setInputText(dndLabel.getIconParent().getValue());
-                    modal.setVisible(true);
-                }
-              }
-        });
+		dndLabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent mouseEvent) {
+				if (mouseEvent.getClickCount() == 2) {
+					AddValueModal modal = AddValueModal.getInstance();
+					modal.setIcon(dndLabel);
+					modal.setInputText(dndLabel.getIconParent().getValue());
+					modal.setVisible(true);
+				}
+			}
+		});
 
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);
@@ -189,6 +221,15 @@ public class Tab extends JPanel { // drop target
 		repaint();
 	}
 
+	/**
+	 * The method records the connection between two icons in the right panel
+	 * 
+	 * @param {JButton} currButton- the button referance that will be stored as
+	 *                  either a previous button or current button myLabels - stores
+	 *                  a list of all details related to the icon node edges -
+	 *                  stores a list of all arrow edges between the icons
+	 * @author Nevedita Kailasam
+	 */
 	public void addCurrButton(JButton currButton) {
 
 		if (this.prevButton != null) {
@@ -219,7 +260,7 @@ public class Tab extends JPanel { // drop target
 
 	}
 
-	public ArrayList<DragAndDropLabel> getLabels(){
+	public ArrayList<DragAndDropLabel> getLabels() {
 		return this.myLabels;
 	}
 
