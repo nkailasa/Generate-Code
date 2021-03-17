@@ -1,7 +1,6 @@
 package View;
 
 import Controller.MenuItemListener;
-import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.DragAndDrop.TransferableShapeInfo;
 import View.Panels.LeftPanel;
@@ -51,8 +50,6 @@ public class App extends JFrame implements DragGestureListener {
 
 		this.setJMenuBar(mb);
 		this.add(mb);
-		AddValueModal.getInstance(this);
-		CompileModal.getInstance(this);
 		this.add(mb, BorderLayout.NORTH);
 	}
 

@@ -144,9 +144,9 @@ public class Tab extends JPanel { // drop target
 		dndLabel.setCoordinates(p);
 
 		dndLabel.addMouseListener(new MouseAdapter(){
+			AddValueModal modal = new AddValueModal();
             public void mouseClicked(MouseEvent mouseEvent) {
                 if (mouseEvent.getClickCount() == 2) {
-                    AddValueModal modal = AddValueModal.getInstance();
                     modal.setIcon(dndLabel);
                     modal.setInputText(dndLabel.getIconParent().getValue());
                     modal.setVisible(true);
