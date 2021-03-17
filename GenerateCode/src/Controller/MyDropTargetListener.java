@@ -14,7 +14,7 @@ import java.awt.dnd.DropTargetDropEvent;
  * This class sets the drop target-the right panel and pastes the copied
  * draggable icon
  * 
- * @see
+ * @see https://zetcode.com/javaswing/draganddrop/
  * @author Amar Yadav
  */
 public class MyDropTargetListener extends DropTargetAdapter {

@@ -17,18 +17,17 @@ public class AddValueModal extends JDialog {
 
     @Serial
     private static final long serialVersionUID = 1L;
-    private static AddValueModal instance;
     private DragAndDropLabel selectedIcon;
     private final JTextField userInputField;
 
-    private AddValueModal(JFrame frame) {
-        super(frame);
+    public AddValueModal(){
         setLayout(new BorderLayout());
         userInputField = new JTextField("");
         add(userInputField, BorderLayout.CENTER);
         add(new JLabel("Add a value"), BorderLayout.NORTH);
         JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
+        AddValueModal instance = this; 
+        saveButton.addActionListener(new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,21 +39,11 @@ public class AddValueModal extends JDialog {
         this.setSize(300, 200);
     }
 
-    public static void getInstance(JFrame frame) {
-        if (instance == null) {
-            instance = new AddValueModal(frame);
-        }
-    }
-
-    public static AddValueModal getInstance() {
-        return instance;
-    }
 
     public void setIcon(DragAndDropLabel icon) {
         this.selectedIcon = icon;
+        this.userInputField.setText(icon.getIconParent().getValue());
+        this.setTitle("Changing value for icon: " + icon.getIconParent().getText());
     }
 
-    public void setInputText(String text) {
-        this.userInputField.setText(text);
-    }
 }

@@ -8,7 +8,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
  * This class helps with the draggable icon to get transferred to the right
  * panel
  * 
- * @see
+ * @see https://zetcode.com/javaswing/draganddrop/
  * @author Amar Yadav
  */
 public class TransferableShapeInfo implements Transferable {

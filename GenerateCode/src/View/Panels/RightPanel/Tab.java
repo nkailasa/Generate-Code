@@ -105,6 +105,7 @@ public class Tab extends JPanel {
 	 * 
 	 * @param x1,y1,x2,y2 - the co-ordinates of the destination icon
 	 * @return arrHead - the array of co-ordinates to draw the arrowhead
+	 * @see https://stackoverflow.com/questions/59905526/problem-when-drawing-arrows-how-do-i-set-the-coordinates-correctly
 	 * @author Nevedita Kailasam
 	 */
 	private double[] arrHead(double x1, double y1, double x2, double y2) {
@@ -175,16 +176,15 @@ public class Tab extends JPanel {
 		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
 
-		dndLabel.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent mouseEvent) {
-				if (mouseEvent.getClickCount() == 2) {
-					AddValueModal modal = AddValueModal.getInstance();
-					modal.setIcon(dndLabel);
-					modal.setInputText(dndLabel.getIconParent().getValue());
-					modal.setVisible(true);
-				}
-			}
-		});
+		dndLabel.addMouseListener(new MouseAdapter(){
+			AddValueModal modal = new AddValueModal();
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2) {
+                    modal.setIcon(dndLabel);
+                    modal.setVisible(true);
+                }
+              }
+        });
 
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);

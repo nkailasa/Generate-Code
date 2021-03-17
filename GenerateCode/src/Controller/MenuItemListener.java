@@ -84,25 +84,26 @@ public class MenuItemListener implements ActionListener {
 		String action = e.getActionCommand();
 		try {
 			switch (action) {
-			case "Load":
-				loadIcons();
-				break;
-			case "Save":
-				saveIcons();
-				break;
-			case "New Tab":
-				Canvas.getInstance().addNewTab();
-				break;
-			case "Compile":
-				Compiler compiler = new Compiler();
-				Canvas canvas = Canvas.getInstance();
-				int activeTabIdx = canvas.getSelectedIndex();
-				boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
-				CompileModal.getInstance().setCompilationResults(success);
-				CompileModal.getInstance().setVisible(true);
-				break;
-			default:
-				break;
+				case "Load":
+					loadIcons();
+					break;
+				case "Save":
+					saveIcons();
+					break;
+				case "New Tab":
+					Canvas.getInstance().addNewTab();
+					break;
+				case "Compile":
+					Compiler compiler = new Compiler();
+					Canvas canvas = Canvas.getInstance();
+					int activeTabIdx = canvas.getSelectedIndex();
+					boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
+					CompileModal compileModal = new CompileModal();
+					compileModal.setCompilationResults(success);
+					compileModal.setVisible(true);
+					break;
+				default:
+					break;
 			}
 		} catch (IOException | ClassNotFoundException ioException) {
 			ioException.printStackTrace();
