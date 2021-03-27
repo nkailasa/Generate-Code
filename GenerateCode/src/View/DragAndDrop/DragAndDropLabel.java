@@ -37,7 +37,7 @@ public class DragAndDropLabel extends JLabel {
         setPreferredSize(new Dimension(120, 50));
 
         Border border = getBorder();
-        Border margin = new EmptyBorder(10, 10, 10, 10);
+        Border margin = new EmptyBorder(0, 0, 0, 0);
         setBorder(new CompoundBorder(border, margin));
 
         this.iconParent = iconParent;
