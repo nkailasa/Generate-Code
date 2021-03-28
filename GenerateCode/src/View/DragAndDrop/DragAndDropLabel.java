@@ -3,9 +3,7 @@ package View.DragAndDrop;
 import Model.Icons.IconParent;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.AbstractBorder;
 import java.awt.*;
 import java.io.Serial;
 
@@ -27,18 +25,16 @@ public class DragAndDropLabel extends JLabel {
     protected JButton[] inputButtons = new JButton[2];
     protected JButton[] outputButtons = new JButton[2];
 
-
     public DragAndDropLabel(IconParent iconParent) {
         super(iconParent.getText(), SwingConstants.CENTER);
+
         setFont(new Font("Arial", Font.PLAIN, 30));
 
-        setOpaque(true);
-        setBackground(Color.WHITE);
-        setPreferredSize(new Dimension(120, 50));
-
-        Border border = getBorder();
-        Border margin = new EmptyBorder(0, 0, 0, 0);
-        setBorder(new CompoundBorder(border, margin));
+        //setOpaque(true);
+        //setBackground(Color.WHITE);
+        setPreferredSize(new Dimension(100, 100));
+        CustomBorder customBorder = new CustomBorder(15, x, y);
+        setBorder(customBorder);
 
         this.iconParent = iconParent;
     }
@@ -76,4 +72,78 @@ public class DragAndDropLabel extends JLabel {
         return this.iconParent;
     }
 
+    // https://stackoverflow.com/questions/17834573/swing-custom-border
+// http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
+// http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
+    class CustomBorder extends AbstractBorder {
+        private final int size;
+        private final int x;
+        private final int y;
+
+        public CustomBorder(int size, double x, double y) {
+            this.size = size;
+            this.x = (int) x;
+            this.y = (int) y;
+        }
+
+        @Override
+        public void paintBorder(Component component, Graphics graphics, int x, int y, int width, int height) {
+            graphics.setColor(Color.black);
+            graphics.drawOval(this.x, this.y, 100, 80);
+        }
+
+        @Override
+        public Insets getBorderInsets(Component component) {
+            return (getBorderInsets(component, new Insets(size, size, size, size)));
+        }
+
+        @Override
+        public Insets getBorderInsets(Component component, Insets insets) {
+            insets.left = insets.top = insets.right = insets.bottom = size;
+            return insets;
+        }
+
+        @Override
+        public boolean isBorderOpaque() {
+            return true;
+        }
+    }
+
+}
+
+// https://stackoverflow.com/questions/17834573/swing-custom-border
+// http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
+// http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
+class CustomBorder extends AbstractBorder {
+    private final int size;
+    private final int x;
+    private final int y;
+
+    public CustomBorder(int size, double x, double y) {
+        this.size = size;
+        this.x = (int) x;
+        this.y = (int) y;
+    }
+
+    @Override
+    public void paintBorder(Component component, Graphics graphics, int x, int y, int width, int height) {
+        graphics.setColor(Color.black);
+        graphics.drawOval(this.x, this.y, 100, 80);
+    }
+
+    @Override
+    public Insets getBorderInsets(Component component) {
+        return (getBorderInsets(component, new Insets(size, size, size, size)));
+    }
+
+    @Override
+    public Insets getBorderInsets(Component component, Insets insets) {
+        insets.left = insets.top = insets.right = insets.bottom = size;
+        return insets;
+    }
+
+    @Override
+    public boolean isBorderOpaque() {
+        return true;
+    }
 }
