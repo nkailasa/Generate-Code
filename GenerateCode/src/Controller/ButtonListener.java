@@ -3,29 +3,36 @@ package Controller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JButton;
-
+import View.DragAndDrop.AddValueModal;
+import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.RightPanel.Tab;
 
 /**
- * This class listens to the input and output buttons clicked from the right panel
- * The component associated to the click is recorded to draw the connections
+ * This class listens to the input and output buttons clicked from the right
+ * panel The component associated to the click is recorded to draw the
+ * connections
+ * 
  * @author Nevedita Kailasam
  */
 public class ButtonListener implements MouseListener {
-	JButton prevButton, currButton;
+	DragAndDropLabel currButton;
 	Tab dropPanel;
 
 	public ButtonListener(Tab panel) {
 		dropPanel = panel;
-		prevButton = null;
-		currButton = null;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		currButton = (JButton) e.getComponent();
-		dropPanel.addCurrButton(currButton);
+
+		if (e.getClickCount() == 2) {
+			AddValueModal modal = new AddValueModal();
+			modal.setIcon(currButton);
+			modal.setVisible(true);
+		} else if((e.getClickCount() == 1)) {
+			currButton = (DragAndDropLabel) e.getComponent();
+			dropPanel.addCurrButton(currButton);
+		}
 	}
 
 	@Override
