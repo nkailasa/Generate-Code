@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Controller.ButtonListener;
+import Model.Icons.Constants;
 import Model.Icons.Edge;
 import Model.Icons.Graph;
 import Model.Icons.IconParent;
@@ -41,6 +42,8 @@ public class Tab extends JPanel {
 	public Tab() {
 		super();
 		setBorder(BorderFactory.createLineBorder(Color.darkGray));
+		createAndAddDnDLabel(Constants.LPAREN, new Point(30, 30));
+		createAndAddDnDLabel(Constants.RPAREN, new Point(950, 550));
 	}
 
 	/**
