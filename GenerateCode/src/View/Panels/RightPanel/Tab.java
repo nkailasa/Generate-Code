@@ -1,20 +1,26 @@
 package View.Panels.RightPanel;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.Line2D;
+import java.awt.geom.Arc2D;
+import java.io.Serial;
+import java.util.ArrayList;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import Controller.ButtonListener;
 import Model.Icons.Edge;
 import Model.Icons.Graph;
 import Model.Icons.IconParent;
-import View.DragAndDrop.AddValueModal;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.Line2D;
-import java.io.Serial;
-import java.util.ArrayList;
 
 /**
  * Tab is a part of Canvas and contains the logic to implement connections
@@ -28,7 +34,7 @@ import java.util.ArrayList;
 public class Tab extends JPanel {
 	@Serial
 	private static final long serialVersionUID = 1L;
-	JButton prevButton, currButton;
+	DragAndDropLabel currLabel, prevLabel;
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 	public ArrayList<Edge> edges = new ArrayList<Edge>();
 
@@ -92,11 +98,25 @@ public class Tab extends JPanel {
 		Graphics2D g = (Graphics2D) graphics;
 		g.setPaint(Color.BLUE);
 		for (Edge e : edges) {
-			g.drawLine(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x, e.dest.getLocation().y);
-			double[] arrow = arrHead(e.src.getLocation().x, e.src.getLocation().y, e.dest.getLocation().x,
-					e.dest.getLocation().y);
-			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[0], arrow[1]));
-			g.draw(new Line2D.Double(e.dest.getLocation().x, e.dest.getLocation().y, arrow[2], arrow[3]));
+			int srcX = e.src.getLocation().x + 50;
+			int srcY = e.src.getLocation().y + 40;
+			int destX = e.dest.getLocation().x + 50;
+			int destY = e.dest.getLocation().y + 40;
+
+			if (srcX == destX && srcY == destY) {
+				double w = 100;
+				double h = 100;
+				double start = 200.0;
+				double extent = 300.0;
+				Arc2D arc = new Arc2D.Double(srcX + 40, srcY - 40, w, h, start, extent, Arc2D.OPEN);
+				g.draw(arc);
+			} else {
+				g.drawLine(srcX, srcY, destX, destY);
+				double[] arrow = arrHead(srcX, srcY, destX, destY);
+				g.draw(new Line2D.Double(destX, destY, arrow[0], arrow[1]));
+				g.draw(new Line2D.Double(destX, destY, arrow[2], arrow[3]));
+			}
+
 		}
 	}
 
@@ -164,27 +184,28 @@ public class Tab extends JPanel {
 	public void createAndAddDnDLabel(String labelText, Point p) {
 		JPanel label = LeftPanel.getNewLabelFromText(labelText);
 		DragAndDropLabel lbl = null;
+
 		Component[] components = label.getComponents();
 		for (int i = 0; i < components.length; i++) {
 			if (components[i] instanceof DragAndDropLabel) {
 				lbl = (DragAndDropLabel) components[i];
 			}
-			if (components[i] instanceof JButton) {
-				components[i].addMouseListener(new ButtonListener(this));
-			}
+			// if (components[i] instanceof JButton) {
+			// components[i].addMouseListener(new ButtonListener(this));
+			// }
 		}
 		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
-
-		dndLabel.addMouseListener(new MouseAdapter(){
-			AddValueModal modal = new AddValueModal();
-            public void mouseClicked(MouseEvent mouseEvent) {
-                if (mouseEvent.getClickCount() == 2) {
-                    modal.setIcon(dndLabel);
-                    modal.setVisible(true);
-                }
-              }
-        });
+		dndLabel.addMouseListener(new ButtonListener(this));
+		// dndLabel.addMouseListener(new MouseAdapter(){
+		// AddValueModal modal = new AddValueModal();
+		// public void mouseClicked(MouseEvent mouseEvent) {
+		// if (mouseEvent.getClickCount() == 2) {
+		// modal.setIcon(dndLabel);
+		// modal.setVisible(true);
+		// }
+		// }
+		// });
 
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);
@@ -224,38 +245,42 @@ public class Tab extends JPanel {
 	/**
 	 * The method records the connection between two icons in the right panel
 	 * 
-	 * @param {JButton} currButton- the button referance that will be stored as
-	 *                  either a previous button or current button myLabels - stores
-	 *                  a list of all details related to the icon node edges -
-	 *                  stores a list of all arrow edges between the icons
+	 * @param {DragAndDropLabel} currLabel- the button referance that will be stored
+	 *                           as either a previous button or current button
+	 *                           myLabels - stores a list of all details related to
+	 *                           the icon node edges - stores a list of all arrow
+	 *                           edges between the icons
 	 * @author Nevedita Kailasam
 	 */
-	public void addCurrButton(JButton currButton) {
+	public void addCurrButton(DragAndDropLabel currLabel) {
 
-		if (this.prevButton != null) {
-			this.currButton = currButton;
-			if ((this.currButton.getName().contains("Output") && this.prevButton.getName().contains("Input"))
-					|| (this.prevButton.getName().contains("Output") && this.currButton.getName().contains("Input"))) {
+		if (this.prevLabel != null) {
+			this.currLabel = currLabel;
+			// if ((this.currButton.getName().contains("Output") &&
+			// this.prevButton.getName().contains("Input"))
+			// || (this.prevButton.getName().contains("Output") &&
+			// this.currButton.getName().contains("Input"))) {
 
-				DragAndDropLabel currLabel = (DragAndDropLabel) this.currButton.getNextFocusableComponent();
-				DragAndDropLabel prevLabel = (DragAndDropLabel) this.prevButton.getNextFocusableComponent();
-				IconParent currIconParent = currLabel.getIconParent();
-				IconParent prevIconParent = prevLabel.getIconParent();
-				if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
-					currIconParent.addInput(prevIconParent);
-					prevIconParent.addOutput(currIconParent);
-					Edge edge = new Edge(this.prevButton, this.currButton);
-					edges.add(edge);
-				}
-
-				this.prevButton = null;
-				this.currButton = null;
+			// DragAndDropLabel currLabel = (DragAndDropLabel)
+			// this.currButton.getNextFocusableComponent();
+			;
+			IconParent currIconParent = this.currLabel.getIconParent();
+			IconParent prevIconParent = this.prevLabel.getIconParent();
+			if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
+				currIconParent.addInput(prevIconParent);
+				prevIconParent.addOutput(currIconParent);
+				Edge edge = new Edge(this.prevLabel, this.currLabel);
+				edges.add(edge);
 			}
+
+			this.prevLabel = null;
+			this.currLabel = null;
+			// }
 			Graph.getInstance().setDnDLabels(myLabels);
 			Graph.getInstance().setEdges(edges);
 			repaint();
 		} else {
-			this.prevButton = currButton;
+			this.prevLabel = currLabel;
 		}
 
 	}
