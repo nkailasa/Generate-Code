@@ -71,8 +71,7 @@ public class DragAndDropLabel extends JLabel {
     public IconParent getIconParent() {
         return this.iconParent;
     }
-
-    // https://stackoverflow.com/questions/17834573/swing-custom-border
+// https://stackoverflow.com/questions/17834573/swing-custom-border
 // http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
 // http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
     class CustomBorder extends AbstractBorder {
@@ -109,41 +108,4 @@ public class DragAndDropLabel extends JLabel {
         }
     }
 
-}
-
-// https://stackoverflow.com/questions/17834573/swing-custom-border
-// http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
-// http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
-class CustomBorder extends AbstractBorder {
-    private final int size;
-    private final int x;
-    private final int y;
-
-    public CustomBorder(int size, double x, double y) {
-        this.size = size;
-        this.x = (int) x;
-        this.y = (int) y;
-    }
-
-    @Override
-    public void paintBorder(Component component, Graphics graphics, int x, int y, int width, int height) {
-        graphics.setColor(Color.black);
-        graphics.drawOval(this.x, this.y, 100, 80);
-    }
-
-    @Override
-    public Insets getBorderInsets(Component component) {
-        return (getBorderInsets(component, new Insets(size, size, size, size)));
-    }
-
-    @Override
-    public Insets getBorderInsets(Component component, Insets insets) {
-        insets.left = insets.top = insets.right = insets.bottom = size;
-        return insets;
-    }
-
-    @Override
-    public boolean isBorderOpaque() {
-        return true;
-    }
 }
