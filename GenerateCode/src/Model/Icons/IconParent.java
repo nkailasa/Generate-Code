@@ -59,21 +59,48 @@ public abstract class IconParent implements java.io.Serializable {
 		return this.text;
 	}
 
+	public boolean containsLoop(){
+		boolean isLoopConditionFilled = false;
+        ArrayList<IconParent> visitedIcons = new ArrayList<IconParent>();
+        visitedIcons.add(this);
+        int count = 0;
+		boolean hasAtSymbol = false;
+        while(count < visitedIcons.size()){
+            for(IconParent output : visitedIcons.get(count).outputs){
+                if(output == this){
+                    isLoopConditionFilled = true;
+                    break;
+                }
+                else{
+					if(output instanceof AtSymbol){
+						hasAtSymbol = true;
+					}
+                    if(!visitedIcons.contains(output)){
+                        visitedIcons.add(output);
+                    }
+                }
+            }
+            count++;
+        }
+        return(isLoopConditionFilled && !hasAtSymbol);
+	}
 
 	public boolean isIconValid(){
+		boolean valid;
         if((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)){
-            return false;
+            valid = false;
         }
         for(IconParent item : inputs){
             if(item == null){
-                return false;
+                valid = false;
             }
         }
         for(IconParent item: outputs){
             if(item == null){
-                return false;
+                valid = false;
             }
         }
-        return true;
+        valid = true;
+		return(valid && !containsLoop());
     }
 }
