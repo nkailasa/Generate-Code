@@ -1,6 +1,7 @@
 package View.Panels.RightPanel;
 
 import Controller.ButtonListener;
+import Model.Icons.Constants;
 import Model.Icons.Edge;
 import Model.Icons.Graph;
 import Model.Icons.IconParent;
@@ -35,6 +36,8 @@ public class Tab extends JPanel {
 	public Tab() {
 		super();
 		setBorder(BorderFactory.createLineBorder(Color.darkGray));
+		createAndAddDnDLabel(Constants.LPAREN, new Point(30, 30));
+		createAndAddDnDLabel(Constants.RPAREN, new Point(950, 550));
 	}
 
 	/**
@@ -165,29 +168,27 @@ public class Tab extends JPanel {
 		JPanel label = LeftPanel.getNewLabelFromText(labelText);
 		DragAndDropLabel lbl = null;
 
-		
-
 		Component[] components = label.getComponents();
 		for (int i = 0; i < components.length; i++) {
 			if (components[i] instanceof DragAndDropLabel) {
 				lbl = (DragAndDropLabel) components[i];
 			}
 			// if (components[i] instanceof JButton) {
-			// 	components[i].addMouseListener(new ButtonListener(this));
+			// components[i].addMouseListener(new ButtonListener(this));
 			// }
 		}
 		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
 		dndLabel.addMouseListener(new ButtonListener(this));
 		// dndLabel.addMouseListener(new MouseAdapter(){
-		// 	AddValueModal modal = new AddValueModal();
-        //     public void mouseClicked(MouseEvent mouseEvent) {
-        //         if (mouseEvent.getClickCount() == 2) {
-        //             modal.setIcon(dndLabel);
-        //             modal.setVisible(true);
-        //         }
-        //       }
-        // });
+		// AddValueModal modal = new AddValueModal();
+		// public void mouseClicked(MouseEvent mouseEvent) {
+		// if (mouseEvent.getClickCount() == 2) {
+		// modal.setIcon(dndLabel);
+		// modal.setVisible(true);
+		// }
+		// }
+		// });
 
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);
@@ -227,32 +228,36 @@ public class Tab extends JPanel {
 	/**
 	 * The method records the connection between two icons in the right panel
 	 * 
-	 * @param {DragAndDropLabel} currLabel- the button referance that will be stored as
-	 *                  either a previous button or current button myLabels - stores
-	 *                  a list of all details related to the icon node edges -
-	 *                  stores a list of all arrow edges between the icons
+	 * @param {DragAndDropLabel} currLabel- the button referance that will be stored
+	 *                           as either a previous button or current button
+	 *                           myLabels - stores a list of all details related to
+	 *                           the icon node edges - stores a list of all arrow
+	 *                           edges between the icons
 	 * @author Nevedita Kailasam
 	 */
 	public void addCurrButton(DragAndDropLabel currLabel) {
 
 		if (this.prevLabel != null) {
 			this.currLabel = currLabel;
-			// if ((this.currButton.getName().contains("Output") && this.prevButton.getName().contains("Input"))
-			// 		|| (this.prevButton.getName().contains("Output") && this.currButton.getName().contains("Input"))) {
+			// if ((this.currButton.getName().contains("Output") &&
+			// this.prevButton.getName().contains("Input"))
+			// || (this.prevButton.getName().contains("Output") &&
+			// this.currButton.getName().contains("Input"))) {
 
-				// DragAndDropLabel currLabel = (DragAndDropLabel) this.currButton.getNextFocusableComponent();
-				;
-				IconParent currIconParent = this.currLabel.getIconParent();
-				IconParent prevIconParent =  this.prevLabel.getIconParent();
-				if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
-					currIconParent.addInput(prevIconParent);
-					prevIconParent.addOutput(currIconParent);
-					Edge edge = new Edge(this.prevLabel, this.currLabel);
-					edges.add(edge);
-				}
+			// DragAndDropLabel currLabel = (DragAndDropLabel)
+			// this.currButton.getNextFocusableComponent();
+			;
+			IconParent currIconParent = this.currLabel.getIconParent();
+			IconParent prevIconParent = this.prevLabel.getIconParent();
+			if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
+				currIconParent.addInput(prevIconParent);
+				prevIconParent.addOutput(currIconParent);
+				Edge edge = new Edge(this.prevLabel, this.currLabel);
+				edges.add(edge);
+			}
 
-				this.prevLabel = null;
-				this.currLabel = null;
+			this.prevLabel = null;
+			this.currLabel = null;
 			// }
 			Graph.getInstance().setDnDLabels(myLabels);
 			Graph.getInstance().setEdges(edges);

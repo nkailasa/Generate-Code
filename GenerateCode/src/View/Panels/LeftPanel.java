@@ -30,13 +30,13 @@ public class LeftPanel extends JPanel { // drag source
 
 		DragSource ds = new DragSource();
 		ArrayList<DragAndDropLabel> labels = new ArrayList<DragAndDropLabel>();
-		//labels.add(new DragAndDropLabel(new LParen()));
-		//labels.add(new DragAndDropLabel(new RParen()));
+		// labels.add(new DragAndDropLabel(new LParen()));
+		// labels.add(new DragAndDropLabel(new RParen()));
 		labels.add(new DragAndDropLabel(new LessThan()));
 		labels.add(new DragAndDropLabel(new GreaterThan()));
 		labels.add(new DragAndDropLabel(new Hyphen()));
 		labels.add(new DragAndDropLabel(new AtSymbol()));
-		//labels.add(new DragAndDropLabel(new DoublePipe()));
+		// labels.add(new DragAndDropLabel(new DoublePipe()));
 		labels.add(new DragAndDropLabel(new LPipe()));
 		labels.add(new DragAndDropLabel(new RPipe()));
 		for (DragAndDropLabel label : labels) {
@@ -64,24 +64,22 @@ public class LeftPanel extends JPanel { // drag source
 		// JButton outputBar = new IOBar();
 
 		switch (text) {
-		/*
 		case Constants.LPAREN:
 			newLabel = new DragAndDropLabel(new LParen());
-			output1.setName("LParenOutput1");
-			output1.setNextFocusableComponent(newLabel);
-			newLabel.setOutputButton(0, output1);
+			// output1.setName("LParenOutput1");
+			// output1.setNextFocusableComponent(newLabel);
+			// newLabel.setOutputButton(0, output1);
 			panel.add(newLabel);
-			panel.add(output1);
+			// panel.add(output1);
 			break;
 		case Constants.RPAREN:
 			newLabel = new DragAndDropLabel(new RParen());
-			input1.setName("RParenInput1");
-			input1.setNextFocusableComponent(newLabel);
-			newLabel.setInputButton(0, input1);
-			panel.add(input1);
+			// input1.setName("RParenInput1");
+			// input1.setNextFocusableComponent(newLabel);
+			// newLabel.setInputButton(0, input1);
+			// panel.add(input1);
 			panel.add(newLabel);
 			break;
-		 */
 		case Constants.LESS_THAN:
 			newLabel = new DragAndDropLabel(new LessThan());
 			// output1.setName("LessThanOutput2");
@@ -147,46 +145,40 @@ public class LeftPanel extends JPanel { // drag source
 			// panel.add(output2);
 			break;
 
-			/*
-		case Constants.PIPE:
-			newLabel = new DragAndDropLabel(new DoublePipe());
-			inputBar.setName("DoublePipeInput");
-			outputBar.setName("DoublePipeOutput");
-			inputBar.setNextFocusableComponent(newLabel);
-			outputBar.setNextFocusableComponent(newLabel);
-			newLabel.setInputButton(0, inputBar);
-			newLabel.setOutputButton(0, outputBar);
-			panel.add(inputBar);
+		/*
+		 * case Constants.PIPE: newLabel = new DragAndDropLabel(new DoublePipe());
+		 * inputBar.setName("DoublePipeInput"); outputBar.setName("DoublePipeOutput");
+		 * inputBar.setNextFocusableComponent(newLabel);
+		 * outputBar.setNextFocusableComponent(newLabel); newLabel.setInputButton(0,
+		 * inputBar); newLabel.setOutputButton(0, outputBar); panel.add(inputBar);
+		 * panel.add(newLabel); panel.add(outputBar); break;
+		 */
+		case Constants.LPIPE:
+			newLabel = new DragAndDropLabel(new LPipe());
+			// inputBar.setName("LeftPipeInput");
+			// outputBar.setName("LeftPipeOutput");
+			// inputBar.setNextFocusableComponent(newLabel);
+			// outputBar.setNextFocusableComponent(newLabel);
+			// newLabel.setInputButton(0, inputBar);
+			// newLabel.setOutputButton(0, outputBar);
+			// panel.add(inputBar);
 			panel.add(newLabel);
-			panel.add(outputBar);
+			// panel.add(outputBar);
 			break;
-			 */
-			case Constants.LPIPE:
-				newLabel = new DragAndDropLabel(new LPipe());
-				// inputBar.setName("LeftPipeInput");
-				// outputBar.setName("LeftPipeOutput");
-				// inputBar.setNextFocusableComponent(newLabel);
-				// outputBar.setNextFocusableComponent(newLabel);
-				// newLabel.setInputButton(0, inputBar);
-				// newLabel.setOutputButton(0, outputBar);
-				// panel.add(inputBar);
-				panel.add(newLabel);
-				// panel.add(outputBar);
-				break;
-			case Constants.RPIPE:
-				newLabel = new DragAndDropLabel(new RPipe());
-				// inputBar.setName("RightPipeInput");
-				// outputBar.setName("RightPipeOutput");
-				// inputBar.setNextFocusableComponent(newLabel);
-				// outputBar.setNextFocusableComponent(newLabel);
-				// newLabel.setInputButton(0, inputBar);
-				// newLabel.setOutputButton(0, outputBar);
-				// panel.add(inputBar);
-				panel.add(newLabel);
-				// panel.add(outputBar);
-				break;
-			default:
-				break;
+		case Constants.RPIPE:
+			newLabel = new DragAndDropLabel(new RPipe());
+			// inputBar.setName("RightPipeInput");
+			// outputBar.setName("RightPipeOutput");
+			// inputBar.setNextFocusableComponent(newLabel);
+			// outputBar.setNextFocusableComponent(newLabel);
+			// newLabel.setInputButton(0, inputBar);
+			// newLabel.setOutputButton(0, outputBar);
+			// panel.add(inputBar);
+			panel.add(newLabel);
+			// panel.add(outputBar);
+			break;
+		default:
+			break;
 		}
 
 		return panel;
