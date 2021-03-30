@@ -3,554 +3,546 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1930.0642799750747" y="1159.5">Model.Icons.RParen</node>
-    <node x="2473.0642799750744" y="1159.5">Model.Icons.Hyphen</node>
-    <node x="1613.7073330105552" y="1159.5">Model.Icons.LParen</node>
-    <node x="1396.1903717627401" y="1838.5">Controller.ButtonListener</node>
-    <node x="1753.9820384294069" y="298.0">Model.Icons.AtSymbol</node>
-    <node x="577.5000000000001" y="1828.0">Model.Icons.Graph</node>
-    <node x="2292.064279975075" y="1148.0">Model.Icons.LPipe</node>
-    <node x="2469.436499677222" y="0.0">Model.Icons.Constants</node>
-    <node x="1937.8007842091447" y="1604.0">View.Panels.LeftPanel</node>
-    <node x="1201.1752949177358" y="2589.0">Controller.MyDropTargetListener</node>
-    <node x="30.5" y="1560.0">View.DragAndDrop.TransferableShapeInfo</node>
-    <node x="929.2874316041472" y="3354.0">View.App</node>
-    <node x="1439.4403717627401" y="1582.0">View.DragAndDrop.AddValueModal</node>
-    <node x="1433.7073330105552" y="1159.5">Model.Icons.RPipe</node>
-    <node x="837.7573330105552" y="547.0">View.DragAndDrop.DragAndDropLabel.CustomBorder</node>
-    <node x="1252.7073330105552" y="1159.5">Model.Icons.LessThan</node>
-    <node x="1115.251683806625" y="2845.0">View.CompileModal</node>
-    <node x="1000.7073330105552" y="1016.0">View.DragAndDrop.DragAndDropLabel</node>
-    <node x="883.6207649374807" y="3131.0">Controller.MenuItemListener</node>
-    <node x="1791.7517799750747" y="2567.0">View.Panels.RightPanel.Canvas.MyCloseActionHandler</node>
-    <node x="874.7459596477412" y="1593.5">Model.Icons.Edge</node>
-    <node x="329.5" y="2879.0">Controller.Compiler</node>
-    <node x="2111.064279975075" y="1159.5">Model.Icons.GreaterThan</node>
-    <node x="1682.4820384294069" y="448.0">Model.Icons.IconParent</node>
-    <node x="1419.251683806625" y="2801.0">View.Panels.RightPanel.Canvas</node>
-    <node x="1233.3895806320215" y="2199.0">View.Panels.RightPanel.Tab</node>
+    <node x="1462.6930555555555" y="1159.5">Model.Icons.RParen</node>
+    <node x="1281.6930555555555" y="1159.5">Model.Icons.Hyphen</node>
+    <node x="1643.6930555555555" y="1159.5">Model.Icons.LParen</node>
+    <node x="1467.9152777777776" y="1839.5">Controller.ButtonListener</node>
+    <node x="1782.526388888889" y="298.0">Model.Icons.AtSymbol</node>
+    <node x="498.6999999999998" y="1818.0">Model.Icons.Graph</node>
+    <node x="2343.292050253518" y="1148.0">Model.Icons.LPipe</node>
+    <node x="2514.026388888889" y="0.0">Model.Icons.Constants</node>
+    <node x="1978.7764484623422" y="1594.0">View.Panels.LeftPanel</node>
+    <node x="1338.1422486662163" y="2599.0">Controller.MyDropTargetListener</node>
+    <node x="613.6374999999998" y="1550.0">View.DragAndDrop.TransferableShapeInfo</node>
+    <node x="747.8392014840408" y="3374.0">View.App</node>
+    <node x="2524.292050253518" y="1159.5">Model.Icons.RPipe</node>
+    <node x="1411.1652777777776" y="1572.0">View.DragAndDrop.AddValueModal</node>
+    <node x="886.1680555555554" y="547.0">View.DragAndDrop.DragAndDropLabel.CustomBorder</node>
+    <node x="446.5" y="2855.0">View.CompileModal</node>
+    <node x="2162.292050253518" y="1159.5">Model.Icons.LessThan</node>
+    <node x="368.9707623416341" y="3141.0">Controller.MenuItemListener</node>
+    <node x="1029.6930555555555" y="1016.0">View.DragAndDrop.DragAndDropLabel</node>
+    <node x="1872.575312595152" y="2577.0">View.Panels.RightPanel.Canvas.MyCloseActionHandler</node>
+    <node x="931.6374999999998" y="1583.5">Model.Icons.Edge</node>
+    <node x="10.5" y="2889.0">Controller.Compiler</node>
+    <node x="1981.292050253518" y="1159.5">Model.Icons.GreaterThan</node>
+    <node x="1711.026388888889" y="448.0">Model.Icons.IconParent</node>
+    <node x="1476.5713443411837" y="2811.0">View.Panels.RightPanel.Canvas</node>
+    <node x="1294.3565343805021" y="2189.0">View.Panels.RightPanel.Tab</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="Model.Icons.RPipe" target="Model.Icons.Constants">
+      <point x="53.333333333333485" y="-38.5" />
+      <point x="2657.625383586851" y="996.0" />
+      <point x="2738.792050253518" y="996.0" />
+      <point x="2738.792050253518" y="248.0" />
+      <point x="2640.026388888889" y="248.0" />
+      <point x="42.0" y="104.0" />
+    </edge>
     <edge source="View.DragAndDrop.DragAndDropLabel" target="Model.Icons.IconParent">
       <point x="92.79999999999995" y="-182.0" />
-      <point x="1209.5073330105552" y="936.0" />
-      <point x="1724.4820384294069" y="936.0" />
+      <point x="1238.4930555555554" y="936.0" />
+      <point x="1753.026388888889" y="936.0" />
       <point x="-72.0" y="204.0" />
-    </edge>
-    <edge source="Model.Icons.RPipe" target="Model.Icons.Constants">
-      <point x="-53.33333333333326" y="-38.5" />
-      <point x="1460.373999677222" y="916.0" />
-      <point x="1461.8153717627404" y="916.0" />
-      <point x="1461.8153717627404" y="258.0" />
-      <point x="2494.6364996772218" y="258.0" />
-      <point x="-58.799999999999955" y="104.0" />
-    </edge>
-    <edge source="Controller.MenuItemListener" target="View.DragAndDrop.DragAndDropLabel">
-      <point x="-103.25" y="-71.5" />
-      <point x="898.3707649374807" y="3111.0" />
-      <point x="319.0" y="3111.0" />
-      <point x="319.0" y="1490.0" />
-      <point x="1055.654701431608" y="1490.0" />
-      <point x="-61.052631578947285" y="182.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="Model.Icons.Constants">
       <point x="145.32142857142867" y="-149.0" />
-      <point x="1535.2110092034502" y="2179.0" />
-      <point x="2720.3767799750744" y="2179.0" />
-      <point x="2720.3767799750744" y="228.0" />
-      <point x="2629.036499677222" y="228.0" />
-      <point x="75.59999999999991" y="104.0" />
-    </edge>
-    <edge source="View.Panels.LeftPanel" target="Model.Icons.GreaterThan">
-      <point x="22.090909090909122" y="-50.0" />
-      <point x="2081.3916933000537" y="1500.0" />
-      <point x="2191.564279975075" y="1500.0" />
-      <point x="0.0" y="38.5" />
+      <point x="1596.1779629519306" y="2169.0" />
+      <point x="2760.792050253518" y="2169.0" />
+      <point x="2760.792050253518" y="228.0" />
+      <point x="2673.626388888889" y="228.0" />
+      <point x="75.60000000000014" y="104.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Canvas.MyCloseActionHandler" target="View.Panels.RightPanel.Canvas.MyCloseActionHandler">
       <point x="-103.19999999999999" y="72.0" />
-      <point x="1817.5517799750746" y="2731.0" />
-      <point x="1771.7517799750747" y="2731.0" />
-      <point x="1771.7517799750747" y="2639.0" />
+      <point x="1898.375312595152" y="2741.0" />
+      <point x="1852.575312595152" y="2741.0" />
+      <point x="1852.575312595152" y="2649.0" />
       <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="Controller.MenuItemListener" target="View.DragAndDrop.DragAndDropLabel">
+      <point x="-44.25" y="-71.5" />
+      <point x="442.7207623416341" y="3101.0" />
+      <point x="416.0" y="3101.0" />
+      <point x="416.0" y="1480.0" />
+      <point x="1074.8041666666666" y="1480.0" />
+      <point x="-70.88888888888891" y="182.0" />
+    </edge>
+    <edge source="View.Panels.LeftPanel" target="Model.Icons.GreaterThan">
+      <point x="0.0" y="-50.0" />
+      <point x="2100.276448462342" y="1420.0" />
+      <point x="2061.792050253518" y="1420.0" />
+      <point x="0.0" y="38.5" />
     </edge>
     <edge source="View.Panels.RightPanel.Canvas" target="View.Panels.RightPanel.Canvas">
       <point x="-84.4" y="105.0" />
-      <point x="1440.3516838066248" y="3031.0" />
-      <point x="1399.251683806625" y="3031.0" />
-      <point x="1399.251683806625" y="2976.0" />
+      <point x="1497.6713443411836" y="3041.0" />
+      <point x="1456.5713443411837" y="3041.0" />
+      <point x="1456.5713443411837" y="2986.0" />
       <point x="-105.5" y="70.0" />
     </edge>
     <edge source="Model.Icons.IconParent" target="Model.Icons.IconParent">
       <point x="-108.0" y="204.0" />
-      <point x="1688.4820384294069" y="876.0" />
-      <point x="1662.4820384294069" y="876.0" />
-      <point x="1662.4820384294069" y="754.0" />
+      <point x="1717.026388888889" y="876.0" />
+      <point x="1691.026388888889" y="876.0" />
+      <point x="1691.026388888889" y="754.0" />
       <point x="-114.0" y="102.0" />
-    </edge>
-    <edge source="Model.Icons.LPipe" target="Model.Icons.IconParent">
-      <point x="-53.66666666666663" y="-50.0" />
-      <point x="2318.897613308408" y="936.0" />
-      <point x="1868.4820384294069" y="936.0" />
-      <point x="72.0" y="204.0" />
     </edge>
     <edge source="Model.Icons.LPipe" target="Model.Icons.Constants">
       <point x="53.66666666666674" y="-50.0" />
-      <point x="2426.2309466417414" y="986.0" />
-      <point x="2687.3767799750744" y="986.0" />
-      <point x="2687.3767799750744" y="258.0" />
-      <point x="2578.6364996772218" y="258.0" />
+      <point x="2477.4587169201845" y="986.0" />
+      <point x="2727.792050253518" y="986.0" />
+      <point x="2727.792050253518" y="258.0" />
+      <point x="2623.2263888888892" y="258.0" />
       <point x="25.200000000000045" y="104.0" />
+    </edge>
+    <edge source="Model.Icons.LPipe" target="Model.Icons.IconParent">
+      <point x="-53.66666666666666" y="-50.0" />
+      <point x="2370.125383586851" y="936.0" />
+      <point x="1897.026388888889" y="936.0" />
+      <point x="72.0" y="204.0" />
     </edge>
     <edge source="Model.Icons.GreaterThan" target="Model.Icons.IconParent">
       <point x="0.0" y="-38.5" />
-      <point x="2191.564279975075" y="946.0" />
-      <point x="1856.4820384294069" y="946.0" />
-      <point x="60.0" y="204.0" />
+      <point x="2061.792050253518" y="976.0" />
+      <point x="1861.026388888889" y="976.0" />
+      <point x="36.0" y="204.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="Model.Icons.IconParent">
       <point x="100.60714285714289" y="-149.0" />
-      <point x="1490.4967234891644" y="2159.0" />
-      <point x="1878.5642799750747" y="2159.0" />
-      <point x="1878.5642799750747" y="996.0" />
-      <point x="1808.4820384294069" y="996.0" />
+      <point x="1551.4636772376448" y="2149.0" />
+      <point x="1929.792050253518" y="2149.0" />
+      <point x="1929.792050253518" y="996.0" />
+      <point x="1837.026388888889" y="996.0" />
       <point x="12.0" y="204.0" />
     </edge>
     <edge source="View.DragAndDrop.AddValueModal" target="View.DragAndDrop.AddValueModal">
       <point x="-74.0" y="72.0" />
-      <point x="1476.4403717627401" y="1746.0" />
-      <point x="1419.4403717627401" y="1746.0" />
-      <point x="1419.4403717627401" y="1654.0" />
+      <point x="1448.1652777777776" y="1736.0" />
+      <point x="1391.1652777777776" y="1736.0" />
+      <point x="1391.1652777777776" y="1644.0" />
       <point x="-111.0" y="-0.0" />
     </edge>
     <edge source="Model.Icons.RPipe" target="Model.Icons.IconParent">
-      <point x="0.0" y="-38.5" />
-      <point x="1513.7073330105552" y="966.0" />
-      <point x="1760.4820384294069" y="966.0" />
-      <point x="-36.0" y="204.0" />
+      <point x="-53.33333333333337" y="-38.5" />
+      <point x="2550.958716920184" y="916.0" />
+      <point x="1921.026388888889" y="916.0" />
+      <point x="96.0" y="204.0" />
     </edge>
     <edge source="Controller.MenuItemListener" target="View.CompileModal">
-      <point x="73.75" y="-71.5" />
-      <point x="1075.3707649374805" y="3101.0" />
-      <point x="1318.585017139958" y="3101.0" />
-      <point x="81.33333333333326" y="61.0" />
+      <point x="14.75" y="-71.5" />
+      <point x="501.7207623416341" y="3091.0" />
+      <point x="649.8333333333335" y="3091.0" />
+      <point x="81.33333333333348" y="61.0" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.Hyphen">
-      <point x="66.27272727272725" y="-50.0" />
-      <point x="2125.5735114818717" y="1520.0" />
-      <point x="2553.5642799750744" y="1520.0" />
+      <point x="-66.27272727272725" y="-50.0" />
+      <point x="2034.003721189615" y="1450.0" />
+      <point x="1362.1930555555555" y="1450.0" />
       <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="Model.Icons.RParen" target="Model.Icons.Constants">
+      <point x="-53.66666666666674" y="-38.5" />
+      <point x="1489.5263888888887" y="258.0" />
+      <point x="2539.2263888888892" y="258.0" />
+      <point x="-58.799999999999955" y="104.0" />
     </edge>
     <edge source="Model.Icons.GreaterThan" target="Model.Icons.Constants">
       <point x="53.66666666666663" y="-38.5" />
-      <point x="2245.2309466417414" y="976.0" />
-      <point x="2676.3767799750744" y="976.0" />
-      <point x="2676.3767799750744" y="268.0" />
-      <point x="2561.836499677222" y="268.0" />
-      <point x="8.400000000000091" y="104.0" />
-    </edge>
-    <edge source="Model.Icons.RParen" target="Model.Icons.Constants">
-      <point x="53.66666666666663" y="-38.5" />
-      <point x="2064.2309466417414" y="966.0" />
-      <point x="2665.3767799750744" y="966.0" />
-      <point x="2665.3767799750744" y="278.0" />
-      <point x="2545.036499677222" y="278.0" />
-      <point x="-8.400000000000091" y="104.0" />
+      <point x="2115.4587169201845" y="966.0" />
+      <point x="2705.792050253518" y="966.0" />
+      <point x="2705.792050253518" y="278.0" />
+      <point x="2589.626388888889" y="278.0" />
+      <point x="-8.399999999999864" y="104.0" />
     </edge>
     <edge source="View.App" target="View.DragAndDrop.TransferableShapeInfo">
-      <point x="-86.28571428571422" y="-105.0" />
-      <point x="994.001717318433" y="3324.0" />
-      <point x="239.0" y="3324.0" />
+      <point x="0.0" y="-82.5" />
+      <point x="898.8392014840408" y="3324.0" />
+      <point x="822.1374999999998" y="3324.0" />
       <point x="69.5" y="94.0" />
     </edge>
     <edge source="Model.Icons.Hyphen" target="Model.Icons.Constants">
-      <point x="53.666666666666515" y="-38.5" />
-      <point x="2607.230946641741" y="996.0" />
-      <point x="2698.3767799750744" y="996.0" />
-      <point x="2698.3767799750744" y="248.0" />
-      <point x="2595.436499677222" y="248.0" />
-      <point x="42.0" y="104.0" />
-    </edge>
-    <edge source="View.App" target="View.Panels.LeftPanel">
-      <point x="86.28571428571422" y="-105.0" />
-      <point x="1166.5731458898613" y="3324.0" />
-      <point x="2094.3007842091447" y="3324.0" />
-      <point x="2094.3007842091447" y="1808.0" />
-      <point x="2059.3007842091447" y="1808.0" />
-      <point x="0.0" y="50.0" />
+      <point x="-53.66666666666663" y="-38.5" />
+      <point x="1308.526388888889" y="248.0" />
+      <point x="2522.426388888889" y="248.0" />
+      <point x="-75.60000000000002" y="104.0" />
     </edge>
     <edge source="Controller.ButtonListener" target="Controller.ButtonListener">
-      <point x="-86.25" y="105.0" />
-      <point x="1424.9403717627401" y="2068.5" />
-      <point x="1376.1903717627401" y="2068.5" />
-      <point x="1376.1903717627401" y="1943.5" />
+      <point x="-86.25" y="94.0" />
+      <point x="1496.6652777777776" y="2047.5" />
+      <point x="1447.9152777777776" y="2047.5" />
+      <point x="1447.9152777777776" y="1933.5" />
       <point x="-115.0" y="-0.0" />
     </edge>
+    <edge source="View.App" target="View.Panels.LeftPanel">
+      <point x="129.42857142857156" y="-82.5" />
+      <point x="1028.2677729126124" y="3354.0" />
+      <point x="2152.075312595152" y="3354.0" />
+      <point x="2152.075312595152" y="1798.0" />
+      <point x="2181.276448462342" y="1798.0" />
+      <point x="81.0" y="50.0" />
+    </edge>
     <edge source="Controller.ButtonListener" target="View.Panels.RightPanel.Tab">
-      <point x="86.25" y="105.0" />
-      <point x="1597.4403717627401" y="2139.0" />
-      <point x="1445.7824377748786" y="2139.0" />
+      <point x="86.25" y="94.0" />
+      <point x="1669.1652777777776" y="2129.0" />
+      <point x="1506.749391523359" y="2129.0" />
       <point x="55.89285714285711" y="-149.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="Model.Icons.Graph">
       <point x="-145.32142857142844" y="-149.0" />
-      <point x="1244.568152060593" y="2179.0" />
-      <point x="837.6" y="2179.0" />
+      <point x="1305.5351058090737" y="2169.0" />
+      <point x="758.7999999999997" y="2169.0" />
       <point x="115.59999999999991" y="115.5" />
-    </edge>
-    <edge source="View.Panels.RightPanel.Canvas" target="Controller.MyDropTargetListener">
-      <point x="-93.77777777777783" y="-105.0" />
-      <point x="1430.973906028847" y="2781.0" />
-      <point x="1367.6752949177358" y="2781.0" />
-      <point x="55.5" y="50.0" />
     </edge>
     <edge source="View.DragAndDrop.AddValueModal" target="View.DragAndDrop.DragAndDropLabel">
       <point x="55.5" y="-72.0" />
-      <point x="1605.9403717627401" y="1490.0" />
-      <point x="1189.970490905292" y="1490.0" />
-      <point x="73.26315789473688" y="182.0" />
+      <point x="1577.6652777777776" y="1500.0" />
+      <point x="1203.6930555555555" y="1500.0" />
+      <point x="58.0" y="182.0" />
+    </edge>
+    <edge source="View.Panels.RightPanel.Canvas" target="Controller.MyDropTargetListener">
+      <point x="-70.33333333333326" y="-105.0" />
+      <point x="1511.7380110078502" y="2791.0" />
+      <point x="1504.6422486662163" y="2791.0" />
+      <point x="55.5" y="50.0" />
     </edge>
     <edge source="View.App" target="Controller.MenuItemListener">
-      <point x="0.0" y="-105.0" />
+      <point x="-43.14285714285734" y="-82.5" />
+      <point x="855.6963443411835" y="3334.0" />
+      <point x="565.6374290083006" y="3334.0" />
       <point x="78.66666666666652" y="71.5" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.RPipe">
-      <point x="-44.18181818181813" y="-50.0" />
-      <point x="2015.1189660273267" y="1440.0" />
-      <point x="1513.7073330105552" y="1440.0" />
+      <point x="66.27272727272725" y="-50.0" />
+      <point x="2166.549175735069" y="1510.0" />
+      <point x="2604.292050253518" y="1510.0" />
       <point x="0.0" y="38.5" />
     </edge>
     <edge source="Controller.MyDropTargetListener" target="View.Panels.RightPanel.Tab">
       <point x="55.5" y="-50.0" />
-      <point x="1367.6752949177358" y="2547.0" />
-      <point x="1345.1752949177358" y="2547.0" />
-      <point x="-44.71428571428578" y="149.0" />
+      <point x="1504.6422486662163" y="2557.0" />
+      <point x="1450.8565343805021" y="2557.0" />
+      <point x="0.0" y="149.0" />
     </edge>
     <edge source="View.App" target="View.DragAndDrop.DragAndDropLabel">
-      <point x="-129.42857142857133" y="-105.0" />
-      <point x="950.8588601755758" y="3334.0" />
-      <point x="0.0" y="3334.0" />
+      <point x="-129.42857142857133" y="-82.5" />
+      <point x="769.4106300554695" y="3354.0" />
+      <point x="0.0" y="3354.0" />
       <point x="0.0" y="1460.0" />
-      <point x="1019.0231224842394" y="1460.0" />
-      <point x="-97.68421052631584" y="182.0" />
+      <point x="1049.0263888888887" y="1460.0" />
+      <point x="-96.66666666666674" y="182.0" />
+    </edge>
+    <edge source="Controller.MenuItemListener" target="Model.Icons.Graph">
+      <point x="44.25" y="-71.5" />
+      <point x="531.2207623416341" y="3101.0" />
+      <point x="701.0" y="3101.0" />
+      <point x="57.80000000000018" y="115.5" />
     </edge>
     <edge source="Model.Icons.Edge" target="View.DragAndDrop.DragAndDropLabel">
       <point x="73.5" y="-60.5" />
-      <point x="1095.245959647741" y="1540.0" />
-      <point x="1116.7073330105552" y="1540.0" />
-      <point x="0.0" y="182.0" />
-    </edge>
-    <edge source="Controller.MenuItemListener" target="Model.Icons.Graph">
-      <point x="-14.75" y="-71.5" />
-      <point x="986.8707649374807" y="3081.0" />
-      <point x="779.8000000000003" y="3081.0" />
-      <point x="57.80000000000018" y="115.5" />
+      <point x="6.444444444444343" y="182.0" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="View.DragAndDrop.DragAndDropLabel">
       <point x="-88.36363636363637" y="-50.0" />
-      <point x="1970.9371478455082" y="1460.0" />
-      <point x="1226.6020698526604" y="1460.0" />
-      <point x="109.8947368421052" y="182.0" />
+      <point x="2011.9128120987057" y="1460.0" />
+      <point x="1255.248611111111" y="1460.0" />
+      <point x="109.55555555555543" y="182.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="Model.Icons.Edge">
       <point x="-78.25" y="-149.0" />
-      <point x="1311.6395806320215" y="2149.0" />
-      <point x="1100.745959647741" y="2149.0" />
-      <point x="1100.745959647741" y="1798.0" />
-      <point x="1113.620959647741" y="1798.0" />
+      <point x="1372.6065343805021" y="2139.0" />
+      <point x="1300.1027777777776" y="2139.0" />
+      <point x="1300.1027777777776" y="1788.0" />
+      <point x="1170.5124999999998" y="1788.0" />
       <point x="91.875" y="60.5" />
     </edge>
     <edge source="Controller.ButtonListener" target="View.DragAndDrop.DragAndDropLabel">
-      <point x="-86.25" y="-105.0" />
-      <point x="1424.9403717627401" y="1808.0" />
-      <point x="1397.9403717627401" y="1808.0" />
-      <point x="1397.9403717627401" y="1520.0" />
-      <point x="1153.3389119579238" y="1520.0" />
-      <point x="36.63157894736855" y="182.0" />
+      <point x="76.66666666666674" y="-94.0" />
+      <point x="1659.5819444444446" y="1798.0" />
+      <point x="1643.6652777777776" y="1798.0" />
+      <point x="1643.6652777777776" y="1490.0" />
+      <point x="1216.5819444444444" y="1490.0" />
+      <point x="70.88888888888891" y="182.0" />
     </edge>
     <edge source="Model.Icons.Edge" target="Model.Icons.Edge">
       <point x="-128.625" y="60.5" />
-      <point x="893.1209596477412" y="1734.5" />
-      <point x="854.7459596477412" y="1734.5" />
-      <point x="854.7459596477412" y="1654.0" />
+      <point x="950.0124999999998" y="1724.5" />
+      <point x="911.6374999999998" y="1724.5" />
+      <point x="911.6374999999998" y="1644.0" />
       <point x="-147.0" y="-0.0" />
     </edge>
     <edge source="Controller.Compiler" target="View.DragAndDrop.DragAndDropLabel">
       <point x="0.0" y="-27.0" />
-      <point x="527.0000000000001" y="1500.0" />
-      <point x="1067.8652277473973" y="1500.0" />
-      <point x="-48.84210526315792" y="182.0" />
+      <point x="208.0" y="1470.0" />
+      <point x="1061.9152777777776" y="1470.0" />
+      <point x="-83.77777777777783" y="182.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Canvas" target="View.Panels.RightPanel.Tab">
-      <point x="-70.33333333333348" y="-105.0" />
-      <point x="1454.4183504732914" y="2771.0" />
-      <point x="1433.6752949177358" y="2771.0" />
-      <point x="1433.6752949177358" y="2547.0" />
-      <point x="1389.8895806320215" y="2547.0" />
-      <point x="0.0" y="149.0" />
-    </edge>
-    <edge source="Model.Icons.AtSymbol" target="Model.Icons.Constants">
-      <point x="0.0" y="-50.0" />
-      <point x="1834.4820384294069" y="278.0" />
-      <point x="2528.236499677222" y="278.0" />
-      <point x="-25.19999999999999" y="104.0" />
+      <point x="-93.77777777777783" y="-105.0" />
+      <point x="1488.2935665634059" y="2791.0" />
+      <point x="1297.0713443411837" y="2791.0" />
+      <point x="1297.0713443411837" y="2557.0" />
+      <point x="1361.4279629519306" y="2557.0" />
+      <point x="-89.42857142857133" y="149.0" />
     </edge>
     <edge source="Model.Icons.AtSymbol" target="Model.Icons.IconParent">
       <point x="20.125" y="50.0" />
-      <point x="1854.6070384294069" y="423.0" />
-      <point x="1872.4820384294069" y="423.0" />
+      <point x="1883.151388888889" y="423.0" />
+      <point x="1901.026388888889" y="423.0" />
       <point x="76.0" y="-204.0" />
     </edge>
+    <edge source="Model.Icons.AtSymbol" target="Model.Icons.Constants">
+      <point x="0.0" y="-50.0" />
+      <point x="1863.026388888889" y="278.0" />
+      <point x="2572.8263888888887" y="278.0" />
+      <point x="-25.200000000000045" y="104.0" />
+    </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.LPipe">
-      <point x="44.18181818181813" y="-50.0" />
-      <point x="2103.4826023909627" y="1510.0" />
-      <point x="2372.564279975075" y="1510.0" />
+      <point x="44.181818181818244" y="-50.0" />
+      <point x="2144.45826664416" y="1500.0" />
+      <point x="2423.792050253518" y="1500.0" />
       <point x="0.0" y="50.0" />
     </edge>
     <edge source="Controller.MenuItemListener" target="Model.Icons.Edge">
-      <point x="14.75" y="-71.5" />
-      <point x="1016.3707649374807" y="3071.0" />
-      <point x="877.0000000000001" y="3071.0" />
-      <point x="877.0000000000001" y="1808.0" />
-      <point x="1003.3709596477412" y="1808.0" />
+      <point x="73.75" y="-71.5" />
+      <point x="560.7207623416341" y="3111.0" />
+      <point x="989.6290956749672" y="3111.0" />
+      <point x="989.6290956749672" y="1798.0" />
+      <point x="1060.2624999999998" y="1798.0" />
       <point x="-18.375" y="60.5" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.AtSymbol">
       <point x="88.36363636363637" y="-50.0" />
-      <point x="2147.664420572781" y="1530.0" />
-      <point x="2644.5642799750744" y="1530.0" />
-      <point x="2644.5642799750744" y="423.0" />
-      <point x="1894.8570384294069" y="423.0" />
+      <point x="2188.6400848259786" y="1520.0" />
+      <point x="2694.792050253518" y="1520.0" />
+      <point x="2694.792050253518" y="423.0" />
+      <point x="1923.401388888889" y="423.0" />
       <point x="60.375" y="50.0" />
     </edge>
     <edge source="Controller.MenuItemListener" target="Controller.Compiler">
-      <point x="-44.25" y="-71.5" />
-      <point x="957.3707649374807" y="3091.0" />
-      <point x="625.75" y="3091.0" />
+      <point x="-73.75" y="-71.5" />
+      <point x="413.2207623416341" y="3111.0" />
+      <point x="306.75" y="3111.0" />
       <point x="98.75" y="27.0" />
     </edge>
     <edge source="Controller.MenuItemListener" target="Controller.MenuItemListener">
-      <point x="-78.66666666666663" y="71.5" />
-      <point x="922.954098270814" y="3294.0" />
-      <point x="863.6207649374807" y="3294.0" />
-      <point x="863.6207649374807" y="3202.5" />
+      <point x="-78.66666666666674" y="71.5" />
+      <point x="408.30409567496736" y="3304.0" />
+      <point x="348.9707623416341" y="3304.0" />
+      <point x="348.9707623416341" y="3212.5" />
       <point x="-118.0" y="-0.0" />
     </edge>
     <edge source="Model.Icons.Graph" target="View.DragAndDrop.DragAndDropLabel">
       <point x="-108.375" y="-115.5" />
-      <point x="613.6250000000001" y="1808.0" />
-      <point x="644.2500000000001" y="1808.0" />
-      <point x="644.2500000000001" y="1510.0" />
-      <point x="1080.0757540631869" y="1510.0" />
-      <point x="-36.631578947368325" y="182.0" />
+      <point x="534.8249999999998" y="1798.0" />
+      <point x="565.4499999999998" y="1798.0" />
+      <point x="565.4499999999998" y="1490.0" />
+      <point x="1087.6930555555555" y="1490.0" />
+      <point x="-58.0" y="182.0" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.LessThan">
-      <point x="-66.27272727272725" y="-50.0" />
-      <point x="1993.0280569364174" y="1450.0" />
-      <point x="1333.2073330105552" y="1450.0" />
-      <point x="0.0" y="38.5" />
-    </edge>
-    <edge source="View.Panels.LeftPanel" target="Model.Icons.LParen">
-      <point x="-22.090909090909122" y="-50.0" />
-      <point x="2037.2098751182357" y="1430.0" />
-      <point x="1694.2073330105552" y="1430.0" />
+      <point x="22.090909090909122" y="-50.0" />
+      <point x="2122.367357553251" y="1490.0" />
+      <point x="2242.792050253518" y="1490.0" />
       <point x="0.0" y="38.5" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="Controller.ButtonListener">
       <point x="11.178571428571558" y="-149.0" />
-      <point x="1401.068152060593" y="2119.0" />
-      <point x="1482.4403717627401" y="2119.0" />
-      <point x="-28.75" y="105.0" />
+      <point x="1462.0351058090737" y="2109.0" />
+      <point x="1554.1652777777776" y="2109.0" />
+      <point x="-28.75" y="94.0" />
     </edge>
-    <edge source="Model.Icons.Graph" target="Model.Icons.Edge">
-      <point x="108.375" y="-115.5" />
-      <point x="830.3750000000001" y="1798.0" />
-      <point x="966.6209596477412" y="1798.0" />
-      <point x="-55.125" y="60.5" />
+    <edge source="View.Panels.LeftPanel" target="Model.Icons.LParen">
+      <point x="-22.090909090909122" y="-50.0" />
+      <point x="2078.185539371433" y="1430.0" />
+      <point x="1724.1930555555555" y="1430.0" />
+      <point x="0.0" y="38.5" />
     </edge>
     <edge source="Controller.MenuItemListener" target="View.Panels.RightPanel.Canvas">
       <point x="103.25" y="-71.5" />
-      <point x="1104.8707649374805" y="3111.0" />
-      <point x="1566.9516838066247" y="3111.0" />
+      <point x="590.2207623416341" y="3121.0" />
+      <point x="1624.2713443411835" y="3121.0" />
       <point x="42.200000000000045" y="105.0" />
+    </edge>
+    <edge source="Model.Icons.Graph" target="Model.Icons.Edge">
+      <point x="108.375" y="-115.5" />
+      <point x="751.5749999999998" y="1788.0" />
+      <point x="1023.5124999999998" y="1788.0" />
+      <point x="-55.125" y="60.5" />
     </edge>
     <edge source="View.DragAndDrop.TransferableShapeInfo" target="View.DragAndDrop.TransferableShapeInfo">
       <point x="-69.5" y="94.0" />
-      <point x="100.0" y="1768.0" />
-      <point x="10.5" y="1768.0" />
-      <point x="10.5" y="1654.0" />
+      <point x="683.1374999999998" y="1758.0" />
+      <point x="593.6374999999998" y="1758.0" />
+      <point x="593.6374999999998" y="1644.0" />
       <point x="-139.0" y="-0.0" />
     </edge>
     <edge source="Model.Icons.LessThan" target="Model.Icons.Constants">
-      <point x="-53.66666666666663" y="-38.5" />
-      <point x="1279.5406663438885" y="916.0" />
-      <point x="1280.9820384294069" y="916.0" />
-      <point x="1280.9820384294069" y="248.0" />
-      <point x="2477.836499677222" y="248.0" />
-      <point x="-75.60000000000002" y="104.0" />
+      <point x="53.66666666666663" y="-38.5" />
+      <point x="2296.4587169201845" y="976.0" />
+      <point x="2716.792050253518" y="976.0" />
+      <point x="2716.792050253518" y="268.0" />
+      <point x="2606.426388888889" y="268.0" />
+      <point x="8.399999999999864" y="104.0" />
     </edge>
     <edge source="Model.Icons.IconParent" target="Model.Icons.AtSymbol">
       <point x="-76.0" y="-204.0" />
-      <point x="1720.4820384294069" y="423.0" />
-      <point x="1774.1070384294069" y="423.0" />
+      <point x="1749.026388888889" y="423.0" />
+      <point x="1802.651388888889" y="423.0" />
       <point x="-60.375" y="50.0" />
     </edge>
     <edge source="Model.Icons.LParen" target="Model.Icons.Constants">
-      <point x="-53.66666666666674" y="-38.5" />
-      <point x="1640.5406663438885" y="916.0" />
-      <point x="1641.9820384294069" y="916.0" />
-      <point x="1641.9820384294069" y="268.0" />
-      <point x="2511.436499677222" y="268.0" />
+      <point x="-53.66666666666663" y="-38.5" />
+      <point x="1670.526388888889" y="268.0" />
+      <point x="2556.026388888889" y="268.0" />
       <point x="-42.0" y="104.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="View.Panels.LeftPanel">
       <point x="122.96428571428578" y="-149.0" />
-      <point x="1512.8538663463073" y="2169.0" />
-      <point x="2027.3797657021341" y="2169.0" />
-      <point x="2027.3797657021341" y="1808.0" />
-      <point x="1978.3007842091447" y="1808.0" />
+      <point x="1573.820820094788" y="2159.0" />
+      <point x="2070.3479802944257" y="2159.0" />
+      <point x="2070.3479802944257" y="1798.0" />
+      <point x="2019.2764484623422" y="1798.0" />
       <point x="-81.0" y="50.0" />
     </edge>
     <edge source="Model.Icons.LessThan" target="Model.Icons.IconParent">
-      <point x="53.66666666666674" y="-38.5" />
-      <point x="1386.873999677222" y="956.0" />
-      <point x="1748.4820384294069" y="956.0" />
-      <point x="-48.0" y="204.0" />
+      <point x="0.0" y="-38.5" />
+      <point x="2242.792050253518" y="946.0" />
+      <point x="1885.026388888889" y="946.0" />
+      <point x="60.0" y="204.0" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.Constants">
       <point x="110.4545454545455" y="-50.0" />
-      <point x="2169.75532966369" y="1540.0" />
-      <point x="2709.3767799750744" y="1540.0" />
-      <point x="2709.3767799750744" y="238.0" />
-      <point x="2612.236499677222" y="238.0" />
+      <point x="2210.7309939168877" y="1530.0" />
+      <point x="2749.792050253518" y="1530.0" />
+      <point x="2749.792050253518" y="238.0" />
+      <point x="2656.8263888888887" y="238.0" />
       <point x="58.799999999999955" y="104.0" />
     </edge>
     <edge source="View.DragAndDrop.DragAndDropLabel" target="View.DragAndDrop.DragAndDropLabel">
-      <point x="-109.89473684210526" y="182.0" />
-      <point x="1006.81259616845" y="1400.0" />
-      <point x="980.7073330105552" y="1400.0" />
-      <point x="980.7073330105552" y="1198.0" />
+      <point x="-109.55555555555554" y="182.0" />
+      <point x="1036.1374999999998" y="1400.0" />
+      <point x="1009.6930555555555" y="1400.0" />
+      <point x="1009.6930555555555" y="1198.0" />
       <point x="-116.0" y="-0.0" />
     </edge>
     <edge source="View.Panels.LeftPanel" target="Model.Icons.RParen">
-      <point x="0.0" y="-50.0" />
-      <point x="2059.3007842091447" y="1420.0" />
-      <point x="2010.5642799750747" y="1420.0" />
+      <point x="-44.181818181818244" y="-50.0" />
+      <point x="2056.094630280524" y="1440.0" />
+      <point x="1543.1930555555555" y="1440.0" />
       <point x="0.0" y="38.5" />
     </edge>
     <edge source="View.CompileModal" target="View.CompileModal">
-      <point x="-81.33333333333331" y="61.0" />
-      <point x="1155.9183504732914" y="2987.0" />
-      <point x="1095.251683806625" y="2987.0" />
-      <point x="1095.251683806625" y="2906.0" />
+      <point x="-81.33333333333337" y="61.0" />
+      <point x="487.16666666666663" y="2997.0" />
+      <point x="426.5" y="2997.0" />
+      <point x="426.5" y="2916.0" />
       <point x="-122.0" y="-0.0" />
     </edge>
     <edge source="Controller.MyDropTargetListener" target="Controller.MyDropTargetListener">
       <point x="-55.5" y="50.0" />
-      <point x="1256.6752949177358" y="2709.0" />
-      <point x="1181.1752949177358" y="2709.0" />
-      <point x="1181.1752949177358" y="2639.0" />
+      <point x="1393.6422486662163" y="2719.0" />
+      <point x="1318.1422486662163" y="2719.0" />
+      <point x="1318.1422486662163" y="2649.0" />
       <point x="-111.0" y="-0.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="View.DragAndDrop.DragAndDropLabel">
-      <point x="78.25" y="-149.0" />
-      <point x="1468.1395806320215" y="2149.0" />
-      <point x="1671.9403717627401" y="2149.0" />
-      <point x="1671.9403717627401" y="1480.0" />
-      <point x="1202.1810172210817" y="1480.0" />
-      <point x="85.47368421052647" y="182.0" />
+      <point x="-11.178571428571331" y="-149.0" />
+      <point x="1439.6779629519306" y="2109.0" />
+      <point x="1380.6652777777776" y="2109.0" />
+      <point x="1380.6652777777776" y="1520.0" />
+      <point x="1177.9152777777776" y="1520.0" />
+      <point x="32.22222222222217" y="182.0" />
     </edge>
     <edge source="Model.Icons.Graph" target="Model.Icons.Graph">
       <point x="-115.60000000000002" y="115.5" />
-      <point x="606.4000000000001" y="2079.0" />
-      <point x="557.5000000000001" y="2079.0" />
-      <point x="557.5000000000001" y="2020.5" />
+      <point x="527.5999999999998" y="2069.0" />
+      <point x="478.6999999999998" y="2069.0" />
+      <point x="478.6999999999998" y="2010.5" />
       <point x="-144.5" y="77.0" />
     </edge>
     <edge source="View.DragAndDrop.TransferableShapeInfo" target="View.DragAndDrop.DragAndDropLabel">
       <point x="69.5" y="-94.0" />
-      <point x="239.0" y="1480.0" />
-      <point x="1043.4441751158183" y="1480.0" />
-      <point x="-73.26315789473688" y="182.0" />
-    </edge>
-    <edge source="View.App" target="View.Panels.RightPanel.Canvas">
-      <point x="43.14285714285711" y="-105.0" />
-      <point x="1123.4302887470044" y="3314.0" />
-      <point x="1609.151683806625" y="3314.0" />
-      <point x="84.40000000000009" y="105.0" />
-    </edge>
-    <edge source="Model.Icons.RParen" target="Model.Icons.IconParent">
-      <point x="0.0" y="-38.5" />
-      <point x="2010.5642799750747" y="976.0" />
-      <point x="1832.4820384294069" y="976.0" />
-      <point x="36.0" y="204.0" />
+      <point x="822.1374999999998" y="1520.0" />
+      <point x="1126.3597222222222" y="1520.0" />
+      <point x="-19.333333333333258" y="182.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Canvas.MyCloseActionHandler" target="View.Panels.RightPanel.Canvas">
-      <point x="103.2000000000001" y="72.0" />
-      <point x="2023.9517799750747" y="2781.0" />
-      <point x="1618.5294615844027" y="2781.0" />
+      <point x="103.19999999999999" y="72.0" />
+      <point x="2104.775312595152" y="2791.0" />
+      <point x="1675.8491221189615" y="2791.0" />
       <point x="93.77777777777783" y="-105.0" />
+    </edge>
+    <edge source="View.App" target="View.Panels.RightPanel.Canvas">
+      <point x="43.14285714285734" y="-82.5" />
+      <point x="941.9820586268982" y="3334.0" />
+      <point x="1666.4713443411833" y="3334.0" />
+      <point x="84.39999999999986" y="105.0" />
+    </edge>
+    <edge source="Model.Icons.RParen" target="Model.Icons.IconParent">
+      <point x="53.66666666666674" y="-38.5" />
+      <point x="1596.8597222222222" y="976.0" />
+      <point x="1801.026388888889" y="976.0" />
+      <point x="-24.0" y="204.0" />
     </edge>
     <edge source="View.DragAndDrop.DragAndDropLabel" target="View.DragAndDrop.DragAndDropLabel.CustomBorder">
       <point x="-46.40000000000009" y="-182.0" />
-      <point x="1070.307333010555" y="996.0" />
-      <point x="1050.8823330105552" y="996.0" />
       <point x="42.625" y="105.0" />
-    </edge>
-    <edge source="View.Panels.RightPanel.Canvas" target="View.Panels.RightPanel.Canvas.MyCloseActionHandler">
-      <point x="23.444444444444343" y="-105.0" />
-      <point x="1548.1961282510692" y="2751.0" />
-      <point x="1869.1517799750748" y="2751.0" />
-      <point x="-51.59999999999991" y="72.0" />
     </edge>
     <edge source="View.Panels.RightPanel.Tab" target="View.Panels.RightPanel.Tab">
       <point x="-134.14285714285714" y="149.0" />
-      <point x="1255.7467234891644" y="2517.0" />
-      <point x="1213.3895806320215" y="2517.0" />
-      <point x="1213.3895806320215" y="2348.0" />
+      <point x="1316.7136772376448" y="2507.0" />
+      <point x="1274.3565343805021" y="2507.0" />
+      <point x="1274.3565343805021" y="2338.0" />
       <point x="-156.5" y="-0.0" />
     </edge>
+    <edge source="View.Panels.RightPanel.Canvas" target="View.Panels.RightPanel.Canvas.MyCloseActionHandler">
+      <point x="23.444444444444343" y="-105.0" />
+      <point x="1605.515788785628" y="2761.0" />
+      <point x="1949.975312595152" y="2761.0" />
+      <point x="-51.59999999999991" y="72.0" />
+    </edge>
     <edge source="View.App" target="View.App">
-      <point x="-75.5" y="105.0" />
-      <point x="1004.7874316041472" y="3584.0" />
-      <point x="909.2874316041472" y="3584.0" />
-      <point x="909.2874316041472" y="3511.5" />
-      <point x="-151.0" y="52.5" />
+      <point x="-75.5" y="82.5" />
+      <point x="823.3392014840408" y="3559.0" />
+      <point x="727.8392014840408" y="3559.0" />
+      <point x="727.8392014840408" y="3497.75" />
+      <point x="-151.0" y="41.25" />
     </edge>
     <edge source="Model.Icons.Hyphen" target="Model.Icons.IconParent">
-      <point x="0.0" y="-38.5" />
-      <point x="2553.5642799750744" y="906.0" />
-      <point x="1904.4820384294069" y="906.0" />
-      <point x="108.0" y="204.0" />
+      <point x="53.66666666666663" y="-38.5" />
+      <point x="1415.859722222222" y="956.0" />
+      <point x="1777.026388888889" y="956.0" />
+      <point x="-48.0" y="204.0" />
     </edge>
     <edge source="Model.Icons.LParen" target="Model.Icons.IconParent">
       <point x="53.66666666666674" y="-38.5" />
-      <point x="1747.873999677222" y="996.0" />
-      <point x="1796.4820384294069" y="996.0" />
+      <point x="1777.8597222222222" y="996.0" />
+      <point x="1825.026388888889" y="996.0" />
       <point x="0.0" y="204.0" />
     </edge>
     <edge source="Controller.ButtonListener" target="View.DragAndDrop.AddValueModal">
-      <point x="86.25" y="-105.0" />
-      <point x="1597.4403717627401" y="1808.0" />
-      <point x="1624.4403717627401" y="1808.0" />
+      <point x="0.0" y="-94.0" />
+      <point x="1582.9152777777776" y="1798.0" />
+      <point x="1596.1652777777776" y="1798.0" />
       <point x="74.0" y="72.0" />
     </edge>
     <edge source="View.DragAndDrop.DragAndDropLabel.CustomBorder" target="View.DragAndDrop.DragAndDropLabel.CustomBorder">
       <point x="-127.875" y="105.0" />
-      <point x="880.3823330105552" y="777.0" />
-      <point x="817.7573330105552" y="777.0" />
-      <point x="817.7573330105552" y="652.0" />
+      <point x="928.7930555555554" y="777.0" />
+      <point x="866.1680555555554" y="777.0" />
+      <point x="866.1680555555554" y="652.0" />
       <point x="-170.5" y="-0.0" />
     </edge>
     <edge source="View.DragAndDrop.DragAndDropLabel.CustomBorder" target="View.DragAndDrop.DragAndDropLabel">
       <point x="127.875" y="105.0" />
-      <point x="1136.1323330105552" y="996.0" />
-      <point x="1116.7073330105552" y="996.0" />
+      <point x="1184.5430555555554" y="996.0" />
+      <point x="1145.6930555555555" y="996.0" />
       <point x="0.0" y="-182.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.8424740010946906" x="1019.1451403326405" y="800.6958809771311" />
+  <settings layout="Hierarchic Group" zoom="0.8424740010946906" x="1633.36466995842" y="1954.8322505197507" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
