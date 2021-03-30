@@ -29,10 +29,10 @@ import View.Panels.RightPanel.Canvas;
  */
 public class App extends JFrame implements DragGestureListener {
 
-	final int FRAMEWIDTH = 1200;
-	final int FRAMEHEIGHT = 800;
-
 	public App() {
+
+		final int FRAMEWIDTH = 1200;
+		final int FRAMEHEIGHT = 800;
 
 		this.setTitle("Title");
 		this.setSize(FRAMEWIDTH, FRAMEHEIGHT);

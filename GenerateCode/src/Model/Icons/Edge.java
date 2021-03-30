@@ -14,8 +14,8 @@ public class Edge implements Serializable {
     private static final long serialVersionUID = 1L;
     public DragAndDropLabel src, dest;
 
-    public Edge(DragAndDropLabel iButton, DragAndDropLabel jButton) {
-        src = iButton;
-        dest = jButton;
+    public Edge(DragAndDropLabel source, DragAndDropLabel destination) {
+        src = source;
+        dest = destination;
     }
 }

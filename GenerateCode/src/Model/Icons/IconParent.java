@@ -14,6 +14,12 @@ public abstract class IconParent implements java.io.Serializable {
 	protected String text;
 	protected String value;
 
+	/**
+	 * This class has a reference to all inputs, outputs, value and connection
+	 * linked to a particular icon
+	 *
+	 * @author Issac Beale
+	 */
 	public IconParent(int inputLimit, int outputLimit, String text) {
 		this.inputLimit = inputLimit;
 		this.outputLimit = outputLimit;
@@ -33,11 +39,6 @@ public abstract class IconParent implements java.io.Serializable {
 			this.outputs.add(outputElement);
 
 	}
-
-    /*
-    get input and output methods throw exceptions if trying to access outside of
-    input or output bounds.
-    */
 
 	public String getValue() {
 		return this.value;
@@ -59,48 +60,47 @@ public abstract class IconParent implements java.io.Serializable {
 		return this.text;
 	}
 
-	public boolean containsLoop(){
+	public boolean containsLoop() {
 		boolean isLoopConditionFilled = false;
-        ArrayList<IconParent> visitedIcons = new ArrayList<IconParent>();
-        visitedIcons.add(this);
-        int count = 0;
+		ArrayList<IconParent> visitedIcons = new ArrayList<IconParent>();
+		visitedIcons.add(this);
+		int count = 0;
 		boolean hasAtSymbol = false;
-        while(count < visitedIcons.size()){
-            for(IconParent output : visitedIcons.get(count).outputs){
-                if(output == this){
-                    isLoopConditionFilled = true;
-                    break;
-                }
-                else{
-					if(output instanceof AtSymbol){
+		while (count < visitedIcons.size()) {
+			for (IconParent output : visitedIcons.get(count).outputs) {
+				if (output == this) {
+					isLoopConditionFilled = true;
+					break;
+				} else {
+					if (output instanceof AtSymbol) {
 						hasAtSymbol = true;
 					}
-                    if(!visitedIcons.contains(output)){
-                        visitedIcons.add(output);
-                    }
-                }
-            }
-            count++;
-        }
-        return(isLoopConditionFilled && !hasAtSymbol);
+					if (!visitedIcons.contains(output)) {
+						visitedIcons.add(output);
+					}
+				}
+			}
+			count++;
+		}
+		return (isLoopConditionFilled && !hasAtSymbol);
 	}
 
-	public boolean isIconValid(){
+	public boolean isIconValid() {
 		boolean valid;
-        if((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)){
-            valid = false;
-        }
-        for(IconParent item : inputs){
-            if(item == null){
-                valid = false;
-            }
-        }
-        for(IconParent item: outputs){
-            if(item == null){
-                valid = false;
-            }
-        }
-        valid = true;
-		return(valid && !containsLoop());
-    }
+		if ((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)) {
+			valid = false;
+		}
+		for (IconParent item : inputs) {
+			if (item == null) {
+				valid = false;
+			}
+		}
+		for (IconParent item : outputs) {
+			if (item == null) {
+				valid = false;
+			}
+		}
+		valid = true;
+		return (valid && !containsLoop());
+	}
 }

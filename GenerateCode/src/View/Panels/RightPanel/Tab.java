@@ -43,7 +43,7 @@ public class Tab extends JPanel {
 		super();
 		setBorder(BorderFactory.createLineBorder(Color.darkGray));
 		createAndAddDnDLabel(Constants.LPAREN, new Point(30, 30));
-		createAndAddDnDLabel(Constants.RPAREN, new Point(950, 550));
+		createAndAddDnDLabel(Constants.RPAREN, new Point(950, 450));
 	}
 
 	/**

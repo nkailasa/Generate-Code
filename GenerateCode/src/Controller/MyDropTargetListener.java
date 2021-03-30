@@ -1,8 +1,6 @@
 package Controller;
 
-import View.Panels.RightPanel.Tab;
-
-import java.awt.*;
+import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -11,6 +9,8 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 import java.io.IOException;
+
+import View.Panels.RightPanel.Tab;
 
 /**
  * This class sets the drop target-the right panel and pastes the copied

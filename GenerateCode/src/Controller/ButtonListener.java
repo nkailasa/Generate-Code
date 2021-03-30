@@ -10,12 +10,14 @@ import View.Panels.RightPanel.Tab;
 /**
  * This class listens to the input and output buttons clicked from the right
  * panel The component associated to the click is recorded to draw the
- * connections
+ * connections 
+ * getClickCount - 2 opens a modal to enter value of the icon
+ * getClickCount - 1 saves the reference of current button to draw the
+ * connection
  * 
  * @author Nevedita Kailasam
  */
 public class ButtonListener implements MouseListener {
-	DragAndDropLabel currButton;
 	Tab dropPanel;
 
 	public ButtonListener(Tab panel) {
@@ -26,11 +28,12 @@ public class ButtonListener implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 
 		if (e.getClickCount() == 2) {
+			DragAndDropLabel currButton = (DragAndDropLabel) e.getComponent();
 			AddValueModal modal = new AddValueModal();
 			modal.setIcon(currButton);
 			modal.setVisible(true);
-		} else if((e.getClickCount() == 1)) {
-			currButton = (DragAndDropLabel) e.getComponent();
+		} else if ((e.getClickCount() == 1)) {
+			DragAndDropLabel currButton = (DragAndDropLabel) e.getComponent();
 			dropPanel.addCurrButton(currButton);
 		}
 	}

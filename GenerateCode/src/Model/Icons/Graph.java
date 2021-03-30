@@ -1,10 +1,10 @@
 package Model.Icons;
 
-import View.DragAndDrop.DragAndDropLabel;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
+
+import View.DragAndDrop.DragAndDropLabel;
 
 public class Graph implements Serializable {
     @Serial
@@ -20,19 +20,19 @@ public class Graph implements Serializable {
         return instance;
     }
 
-    public List<Edge> getEdges(){
+    public List<Edge> getEdges() {
         return this.edges;
     }
 
-    public void setEdges(List<Edge> edges){
+    public void setEdges(List<Edge> edges) {
         this.edges = edges;
     }
 
-    public void setDnDLabels(List<DragAndDropLabel> nodes){
+    public void setDnDLabels(List<DragAndDropLabel> nodes) {
         this.nodes = nodes;
     }
 
-    public List<DragAndDropLabel> getDnDLabels(){
+    public List<DragAndDropLabel> getDnDLabels() {
         return this.nodes;
     }
 
