@@ -21,8 +21,6 @@ public class CompileModal extends JDialog {
         add(compilationResultsLabel);
     }
 
-
-
     public void setCompilationResults(boolean success) {
         compilationResultsLabel.setText(success ? "Compiled successfully" : "Compilation error");
     }

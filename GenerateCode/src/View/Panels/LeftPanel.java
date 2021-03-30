@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author Nevedita Kailasam
  * @author Isaac Beale
  */
-public class LeftPanel extends JPanel { // drag source
+public class LeftPanel extends JPanel {
 	@Serial
 	private static final long serialVersionUID = 1L;
 

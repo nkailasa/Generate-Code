@@ -8,12 +8,14 @@ import java.awt.*;
 import java.io.Serial;
 
 /**
- * This class has the structure of icons represented as labels and their input/output buttons.
- * The co-ordinates of location and the restrictions related to the icon are also handled
+ * This class has the structure of icons represented as labels and their
+ * input/output buttons. The co-ordinates of location and the restrictions
+ * related to the icon are also handled
+ * 
  * @author Amar Yadav
  * @author Nevedita Kailasam
  * @author Isaac Beale
- * @author Rakeen Huq 
+ * @author Rakeen Huq
  */
 public class DragAndDropLabel extends JLabel {
 
@@ -30,8 +32,6 @@ public class DragAndDropLabel extends JLabel {
 
         setFont(new Font("Arial", Font.PLAIN, 30));
 
-        //setOpaque(true);
-        //setBackground(Color.WHITE);
         setPreferredSize(new Dimension(100, 100));
         CustomBorder customBorder = new CustomBorder(15, x, y);
         setBorder(customBorder);
@@ -43,19 +43,19 @@ public class DragAndDropLabel extends JLabel {
         this.x = point.x;
         this.y = point.y;
     }
-    
-    public void setInputButton(int i,JButton btn) {
+
+    public void setInputButton(int i, JButton btn) {
         this.inputButtons[i] = btn;
     }
-    
-    public void setOutputButton(int i,JButton btn) {
+
+    public void setOutputButton(int i, JButton btn) {
         this.outputButtons[i] = btn;
     }
-    
+
     public JButton[] getInputButtons() {
-       return this.inputButtons;
+        return this.inputButtons;
     }
-    
+
     public JButton[] getOutputButtons() {
         return this.outputButtons;
     }
@@ -71,9 +71,15 @@ public class DragAndDropLabel extends JLabel {
     public IconParent getIconParent() {
         return this.iconParent;
     }
-// https://stackoverflow.com/questions/17834573/swing-custom-border
-// http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
-// http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
+
+    /**
+     * This class creates the oval shaped border of icons.
+     * 
+     * @see // https://stackoverflow.com/questions/17834573/swing-custom-border
+     * @see http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
+     * @see http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
+     * @author Rakeen Huq
+     */
     class CustomBorder extends AbstractBorder {
         private final int size;
         private final int x;

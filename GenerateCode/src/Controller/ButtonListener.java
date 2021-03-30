@@ -8,7 +8,7 @@ import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.RightPanel.Tab;
 
 /**
- * This class listens to the input and output buttons clicked from the right
+ * This class listens to the input and output icons clicked from the right
  * panel The component associated to the click is recorded to draw the
  * connections 
  * getClickCount - 2 opens a modal to enter value of the icon

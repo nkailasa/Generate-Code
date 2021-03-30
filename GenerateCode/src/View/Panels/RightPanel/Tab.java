@@ -151,12 +151,12 @@ public class Tab extends JPanel {
 		a = Math.sqrt(len * len + c * c - 2 * len * c * Math.cos(angle));
 		beta = Math.asin(len * Math.sin(angle) / a);
 		phi = theta - beta;
-		ay1 = y1 - a * Math.sin(phi); // coordinates of arrowhead endpoint
+		ay1 = y1 - a * Math.sin(phi); 
 		if (x2 > x1)
 			ax1 = x1 + a * Math.cos(phi);
 		else
 			ax1 = x1 - a * Math.cos(phi);
-		phi = theta + beta; // second arrowhead endpoint
+		phi = theta + beta;
 		ay2 = y1 - a * Math.sin(phi);
 		if (x2 > x1)
 			ax2 = x1 + a * Math.cos(phi);
@@ -193,22 +193,10 @@ public class Tab extends JPanel {
 			if (components[i] instanceof DragAndDropLabel) {
 				lbl = (DragAndDropLabel) components[i];
 			}
-			// if (components[i] instanceof JButton) {
-			// components[i].addMouseListener(new ButtonListener(this));
-			// }
 		}
 		DragAndDropLabel dndLabel = lbl;
 		dndLabel.setCoordinates(p);
 		dndLabel.addMouseListener(new ButtonListener(this));
-		// dndLabel.addMouseListener(new MouseAdapter(){
-		// AddValueModal modal = new AddValueModal();
-		// public void mouseClicked(MouseEvent mouseEvent) {
-		// if (mouseEvent.getClickCount() == 2) {
-		// modal.setIcon(dndLabel);
-		// modal.setVisible(true);
-		// }
-		// }
-		// });
 
 		myLabels.add(dndLabel);
 		dndLabel.setLocation(p);
@@ -259,14 +247,6 @@ public class Tab extends JPanel {
 
 		if (this.prevLabel != null) {
 			this.currLabel = currLabel;
-			// if ((this.currButton.getName().contains("Output") &&
-			// this.prevButton.getName().contains("Input"))
-			// || (this.prevButton.getName().contains("Output") &&
-			// this.currButton.getName().contains("Input"))) {
-
-			// DragAndDropLabel currLabel = (DragAndDropLabel)
-			// this.currButton.getNextFocusableComponent();
-			;
 			IconParent currIconParent = this.currLabel.getIconParent();
 			IconParent prevIconParent = this.prevLabel.getIconParent();
 			if (currIconParent.isInputSpaceAvailable() && prevIconParent.isOutputSpaceAvailable()) {
@@ -278,7 +258,6 @@ public class Tab extends JPanel {
 
 			this.prevLabel = null;
 			this.currLabel = null;
-			// }
 			Graph.getInstance().setDnDLabels(myLabels);
 			Graph.getInstance().setEdges(edges);
 			repaint();

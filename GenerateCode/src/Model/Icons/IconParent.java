@@ -86,7 +86,7 @@ public abstract class IconParent implements java.io.Serializable {
 	}
 
 	public boolean isIconValid() {
-		boolean valid;
+		boolean valid = true;
 		if ((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)) {
 			valid = false;
 		}
@@ -100,7 +100,6 @@ public abstract class IconParent implements java.io.Serializable {
 				valid = false;
 			}
 		}
-		valid = true;
 		return (valid && !containsLoop());
 	}
 }
