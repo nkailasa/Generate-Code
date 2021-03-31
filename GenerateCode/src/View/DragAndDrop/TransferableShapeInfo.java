@@ -5,8 +5,7 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 
 /**
- * This class helps with the draggable icon to get transferred to the right
- * panel
+ * This class aids transfer for DragAndDropLabel between LeftPanel and RightPanel > Tab
  * 
  * @see https://zetcode.com/javaswing/draganddrop/
  * @author Amar Yadav

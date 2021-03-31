@@ -12,7 +12,8 @@ import java.io.Serial;
 import java.util.ArrayList;
 
 /**
- * This is the container of all icons that can be dragged
+ * This is the container of all icons that can be dragged, it also contains a factory method
+ * to create instances of icons.
  * 
  * @author Amar Yadav
  * @author Nevedita Kailasam
