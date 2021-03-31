@@ -1,20 +1,5 @@
 package View.Panels.RightPanel;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.geom.Line2D;
-import java.awt.geom.Arc2D;
-import java.io.Serial;
-import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
 import Controller.ButtonListener;
 import Model.Icons.Constants;
 import Model.Icons.Edge;
@@ -22,6 +7,13 @@ import Model.Icons.Graph;
 import Model.Icons.IconParent;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Line2D;
+import java.io.Serial;
+import java.util.ArrayList;
 
 /**
  * Tab is a part of Canvas and contains the logic to implement connections
@@ -126,11 +118,11 @@ public class Tab extends JPanel {
 
 	/**
 	 * The method draws the arrow head to represent the direction of connections
-	 * 
+	 *
 	 * @param x1,y1,x2,y2 - the co-ordinates of the destination icon
 	 * @return arrHead - the array of co-ordinates to draw the arrowhead
-	 * @see https://stackoverflow.com/questions/59905526/problem-when-drawing-arrows-how-do-i-set-the-coordinates-correctly
 	 * @author Nevedita Kailasam
+	 * @see // https://stackoverflow.com/questions/59905526/problem-when-drawing-arrows-how-do-i-set-the-coordinates-correctly
 	 */
 	private double[] arrHead(double x1, double y1, double x2, double y2) {
 		double c, a, beta, theta, phi;
