@@ -31,22 +31,7 @@ public class AtSymbol extends IconParent {
             }
             count++;
         }
-        boolean valid;
-        if((inputLimit > 0 && inputs.size() == 0) || (outputLimit > 0 && outputs.size() == 0)){
-            valid = false;
-        }
-        for(IconParent item : inputs){
-            if(item == null){
-                valid = false;
-            }
-        }
-        for(IconParent item: outputs){
-            if(item == null){
-                valid = false;
-            }
-        }
-        valid = true;
+        boolean valid = connectionsFilled();
         return(valid && isLoopConditionFilled);
-
     }
 }

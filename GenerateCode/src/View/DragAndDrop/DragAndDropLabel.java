@@ -44,14 +44,6 @@ public class DragAndDropLabel extends JLabel {
         this.y = point.y;
     }
 
-    public void setInputButton(int i, JButton btn) {
-        this.inputButtons[i] = btn;
-    }
-
-    public void setOutputButton(int i, JButton btn) {
-        this.outputButtons[i] = btn;
-    }
-
     public JButton[] getInputButtons() {
         return this.inputButtons;
     }
@@ -74,11 +66,11 @@ public class DragAndDropLabel extends JLabel {
 
     /**
      * This class creates the oval shaped border of icons.
-     * 
-     * @see // https://stackoverflow.com/questions/17834573/swing-custom-border
-     * @see http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
-     * @see http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
+     *
      * @author Rakeen Huq
+     * @see // https://stackoverflow.com/questions/17834573/swing-custom-border
+     * @see // http://www.java2s.com/Code/Java/Swing-JFC/Ovalborder.htm
+     * @see // http://www.java2s.com/Code/Java/2D-Graphics-GUI/Drawanovaloutline.htm
      */
     class CustomBorder extends AbstractBorder {
         private final int size;
