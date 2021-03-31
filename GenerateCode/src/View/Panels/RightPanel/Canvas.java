@@ -91,6 +91,11 @@ public class Canvas extends JTabbedPane {
         return button;
     }
 
+    /**
+     * This class is used to close tabs
+     * 
+     * @author Amar Yadav
+     */
     class MyCloseActionHandler implements ActionListener {
 
         private final String tabName;

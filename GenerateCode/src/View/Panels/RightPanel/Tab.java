@@ -25,7 +25,8 @@ import View.Panels.LeftPanel;
 
 /**
  * Tab is a part of Canvas and contains the logic to implement connections
- * between icons in the right panel.
+ * between icons in the right panel. All instances of this class are created
+ * in Canvas which serve as DropTargets for icons.
  * 
  * @author Amar Yadav
  * @author Nevedita Kailasam
