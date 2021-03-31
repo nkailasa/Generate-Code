@@ -4,7 +4,7 @@ public class LPipe extends IconParent {
     private static final long serialVersionUID = 1L;
 
     public LPipe() {
-        super(1, 1000, Constants.LPIPE);
+        super(1000, 1, Constants.LPIPE);
     }
 
     @Override
