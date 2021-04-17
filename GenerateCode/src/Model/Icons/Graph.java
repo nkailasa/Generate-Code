@@ -2,7 +2,9 @@ package Model.Icons;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import View.DragAndDrop.DragAndDropLabel;
 
@@ -12,6 +14,7 @@ public class Graph implements Serializable {
     private static Graph instance;
     List<Edge> edges;
     List<DragAndDropLabel> nodes;
+    protected Map<String,Integer> iconCount = new HashMap<String,Integer>();
 
     public static Graph getInstance() {
         if (instance == null) {
@@ -26,6 +29,14 @@ public class Graph implements Serializable {
 
     public void setEdges(List<Edge> edges) {
         this.edges = edges;
+    }
+
+    public Map<String,Integer> getIconCount() {
+        return this.iconCount;
+    }
+
+    public void setIconCount(Map<String,Integer> iconCount) {
+        this.iconCount=iconCount;
     }
 
     public void setDnDLabels(List<DragAndDropLabel> nodes) {

@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public abstract class IconParent implements java.io.Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -13,6 +14,7 @@ public abstract class IconParent implements java.io.Serializable {
 	protected List<IconParent> outputs;
 	protected String text;
 	protected String value;
+	protected String Id;
 
 	/**
 	 * This class has a reference to all inputs, outputs, value and connection
@@ -48,6 +50,14 @@ public abstract class IconParent implements java.io.Serializable {
 		this.value = value;
 	}
 
+	public void setIconId(String Id) {
+		this.Id = Id;
+	}
+
+	public String getIconId() {
+		return this.Id;
+	}
+
 	public boolean isInputSpaceAvailable() {
 		return this.inputs.size() < this.inputLimit;
 	}
@@ -58,6 +68,14 @@ public abstract class IconParent implements java.io.Serializable {
 
 	public String getText() {
 		return this.text;
+	}
+
+	public List<String> getOutputList(){
+		List<String> connectedIcons = new ArrayList<>();
+		for(IconParent output : this.outputs){
+			connectedIcons.add(output.getIconId());
+		}
+		return connectedIcons;
 	}
 
 	public boolean containsLoop() {

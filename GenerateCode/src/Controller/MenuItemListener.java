@@ -104,10 +104,10 @@ public class MenuItemListener implements ActionListener {
 			case "Compile":
 				Compiler compiler = new Compiler();
 				Canvas canvas = Canvas.getInstance();
-				int activeTabIdx = canvas.getSelectedIndex();
-				boolean success = compiler.isCompilationSuccessful(canvas.getTabs().get(activeTabIdx).getLabels());
+				boolean success = compiler.isCompilationSuccessful(canvas.getTabs());
+				String programBlocks = compiler.generateTabBlocks(canvas.getTabs());
 				CompileModal compileModal = new CompileModal();
-				compileModal.setCompilationResults(success);
+				compileModal.setCompilationResults(success,programBlocks);
 				compileModal.setVisible(true);
 				break;
 			default:
