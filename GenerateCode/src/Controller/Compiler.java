@@ -29,24 +29,28 @@ public class Compiler {
     }
 
     String generateTabBlocks(ArrayList<Tab> tabs) {
+        List<DragAndDropLabel> startLabels = new ArrayList<>();
+        List<DragAndDropLabel> endLabels = new ArrayList<>();
         String program = "";
         for (Tab tab : tabs) {
             program += tab.getTitle() + "{  " + System.lineSeparator();
-            System.out.println(program);
+            startLabels.add(tab.getLabels().get(0));
+            endLabels.add(tab.getLabels().get(1));
             for (DragAndDropLabel label : tab.getLabels()) {
                 List<String> connectedIcons = label.getIconParent().getOutputList();
-                if (connectedIcons.size() > 0)
-                    program += '"' + label.getIconParent().getIconId() + '"' + " -> ";
+
                 for (int i = 0; i < connectedIcons.size(); i++) {
-                    if (i == connectedIcons.size()-1)
-                        program +=  '"' +connectedIcons.get(i) + '"' + ";";
-                    else
-                        program += '"' + connectedIcons.get(i) +  '"' +" -> ";
+                    program += '"' + label.getIconParent().getIconId() + '"' + " -> ";
+                    program += '"' + connectedIcons.get(i) + '"' + ";" + System.lineSeparator();
                 }
-                System.out.println(program);
             }
             program += " }" + System.lineSeparator();
-            System.out.println(program);
+        }
+        for(DragAndDropLabel startLabel:startLabels){
+            program += "start"+ " -> "+ '"' + startLabel.getIconParent().getIconId() + '"' + ";" + System.lineSeparator();
+        }
+        for(DragAndDropLabel endLabel:endLabels){
+            program +=  '"' + endLabel.getIconParent().getIconId() + '"' + " -> "+ "end"+ ";" + System.lineSeparator();
         }
         return program;
     }
