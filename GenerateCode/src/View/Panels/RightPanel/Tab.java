@@ -179,7 +179,15 @@ public class Tab extends JPanel {
 		return new Dimension(200, 200);
 	}
 
-	public String generateIconId(String text) {
+	/**
+	 * The method generates unique icon id such that no two nodes will have same name in any of the tabs.
+	 * The method also updates the iconCount map with latest count of each icon to generate new id next time.
+	 *
+	 * @param text- the text of the icon
+	 * @return an id starting with letter n followed by a unique number and text of the icon
+	 * @author Nevedita Kailasam
+	 */
+	private String generateIconId(String text) {
 		Map<String, Integer> iconCount = Graph.getInstance().getIconCount();
 		int existingCount = iconCount.getOrDefault(text, 0);
 		iconCount.put(text, existingCount + 1);
@@ -205,7 +213,7 @@ public class Tab extends JPanel {
 		for (int i = 0; i < components.length; i++) {
 			if (components[i] instanceof DragAndDropLabel) {
 				lbl = (DragAndDropLabel) components[i];
-				lbl.setIconId(generateIconId(labelText));
+				lbl.getIconParent().setIconId(generateIconId(labelText));
 			}
 		}
 		DragAndDropLabel dndLabel = lbl;
@@ -285,7 +293,7 @@ public class Tab extends JPanel {
 		return this.myLabels;
 	}
 
-	void setTitle(String title){
+	public void setTitle(String title){
 		this.title = title;
 	}
 

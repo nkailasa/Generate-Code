@@ -33,7 +33,6 @@ public class DragAndDropLabel extends JLabel {
     private final IconParent iconParent;
     double x;
     double y;
-    String Id;
     protected JButton[] inputButtons = new JButton[2];
     protected JButton[] outputButtons = new JButton[2];
     
@@ -66,14 +65,6 @@ public class DragAndDropLabel extends JLabel {
         return this.outputButtons;
     }
 
-    public String getIconId() {
-        return this.Id;
-    }
-
-    public void setIconId(String Id) {
-        this.Id=Id;
-        this.iconParent.setIconId(Id);
-    }
 
     public double getDroppedAtX() {
         return this.x;
