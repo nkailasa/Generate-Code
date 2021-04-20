@@ -8,24 +8,27 @@ import View.Panels.RightPanel.Tab;
 
 /**
  * This class compiles to check the validity of drawn icons and connections
+ * Method isCompilationSuccessful does not generate program if any one of the icons is invalid
+ * Method generateTabBlocks iterates through all tabs and generates program for the connected icons.
  * 
- * @return {boolean} true - if compilation is successful
- * @return {boolean} false - if compilation is fails
+ * @return {String} program - if compilation is successful
+ * @return {String} false - if compilation is fails
  * @author Isaac Beale
+ * @author Nevedita Kailasam
  */
 public class Compiler {
 
-    boolean isCompilationSuccessful(ArrayList<Tab> tabs) {
+    String isCompilationSuccessful(ArrayList<Tab> tabs) {
 
         for (Tab tab : tabs) {
             for (DragAndDropLabel label : tab.getLabels()) {
                 if (label.getIconParent().isIconValid() == false) {
-                    return false;
+                    return "false";
                 }
             }
         }
 
-        return true;
+        return generateTabBlocks(tabs);
     }
 
     String generateTabBlocks(ArrayList<Tab> tabs) {
@@ -46,11 +49,12 @@ public class Compiler {
             }
             program += " }" + System.lineSeparator();
         }
-        for(DragAndDropLabel startLabel:startLabels){
-            program += "start"+ " -> "+ '"' + startLabel.getIconParent().getIconId() + '"' + ";" + System.lineSeparator();
+        for (DragAndDropLabel startLabel : startLabels) {
+            program += "start" + " -> " + '"' + startLabel.getIconParent().getIconId() + '"' + ";"
+                    + System.lineSeparator();
         }
-        for(DragAndDropLabel endLabel:endLabels){
-            program +=  '"' + endLabel.getIconParent().getIconId() + '"' + " -> "+ "end"+ ";" + System.lineSeparator();
+        for (DragAndDropLabel endLabel : endLabels) {
+            program += '"' + endLabel.getIconParent().getIconId() + '"' + " -> " + "end" + ";" + System.lineSeparator();
         }
         return program;
     }

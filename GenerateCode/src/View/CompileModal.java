@@ -6,10 +6,12 @@ import javax.swing.JDialog;
 import javax.swing.JTextArea;
 
 /**
- * This modal shows the result of compilation of the current tab with a simple
- * success/error message
+ * This modal shows the result of compilation of all tabs. Error message is
+ * shown if compilation fails in any one of the tabs The generated program is
+ * shown on successful compilation.
  * 
  * @author Isaac Beale
+ * @author Nevedita Kailasam
  */
 public class CompileModal extends JDialog {
 
@@ -25,11 +27,11 @@ public class CompileModal extends JDialog {
         add(textarea);
     }
 
-    public void setCompilationResults(boolean success,String programBlocks) {
+    public void setCompilationResults(String programBlocks) {
 
-        if (!success) {
+        if (programBlocks=="false") {
             program = "Compilation error";
-        }else{
+        } else {
             program = "digraph  G {  " + System.lineSeparator() + programBlocks + System.lineSeparator() + " }";
         }
 
