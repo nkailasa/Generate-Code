@@ -48,10 +48,10 @@ public class Canvas extends JTabbedPane {
         tab = new Tab();
         new MyDropTargetListener(tab);
         tabs.add(tab);
-
-        String title = "Tab-" + tabs.size();
+        
+        String title = "subgraph cluster_" + tabs.size();
         this.add(title, tab);
-
+        tab.setTitle(title);
         int index = tabs.size() - 1;
         JPanel pnlTab = new JPanel(new GridBagLayout());
         pnlTab.setPreferredSize(new Dimension(80, 50));

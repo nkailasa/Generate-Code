@@ -1,5 +1,21 @@
 package View.Panels.RightPanel;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Line2D;
+import java.io.Serial;
+import java.util.ArrayList;
+import java.util.Map;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import Controller.ButtonListener;
 import Model.Icons.Constants;
 import Model.Icons.Edge;
@@ -8,17 +24,10 @@ import Model.Icons.IconParent;
 import View.DragAndDrop.DragAndDropLabel;
 import View.Panels.LeftPanel;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Arc2D;
-import java.awt.geom.Line2D;
-import java.io.Serial;
-import java.util.ArrayList;
-
 /**
  * Tab is a part of Canvas and contains the logic to implement connections
- * between icons in the right panel. All instances of this class are created
- * in Canvas which serve as DropTargets for icons.
+ * between icons in the right panel. All instances of this class are created in
+ * Canvas which serve as DropTargets for icons.
  * 
  * @author Amar Yadav
  * @author Nevedita Kailasam
@@ -31,6 +40,7 @@ public class Tab extends JPanel {
 	DragAndDropLabel currLabel, prevLabel;
 	public ArrayList<DragAndDropLabel> myLabels = new ArrayList<>();
 	public ArrayList<Edge> edges = new ArrayList<Edge>();
+	String title;
 
 	public Tab() {
 		super();
@@ -122,7 +132,8 @@ public class Tab extends JPanel {
 	 * @param x1,y1,x2,y2 - the co-ordinates of the destination icon
 	 * @return arrHead - the array of co-ordinates to draw the arrowhead
 	 * @author Nevedita Kailasam
-	 * @see // https://stackoverflow.com/questions/59905526/problem-when-drawing-arrows-how-do-i-set-the-coordinates-correctly
+	 * @see //
+	 *      https://stackoverflow.com/questions/59905526/problem-when-drawing-arrows-how-do-i-set-the-coordinates-correctly
 	 */
 	private double[] arrHead(double x1, double y1, double x2, double y2) {
 		double c, a, beta, theta, phi;
@@ -144,7 +155,7 @@ public class Tab extends JPanel {
 		a = Math.sqrt(len * len + c * c - 2 * len * c * Math.cos(angle));
 		beta = Math.asin(len * Math.sin(angle) / a);
 		phi = theta - beta;
-		ay1 = y1 - a * Math.sin(phi); 
+		ay1 = y1 - a * Math.sin(phi);
 		if (x2 > x1)
 			ax1 = x1 + a * Math.cos(phi);
 		else
@@ -169,6 +180,22 @@ public class Tab extends JPanel {
 	}
 
 	/**
+	 * The method generates unique icon id such that no two nodes will have same name in any of the tabs.
+	 * The method also updates the iconCount map with latest count of each icon to generate new id next time.
+	 *
+	 * @param text- the text of the icon
+	 * @return an id starting with letter n followed by a unique number and text of the icon
+	 * @author Nevedita Kailasam
+	 */
+	private String generateIconId(String text) {
+		Map<String, Integer> iconCount = Graph.getInstance().getIconCount();
+		int existingCount = iconCount.getOrDefault(text, 0);
+		iconCount.put(text, existingCount + 1);
+		Graph.getInstance().setIconCount(iconCount);
+		return "n" + iconCount.get(text) + "." + text;
+	}
+
+	/**
 	 * The method creates a label with buttons when the drop is targeted at a point
 	 * in the right panel
 	 * 
@@ -179,12 +206,14 @@ public class Tab extends JPanel {
 	 */
 	public void createAndAddDnDLabel(String labelText, Point p) {
 		JPanel label = LeftPanel.getNewLabelFromText(labelText);
+
 		DragAndDropLabel lbl = null;
 
 		Component[] components = label.getComponents();
 		for (int i = 0; i < components.length; i++) {
 			if (components[i] instanceof DragAndDropLabel) {
 				lbl = (DragAndDropLabel) components[i];
+				lbl.getIconParent().setIconId(generateIconId(labelText));
 			}
 		}
 		DragAndDropLabel dndLabel = lbl;
@@ -262,6 +291,14 @@ public class Tab extends JPanel {
 
 	public ArrayList<DragAndDropLabel> getLabels() {
 		return this.myLabels;
+	}
+
+	public void setTitle(String title){
+		this.title = title;
+	}
+
+	public String getTitle(){
+		return this.title;
 	}
 
 }

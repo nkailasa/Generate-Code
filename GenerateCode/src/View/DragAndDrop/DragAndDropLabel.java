@@ -1,11 +1,20 @@
 package View.DragAndDrop;
 
-import Model.Icons.IconParent;
-
-import javax.swing.*;
-import javax.swing.border.AbstractBorder;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.Point;
 import java.io.Serial;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.AbstractBorder;
+
+import Model.Icons.IconParent;
 
 /**
  * This class has the structure of icons represented as labels and their
@@ -26,6 +35,9 @@ public class DragAndDropLabel extends JLabel {
     double y;
     protected JButton[] inputButtons = new JButton[2];
     protected JButton[] outputButtons = new JButton[2];
+    
+    
+		
 
     public DragAndDropLabel(IconParent iconParent) {
         super(iconParent.getText(), SwingConstants.CENTER);
@@ -37,6 +49,7 @@ public class DragAndDropLabel extends JLabel {
         setBorder(customBorder);
 
         this.iconParent = iconParent;
+        
     }
 
     public void setCoordinates(Point point) {
@@ -51,6 +64,7 @@ public class DragAndDropLabel extends JLabel {
     public JButton[] getOutputButtons() {
         return this.outputButtons;
     }
+
 
     public double getDroppedAtX() {
         return this.x;
