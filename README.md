@@ -14,5 +14,5 @@ Install Graphviz or run the following command to generate a png diagram.
 dot -Tpng graph.txt -o graph.png
 
 graph.txt will be inputted with the generated code. The png diagram will generate the same graph as the tabs of the application.
-
+ 
 The above project is an attempt to mimic Astah where we can generate class diagrams from a given code.
