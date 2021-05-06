@@ -1,12 +1,12 @@
 <h4>Steps to Run:</h4>
-  Run the App.java file to launch the application
-  New tabs can be added and closed
-  The left panel icons can be dragged to place on the right panel’s current tab
-  Each icon can be treated as a input/output button.
-  An input button cannot be linked to another input button and same goes with output buttons
-  To draw a line, click on one icon and click on the second icon.
-  Compile will show a pop-up that displays a generated digraph code.
-  Save/Load enables the user to save the current tab as a file and load the saved graph in a new tab.
+  Run the App.java file to launch the application. <br/>
+  New tabs can be added and closed. <br/>
+  The left panel icons can be dragged to place on the right panel’s current tab. <br/>
+  Each icon can be treated as a input/output button. <br/>
+  An input button cannot be linked to another input button and same goes with output buttons. <br/>
+  To draw a line, click on one icon and click on the second icon. <br/>
+  Compile will show a pop-up that displays a generated digraph code. <br/>
+  Save/Load enables the user to save the current tab as a file and load the saved graph in a new tab. <br/>
  <br/>
  
  <br/>
